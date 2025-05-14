@@ -175,17 +175,6 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full px-4 py-20 text-white bg-black">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-2 text-2xl font-bold">Our Partners & Clients</div>
-          <div className="text-sm leading-relaxed">
-            병원 분과 별로 맞춤 세팅, 이제 당신의 브랜드가 가장 주목받는 의료 공간에서
-            가장 필요한 타깃과 만날 시간입니다
-          </div>
-        </div>
-      </div>
-
-      <LogoSlider />
       <div className="h-32" />
     </div>
   );

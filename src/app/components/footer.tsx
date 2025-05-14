@@ -1,11 +1,24 @@
 'use client';
 import Image from 'next/image';
+import LogoSlider from './logoslider';
 
 export default function Footer() {
   return (
     <footer className="relative z-50 text-white bg-black">
     {/* 상단 배너 */}
     <div className="w-full">
+
+    <div className="w-full px-4 py-20 text-white bg-black">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-2 text-2xl font-bold">Our Partners & Clients</div>
+          <div className="text-sm leading-relaxed">
+            병원 분과 별로 맞춤 세팅, 이제 당신의 브랜드가 가장 주목받는 의료 공간에서
+            가장 필요한 타깃과 만날 시간입니다
+          </div>
+        </div>
+      </div>
+
+      <LogoSlider />
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* 왼쪽: 초록 */}
         <div className="bg-[#66E274] py-10 flex items-end">

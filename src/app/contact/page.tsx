@@ -1,10 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import Footer from '../components/footer';
+import Image from 'next/image';
 
 export default function ContactPage() {
   const [file, setFile] = useState<File | null>(null);
+  const [isSending, setIsSending] = useState(false);
+  const [result, setResult] = useState<'success' | 'error' | null>(null);
+  
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -12,97 +15,138 @@ export default function ContactPage() {
     }
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSending(true);
+    setResult(null);
+  
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    if (file) formData.append('file', file);
+  
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      body: formData,
+    });
+  
+    setIsSending(false);
+  
+    if (res.ok) {
+      setResult('success');
+      form.reset();
+      setFile(null);
+    } else {
+      setResult('error');
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center py-20 px-4">
+    <div className="flex flex-col items-center px-4 py-20 text-white bg-black">
       {/* 상단 타이틀 */}
-      <div className="text-center mb-12">
-        <div className="text-green-400 text-2xl font-bold mb-2">SEND A MESSAGE</div>
-        <div className="text-xs text-gray-400">* 필수</div>
+      <div className="relative w-full max-w-3xl mb-12">
+        <div className="flex flex-col items-center gap-1">
+          <Image
+            src="/images/message-icon.png"
+            alt="Message Icon"
+            width={48}
+            height={48}
+            className="mb-1"
+          />
+          <div className="text-4xl font-extrabold text-green-400">SEND A MESSAGE</div>
+        </div>
+        <div className="absolute top-[100px] font-bold right-0 text-xs text-green-400">* <span className='text-white'>필수</span></div>
       </div>
 
       {/* 입력 폼 */}
-      <form className="w-full max-w-3xl flex flex-col gap-8">
-        {/* 이름, 이메일 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form onSubmit={handleSubmit} className="w-full max-w-3xl space-y-8 font-bold">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="flex flex-col gap-2">
-            <label className="text-sm">성함 (Name) *</label>
-            <input
-              type="text"
-              className="bg-black border-b border-white focus:outline-none focus:border-green-400 py-2"
-              required
-            />
+            <label className="text-sm">성함 (Name)<span className="text-green-400"> *</span></label>
+            <input name="name" type="text" required
+              className="py-2 bg-black border-b border-white focus:outline-none focus:border-green-400" />
           </div>
-
           <div className="flex flex-col gap-2">
-            <label className="text-sm">연락받으실 메일 (E-mail) *</label>
-            <input
-              type="email"
-              className="bg-black border-b border-white focus:outline-none focus:border-green-400 py-2"
-              required
-            />
+            <label className="text-sm">연락받으실 메일 (E-mail)<span className="text-green-400"> *</span></label>
+            <input name="email" type="email" required
+              className="py-2 bg-black border-b border-white focus:outline-none focus:border-green-400" />
           </div>
         </div>
 
-        {/* 회사명, 직급 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="flex flex-col gap-2">
             <label className="text-sm">회사명 (Company name)</label>
-            <input
-              type="text"
-              className="bg-black border-b border-white focus:outline-none focus:border-green-400 py-2"
-            />
+            <input name="company" type="text"
+              className="py-2 bg-black border-b border-white focus:outline-none focus:border-green-400" />
           </div>
-
           <div className="flex flex-col gap-2">
-            <label className="text-sm">직급 (Position)</label>
-            <input
-              type="text"
-              className="bg-black border-b border-white focus:outline-none focus:border-green-400 py-2"
-            />
+            <label className="text-sm">직함 (Position)</label>
+            <input name="position" type="text"
+              className="py-2 bg-black border-b border-white focus:outline-none focus:border-green-400" />
           </div>
         </div>
 
-        {/* 전화번호 */}
-        <div className="flex flex-col gap-2">
-          <label className="text-sm">전화번호 (Phone number) *</label>
-          <input
-            type="tel"
-            className="bg-black border-b border-white focus:outline-none focus:border-green-400 py-2"
-            required
-          />
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="flex flex-col gap-2">
+            <label className="text-sm">전화번호 (Phone number)<span className="text-green-400"> *</span></label>
+            <input name="phone" type="tel" required
+              className="py-2 bg-black border-b border-white focus:outline-none focus:border-green-400" />
+          </div>
         </div>
 
-        {/* 문의 내용 */}
         <div className="flex flex-col gap-2">
           <label className="text-sm">문의 내용 (Questions)</label>
-          <textarea
+          <textarea name="message"
             className="bg-black border border-white rounded-md p-4 min-h-[150px] focus:outline-none focus:border-green-400"
-            placeholder="문의 내용을 적어주세요."
-          ></textarea>
+            placeholder="문의 내용을 적어주세요."></textarea>
         </div>
 
         {/* 파일 업로드 */}
-        <div className="flex items-center gap-4">
-          <label htmlFor="file-upload" className="text-sm border px-4 py-2 cursor-pointer">
+        <div className="flex items-center justify-end gap-4">
+          <label htmlFor="file-upload" className="px-4 py-2 text-sm border border-white rounded cursor-pointer hover:border-green-400">
             파일 업로드
           </label>
           <input
             id="file-upload"
+            name="file"
             type="file"
             className="hidden"
             onChange={handleFileChange}
           />
-          {file && <div className="text-xs">{file.name}</div>}
+          {file && <div className="text-xs text-gray-300">{file.name}</div>}
         </div>
 
-        {/* 문의하기 버튼 */}
         <button
-          type="submit"
-          className="mt-8 bg-green-500 text-black font-bold py-3 rounded w-full hover:bg-green-400 transition"
-        >
-          문의하기
-        </button>
+            type="submit"
+            disabled={isSending}
+            className={`w-full py-3 mt-8 font-bold rounded transition ${
+              isSending
+                ? 'bg-gray-600 cursor-not-allowed text-white'
+                : 'bg-green-500 hover:bg-green-400 text-black'
+            }`}
+          >
+            {isSending ? '전송 중...' : '문의하기'}
+          </button>
+          {result === 'success' && (
+            <div className="mt-4 text-center text-green-400">
+              메일이 전송되었습니다 ✅
+            </div>
+          )}
+          {result === 'error' && (
+            <div className="mt-4 text-center text-red-400">
+              메일 전송에 실패했습니다. 잠시 후 다시 시도해주세요 ❌
+            </div>
+          )}
       </form>
+      {/* 하단 배경 이미지: 스크린 전체 너비 꽉 채움 */}
+<div className="w-screen px-0">
+  <Image
+    src="/images/contactbg.png"
+    alt="Contact Background"
+    width={1920}
+    height={200}
+    className="object-cover w-full h-auto"
+  />
+</div>
     </div>
   );
 }

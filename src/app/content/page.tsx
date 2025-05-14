@@ -11,8 +11,8 @@ const contentItems = [
   { brand: '닥터그루트', file: 'content_drgroot.mp4' },
   { brand: '밀세라', file: 'content_milcera.mp4' },
   { brand: '플랜트제로', file: 'content_plantzero.mp4' },
-  { brand: '프렐', file: 'content_prel.mp4' },
-  { brand: '로게인', file: 'content_rogaine.mp4' },
+  { brand: '프라엘', file: 'content_prel.mp4' },
+  { brand: '로게인폼', file: 'content_rogaine.mp4' },
   { brand: '타이레놀', file: 'content_tyrenol.mp4' },
   { brand: 'VT코스메틱', file: 'content_vtcosmetic.mp4' },
 ];
@@ -56,7 +56,7 @@ export default function CustomSlider() {
         <div
           key={idx}
           className={`absolute top-0 left-0 ml-[calc(50%-90px)] transition-all duration-300 w-[180px] aspect-[10/16] ${
-            isCenter ? 'opacity-100 blur-none w-[250px]' : 'opacity-40 blur-sm'
+            isCenter ? 'opacity-100 blur-none w-[250px]' : 'opacity-100 blur-sm'
           }`}
           style={style}
         >
@@ -87,15 +87,22 @@ export default function CustomSlider() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black pt-[120px]">
       {/* 상단 제목 */}
-      <div className="mb-24 text-center">
+      <div className="z-10 text-center h-[300px] flex justify-center items-center flex-col">
         <h2 className="text-4xl font-bold text-green-400">BIOADDLAB CONTENT</h2>
         <p className="mt-2 text-lg text-white">
           유익한 혜택이 가득한 메디컬 스마트보드만의 콘텐츠를 만나보세요
         </p>
       </div>
 
+      {/* ✅ 배경 이미지 */}
+      <div
+        className="absolute left-0 z-0 w-screen h-screen bg-center bg-cover top-[500px]"
+        style={{
+          backgroundImage: "url('/images/content/contentbg.png')",
+        }}
+      />
       {/* 슬라이더 */}
-      <div className="relative w-full max-w-[800px] h-[480px] overflow-visible -pl-24">
+      <div className="relative w-full max-w-[800px] h-[480px] overflow-visible -pl-24 mt-12">
         {renderSlides()}
         <button
           onClick={handlePrev}
@@ -112,13 +119,13 @@ export default function CustomSlider() {
       </div>
 
       {/* 브랜드명 */}
-      <div className="mt-6 text-sm font-medium text-white">
+      <div className="z-10 mt-16 text-lg font-medium text-white">
         Brand {contentItems[centerIndex].brand}
       </div>
 
       {/* 아이캐치 장치 이미지 */}
-      <div className="flex flex-col items-center w-full mt-32">
-        <p className="mb-6 text-base text-center text-white">
+      <div className="flex flex-col items-center w-full mt-[400px] z-10">
+        <p className="mb-24 text-4xl text-center text-white">
           타겟의 시선고정을 위한 <span className="font-semibold text-green-400">아이캐치</span> 장치
         </p>
         <img
@@ -129,7 +136,7 @@ export default function CustomSlider() {
       </div>
 
       {/* 진료대기시간 그래프 + 설명 */}
-      <div className="flex flex-col items-center justify-center w-full max-w-6xl gap-12 px-4 mt-32 md:flex-row">
+      <div className="flex flex-col items-center justify-center w-full max-w-6xl gap-12 px-4 mt-48 md:flex-row">
         <div className="relative w-full max-w-md aspect-[4/3]">
           <Image
             src="/images/content/content-graph.png"
@@ -139,9 +146,9 @@ export default function CustomSlider() {
           />
         </div>
         <div className="max-w-md text-sm leading-relaxed text-white">
-          <p className="mb-2 text-xs text-white">대한민국 병의원 진료대기 시간 분포</p>
-          <h3 className="mb-1 text-2xl font-bold text-white">진료대기시간</h3>
-          <p ref={ref1} className="mb-4 text-xl font-bold text-green-400">
+          <p className="mb-2 text-xl font-normal text-white">대한민국 병의원 진료대기 시간 분포</p>
+          <h3 className="mb-1 text-4xl font-bold text-white">진료대기시간</h3>
+          <p ref={ref1} className="mb-4 text-4xl font-bold text-green-400">
             {inView1 ? <CountUp end={18} duration={2} /> : '0'}분
           </p>
           <p className="mb-1">병원 대기실에서는 환자들이 평균 18분 이상 머무르며,</p>
@@ -162,9 +169,9 @@ export default function CustomSlider() {
           />
         </div>
         <div className="max-w-md text-sm leading-relaxed text-white">
-          <p className="mb-2 text-xs text-white">대기환자 시간 별 광고 반복 노출 횟수</p>
-          <h3 className="mb-1 text-2xl font-bold text-white">광고 반복 노출</h3>
-          <p ref={ref2} className="mb-4 text-xl font-bold text-green-400">
+          <p className="mb-2 text-xl text-white">대기환자 시간 별 광고 반복 노출 횟수</p>
+          <h3 className="mb-1 text-4xl font-bold text-white">광고 반복 노출</h3>
+          <p ref={ref2} className="mb-4 text-4xl font-bold text-green-400">
             {inView2 ? <CountUp end={6} duration={2} /> : '0'}회
           </p>
           <p className="mb-1">환자의 보호자는 '환자'가 아닌 건강·미용·보험·금융 등에</p>

@@ -20,9 +20,71 @@
     --foreground: #ededed;
   }
 }
+@font-face {
+  font-family: 'SUIT';
+  src: url('/fonts/SUIT-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT';
+  src: url('/fonts/SUIT-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT';
+  src: url('/fonts/SUIT-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT';
+  src: url('/fonts/SUIT-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT';
+  src: url('/fonts/SUIT-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT';
+  src: url('/fonts/SUIT-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT';
+  src: url('/fonts/SUIT-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT';
+  src: url('/fonts/SUIT-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT';
+  src: url('/fonts/SUIT-Heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'SUIT', sans-serif;
 }
