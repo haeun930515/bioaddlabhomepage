@@ -24,7 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       service: 'gmail',
       auth: {
         user: 'bioaddlab.ai@gmail.com',
-        pass: '앱비밀번호', // 앱 비번
+        pass: 'piwrqquqbbbjqzzg', // 앱 비번
       },
     });
 
