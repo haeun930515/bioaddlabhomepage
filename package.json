@@ -11,6 +11,7 @@
   "dependencies": {
     "formidable": "^3.5.4",
     "framer-motion": "^12.9.2",
+    "multiparty": "^4.2.3",
     "next": "15.3.1",
     "nodemailer": "^7.0.3",
     "react": "^19.0.0",
@@ -20,6 +21,7 @@
     "swiper": "^11.2.6"
   },
   "devDependencies": {
+    "@types/multiparty": "^4.2.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
