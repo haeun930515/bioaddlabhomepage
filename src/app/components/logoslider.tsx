@@ -35,51 +35,51 @@ export default function LogoSlider() {
 
   return (
     <div
-      className="w-full py-20 overflow-hidden bg-black bg-center bg-cover"
-      style={{ backgroundImage: 'url(/images/logobg.png)' }}
+  className="w-full py-10 overflow-hidden bg-black bg-center bg-cover md:py-20"
+  style={{ backgroundImage: 'url(/images/logobg.png)' }}
+>
+  {/* 상단 로고 */}
+  <div className="overflow-hidden whitespace-nowrap">
+    <div
+      className="flex gap-12 md:gap-16 animate-[scroll-left_70s_linear_infinite]"
+      style={{ width: 'max-content' }}
     >
-      {/* 상단 로고 (왼쪽 이동) */}
-      <div className="overflow-hidden whitespace-nowrap">
-        <div
-          className="flex gap-16 animate-[scroll-left_70s_linear_infinite]"
-          style={{ width: 'max-content' }}
-        >
-          {[...topLogos, ...topLogos].map((name, idx) => (
-            <div key={`top-${idx}`} className="flex items-center justify-center px-6">
-              <Image
-                src={`/images/logos/${name}.png`}
-                alt={`logo-top-${name}`}
-                width={240}
-                height={100}
-                className="object-contain"
-              />
-            </div>
-          ))}
+      {[...topLogos, ...topLogos].map((name, idx) => (
+        <div key={`top-${idx}`} className="flex items-center justify-center px-4 md:px-6">
+          <Image
+            src={`/images/logos/${name}.png`}
+            alt={`logo-top-${name}`}
+            width={160}
+            height={60}
+            className="object-contain md:w-[240px] md:h-[100px]"
+          />
         </div>
-      </div>
-
-      {/* 하단 로고 (오른쪽 이동) */}
-      <div className="mt-12 overflow-hidden whitespace-nowrap">
-        <div
-          className="flex gap-16 animate-[scroll-right_70s_linear_infinite]"
-          style={{
-            width: 'max-content',
-            transform: 'translateX(-50%)',
-          }}
-        >
-          {repeatedBottomLogos.map((name, idx) => (
-            <div key={`bottom-${idx}`} className="flex items-center justify-center px-6">
-              <Image
-                src={`/images/logos/${name}.png`}
-                alt={`logo-bottom-${name}`}
-                width={240}
-                height={100}
-                className="object-contain"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      ))}
     </div>
+  </div>
+
+  {/* 하단 로고 */}
+  <div className="mt-8 overflow-hidden md:mt-12 whitespace-nowrap">
+    <div
+      className="flex gap-12 md:gap-16 animate-[scroll-right_70s_linear_infinite]"
+      style={{
+        width: 'max-content',
+        transform: 'translateX(-50%)',
+      }}
+    >
+      {repeatedBottomLogos.map((name, idx) => (
+        <div key={`bottom-${idx}`} className="flex items-center justify-center px-4 md:px-6">
+          <Image
+            src={`/images/logos/${name}.png`}
+            alt={`logo-bottom-${name}`}
+            width={160}
+            height={60}
+            className="object-contain md:w-[240px] md:h-[100px]"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
   );
 }

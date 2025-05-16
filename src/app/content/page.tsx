@@ -85,8 +85,7 @@ export default function CustomSlider() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black pt-[120px]">
-      {/* 상단 제목 */}
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black pt-[120px] overflow-x-hidden">
       <div className="z-10 text-center h-[300px] flex justify-center items-center flex-col">
         <h2 className="text-4xl font-bold text-green-400">BIOADDLAB CONTENT</h2>
         <p className="mt-2 text-lg text-white">
@@ -94,38 +93,35 @@ export default function CustomSlider() {
         </p>
       </div>
 
-      {/* ✅ 배경 이미지 */}
-      <div
-        className="absolute left-0 z-0 w-screen h-screen bg-center bg-cover top-[500px]"
-        style={{
-          backgroundImage: "url('/images/content/contentbg.png')",
-        }}
-      />
-      {/* 슬라이더 */}
-      <div className="relative w-full max-w-[800px] h-[480px] overflow-visible -pl-24 mt-12">
-        {renderSlides()}
-        <button
-          onClick={handlePrev}
-          className="absolute left-0 z-30 flex items-center justify-center w-8 h-8 text-white -translate-y-1/2 border border-white rounded-full top-1/2"
-        >
-          {'<'}
-        </button>
-        <button
-          onClick={handleNext}
-          className="absolute right-0 z-30 flex items-center justify-center w-8 h-8 text-white -translate-y-1/2 border border-white rounded-full top-1/2"
-        >
-          {'>'}
-        </button>
+      <div className="relative z-0 w-full pt-24 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-center bg-cover -z-10"
+          style={{ backgroundImage: "url('/images/content/contentbg.png')" }}
+        />
+        <div className="relative w-full max-w-[800px] h-[480px] mx-auto">
+          {renderSlides()}
+          <button
+            onClick={handlePrev}
+            className="absolute left-0 z-30 flex items-center justify-center w-8 h-8 text-white -translate-y-1/2 border border-white rounded-full top-1/2"
+          >
+            {'<'}
+          </button>
+          <button
+            onClick={handleNext}
+            className="absolute right-0 z-30 flex items-center justify-center w-8 h-8 text-white -translate-y-1/2 border border-white rounded-full top-1/2"
+          >
+            {'>'}
+          </button>
+        </div>
       </div>
 
-      {/* 브랜드명 */}
       <div className="z-10 mt-16 text-lg font-medium text-white">
         Brand {contentItems[centerIndex].brand}
       </div>
 
       {/* 아이캐치 장치 이미지 */}
       <div className="flex flex-col items-center w-full mt-[400px] z-10">
-        <p className="mb-24 text-4xl text-center text-white">
+        <p className="mb-24 text-2xl text-center text-white md:text-4xl">
           타겟의 시선고정을 위한 <span className="font-semibold text-green-400">아이캐치</span> 장치
         </p>
         <img
@@ -180,7 +176,27 @@ export default function CustomSlider() {
           <p>확실한 광고 효과를 기대할 수 있습니다.</p>
         </div>
       </div>
-      <div className="h-40" /> 
+{/* ✅ 데스크탑 전용 비디오 영역 */}
+<div className="relative hidden w-full mt-24 md:block">
+  {/* 비디오 */}
+  <video
+    src="/videos/collection.mp4"
+    autoPlay
+    muted
+    playsInline
+    className="object-cover w-full h-auto aspect-video"
+  />
+
+  {/* 텍스트 오버레이 */}
+<div className="absolute inset-0 flex items-center justify-center text-center">
+  <div className="text-4xl font-extrabold leading-relaxed text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
+    지금도 많은 <span className="text-green-400">병원과 브랜드가</span><br />
+    <span className="text-green-400">바이오애드랩과 함께</span>하고 있습니다
+  </div>
+</div>
+</div>
+
+
     </div>
   );
 }
