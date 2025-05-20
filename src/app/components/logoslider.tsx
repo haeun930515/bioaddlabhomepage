@@ -21,7 +21,7 @@ export default function LogoSlider() {
 
   const allLogos = [
     'lg', 'astrazeneca', 'blackforet', 'cellmed', 'celltrion', 'ceragem',
-    'chungan', 'daedamo', 'drgroot', 'drplus', 'ibdental', 'johnson',
+     'daedamo', 'drgroot', 'ibdental', 'johnson',
     'lingt', 'maeil', 'medicalutd', 'medihub', 'pharmgen', 'plant',
     'rogaine', 'sejongmedical', 'selex', 'shinwon', 'tyrenol', 'ultrav',
     'vtcosmetics', 'woosungmedics', 'ac'

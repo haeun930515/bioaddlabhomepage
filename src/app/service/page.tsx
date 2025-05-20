@@ -56,12 +56,12 @@ export default function ServicePage() {
 
       <motion.div
         style={{ opacity: titleOpacity }}
-        className="fixed z-20 hidden text-center -translate-x-1/2 top-32 left-1/2 sm:block"
+        className="fixed z-30 hidden text-center -translate-x-1/2 top-20 left-1/2 sm:block"
       >
-        <h2 className="text-xl font-bold text-green-400 sm:text-2xl md:text-3xl">
-          BIOADDLAB <br /> SMART BOARD
+        <h2 className="text-2xl font-bold text-green-400 sm:text-3xl md:text-4xl">
+          BIOADDLAB SMART BOARD
         </h2>
-        <h3 className="mt-1 text-sm font-semibold tracking-widest text-white sm:text-base md:text-xl">
+        <h3 className="mt-2 text-sm font-semibold tracking-widest text-white sm:text-base md:text-xl">
           TECHNOLOGY
         </h3>
       </motion.div>
@@ -90,7 +90,7 @@ export default function ServicePage() {
           hidden sm:flex
           fixed top-[550px] left-1/2 -translate-x-1/2 -translate-y-1/2
           w-[90vw] max-w-[700px] h-[500px] sm:h-[600px] md:h-[700px]
-          rounded-2xl overflow-hidden z-10 items-center justify-center
+          rounded-2xl overflow-hidden z-20 items-center justify-center
         "
       >
         <div className="relative w-full h-full">
