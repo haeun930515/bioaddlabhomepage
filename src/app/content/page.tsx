@@ -48,8 +48,10 @@ export default function CustomSlider() {
       const isCenter = offset === 0;
 
       const style = {
-        transform: `translateX(${offset * 130}px) scale(${isCenter ? 1.2 : 0.8}) translateY(${Math.abs(offset) * 60}px)`,
-        zIndex: isCenter ? 20 : 10,
+        transform: `translateX(${offset * 130}px) scale(${
+          isCenter ? 1.2 : Math.abs(offset) === 1 ? 1 : 0.8
+        }) translateY(${Math.abs(offset) * 60}px)`,
+        zIndex: isCenter ? 20 : Math.abs(offset) === 1 ? 15 : 10,
       };
 
       slides.push(
@@ -93,9 +95,9 @@ export default function CustomSlider() {
         </p>
       </div>
 
-      <div className="relative z-0 w-full pt-24 overflow-hidden">
+      <div className="relative z-0 w-full pt-24">
         <div
-          className="absolute inset-0 bg-center bg-cover -z-10"
+          className="absolute inset-0 bg-center bg-cover -z-10 mt-32 h-[1000px] w-full"
           style={{ backgroundImage: "url('/images/content/contentbg.png')" }}
         />
         <div className="relative w-full max-w-[800px] h-[480px] mx-auto">

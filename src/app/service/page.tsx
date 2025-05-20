@@ -118,56 +118,66 @@ export default function ServicePage() {
 
         {mobileImages.map((src, i) => (
           <div key={i} className="flex flex-col items-center gap-4">
-            <img
-              src={src}
-              alt={`mobile-image-${i}`}
-              className="w-[240px] h-auto rounded-xl"
-            />
-            {[0, 1, 2].includes(i) && (
-              <div className="w-[240px] mx-auto px-4 py-4 text-left text-white text-xs leading-relaxed space-y-1 rounded-2xl border border-white/20 backdrop-blur-sm bg-white/5">
-                {i === 0 && (
-                  <>
-                    <div className="font-bold text-green-400">광활한 43인치 세로형<br />대형 디스플레이</div>
-                    <div className="mt-2 font-bold text-green-400">헬스케어<br />SMART BOARD 시스템</div>
-                    <ul className="mt-2 space-y-1 text-xs list-disc list-inside">
-                      <li>병원별 맞춤형 디지털 사이니지</li>
-                      <li>광고+병원 안내+<br />환자 커뮤니케이션 통합</li>
-                      <li>병원 내 스마트보드에서<br />카카오 실손보험 청구 연계 지원</li>
-                      <li>환자 편의성 강화, 병원 업무 부담 경감</li>
-                    </ul>
-                  </>
-                )}
-                {i === 1 && (
-                  <>
-                    <ul className="space-y-1 list-disc list-inside">
-                      <li><span className="font-bold">성별, 연령, 시선 등 측정</span><br /><span className="text-green-400">노출 효과 분석</span></li>
-                      <li><span className="font-bold">스마트보드 유일</span><br /><span className="text-green-400">카카오 실손보험청구 연계</span></li>
-                    </ul>
-                    <div className="mt-4 font-bold text-green-400">카메라를 통한<br />AI Vital Sign 측정</div>
-                    <ul className="mt-2 space-y-1 text-xs list-disc list-inside">
-                      <li>카메라로 원격 생체데이터 측정 통한<br />혈압, 산소포화도, 심박수 등의 측정</li>
-                      <li>피부나이, 산소포화도 등<br />분과별 기술 Customize</li>
-                    </ul>
-                  </>
-                )}
-                {i === 2 && (
-                  <>
-                    <ul className="space-y-1 list-disc list-inside">
-                      <li><span className="font-bold">측정 카메라를 통한</span><br /><span className="text-green-400">광고 성과 측정</span></li>
-                      <li><span className="font-bold">비접촉 카메라로</span><br /><span className="text-green-400">생체데이터 측정</span></li>
-                    </ul>
-                    <div className="mt-4 font-bold text-green-400">AI 기반 공간 분석 솔루션</div>
-                    <ul className="mt-2 space-y-1 text-xs list-disc list-inside">
-                      <li>성별/연령/인원수/행동<br />패턴 데이터 수집</li>
-                      <li>AI 분석으로 유형별 맞춤 정보 제공<br />(광고/건강정보)</li>
-                    </ul>
-                    <div className="mt-4 font-bold text-green-400">EMR 연계 SaaS 플랫폼<br />(준비 중)</div>
-                    <ul className="mt-2 space-y-1 text-xs list-disc list-inside">
-                      <li>병원 EMR 데이터 연동 ⟶<br />개인 맞춤형 건강정보 제공</li>
-                    </ul>
-                  </>
-                )}
-              </div>
+            <img src={src} alt={`mobile-image-${i}`} className="w-[240px] h-auto rounded-xl" />
+            {i === 0 && (
+              <>
+                <div className="mb-2 text-base font-bold text-center text-green-400">광활한 43인치 세로형<br />대형 디스플레이</div>
+                <div className="w-[240px] mx-auto px-4 py-4 text-left text-white text-xs leading-relaxed space-y-1 rounded-2xl border border-white/20 backdrop-blur-sm bg-white/5">
+                  <div className="mb-2 font-bold text-center text-green-400">헬스케어<br />SMART BOARD 시스템</div>
+                  <ul className="space-y-1 list-disc list-inside">
+                    <li>병원별 맞춤형 디지털 사이니지</li>
+                    <li>광고+병원 안내+<br />환자 커뮤니케이션 통합</li>
+                    <li>병원 내 스마트보드에서<br />카카오 실손보험 청구 연계 지원</li>
+                    <li>환자 편의성 강화, 병원 업무 부담 경감</li>
+                  </ul>
+                </div>
+              </>
+            )}
+            {i === 1 && (
+              <>
+                <ul className="mb-3 space-y-1 text-left text-gray-200 text-[13px] list-disc list-inside">
+                  <li>
+                    성별, 연령, 시선 등 측정<br />
+                    <span className="text-green-400 font-semibold ml-[-1.2em] block pl-4">노출 효과 분석</span>
+                  </li>
+                  <li>
+                    스마트보드 유일<br />
+                    <span className="text-green-400 font-semibold ml-[-1.2em] block pl-4">카카오 실손보험청구 연계</span>
+                  </li>
+                </ul>
+                <div className="w-[240px] mx-auto px-4 py-4 rounded-2xl border border-green-300/70 backdrop-blur-md bg-white/10">
+                  <div className="font-bold text-center text-green-400 text-[15px] mb-3">카메라를 통한<br />AI Vital Sign 측정</div>
+                  <ul className="mt-2 space-y-1 text-left text-white text-[12px] pl-4">
+                    <li className="relative" style={{listStyle:'none'}}><span className="absolute left-[-1.2em] text-green-200">●</span>카메라로 원격 생체데이터 측정 통한<br />혈압, 산소포화도, 심박수 등의 측정</li>
+                    <li className="relative" style={{listStyle:'none'}}><span className="absolute left-[-1.2em] text-green-200">●</span>피부나이, 산소포화도 등<br />분과별 기술 Customize</li>
+                  </ul>
+                </div>
+              </>
+            )}
+            {i === 2 && (
+              <>
+                <ul className="mb-3 space-y-1 text-left text-gray-200 text-[13px] list-disc list-inside">
+                  <li>
+                    측정 카메라를 통한<br />
+                    <span className="text-green-400 font-semibold ml-[-1.2em] block pl-4">광고 성과 측정</span>
+                  </li>
+                  <li>
+                    비접촉 카메라로<br />
+                    <span className="text-green-400 font-semibold ml-[-1.2em] block pl-4">생체데이터 측정</span>
+                  </li>
+                </ul>
+                <div className="w-[240px] mx-auto px-4 py-4 rounded-2xl border border-green-300/70 backdrop-blur-md bg-white/10">
+                  <div className="font-bold text-center text-green-400 text-[15px] mb-2">AI 기반 공간 분석 솔루션</div>
+                  <ul className="mb-3 space-y-1 text-left text-white text-[12px] pl-4">
+                    <li className="relative" style={{listStyle:'none'}}><span className="absolute left-[-1.2em] text-green-200">●</span>성별/연령/인원수/행동<br />패턴 데이터 수집</li>
+                    <li className="relative" style={{listStyle:'none'}}><span className="absolute left-[-1.2em] text-green-200">●</span>AI 분석으로 유형별 맞춤 정보 제공<br />(광고/건강정보)</li>
+                  </ul>
+                  <div className="font-bold text-center text-green-400 text-[15px] mb-2">EMR 연계 SaaS 플랫폼<br />(준비 중)</div>
+                  <ul className="space-y-1 text-left text-white text-[12px] pl-4">
+                    <li className="relative" style={{listStyle:'none'}}><span className="absolute left-[-1.2em] text-green-200">●</span>병원 EMR 데이터 연동 ⟶<br />개인 맞춤형 건강정보 제공</li>
+                  </ul>
+                </div>
+              </>
             )}
           </div>
         ))}

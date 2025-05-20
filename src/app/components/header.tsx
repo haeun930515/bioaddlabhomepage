@@ -9,9 +9,9 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full text-white bg-black">
-  <div className="flex items-center justify-between max-w-screen-xl px-6 py-4 mx-auto md:flex-row-reverse">
+  <div className="flex items-center justify-between max-w-screen-xl px-6 py-4 mx-auto md:flex-row">
     {/* 모바일에선 로고 오른쪽, 햄버거 왼쪽 */}
-    <div className="flex justify-between w-full md:w-auto md:flex-row-reverse">
+    <div className="flex justify-between w-full md:w-auto">
       {/* 모바일 햄버거 버튼 */}
       <button
         onClick={() => setMenuOpen(!menuOpen)}
