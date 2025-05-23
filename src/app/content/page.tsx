@@ -7,13 +7,13 @@ import { useInView } from 'react-intersection-observer';
 
 const contentItems = [
   { brand: 'BLACK FORET', file: 'content_blackforet.mp4' },
+  { brand: '로게인폼', file: 'content_rogaine.mp4' },
+  { brand: '타이레놀', file: 'content_tyrenol.mp4' },
   { brand: '세라젬', file: 'content_cerazem.mp4' },
   { brand: '닥터그루트', file: 'content_drgroot.mp4' },
   { brand: '밀세라', file: 'content_milcera.mp4' },
   { brand: '플랜트제로', file: 'content_plantzero.mp4' },
   { brand: '프라엘', file: 'content_prel.mp4' },
-  { brand: '로게인폼', file: 'content_rogaine.mp4' },
-  { brand: '타이레놀', file: 'content_tyrenol.mp4' },
   { brand: 'VT코스메틱', file: 'content_vtcosmetic.mp4' },
 ];
 
@@ -57,8 +57,8 @@ export default function CustomSlider() {
       slides.push(
         <div
           key={idx}
-          className={`absolute top-0 left-0 ml-[calc(50%-90px)] transition-all duration-300 w-[180px] aspect-[10/16] ${
-            isCenter ? 'opacity-100 blur-none w-[250px]' : 'opacity-100 blur-sm'
+          className={`absolute top-0 left-0 ml-[calc(50%-90px)] transition-all duration-300 w-[180px] aspect-[11/16] ${
+            isCenter ? 'opacity-100 blur-none w-[240px]' : 'opacity-100 blur-sm'
           }`}
           style={style}
         >
@@ -95,7 +95,7 @@ export default function CustomSlider() {
         </p>
       </div>
 
-      <div className="relative z-0 w-full pt-24">
+      <div className="relative z-0 pt-24 w-full">
         <div
           className="absolute inset-0 bg-center bg-cover -z-10 mt-32 h-[1000px] w-full"
           style={{ backgroundImage: "url('/images/content/contentbg.png')" }}
@@ -104,13 +104,13 @@ export default function CustomSlider() {
           {renderSlides()}
           <button
             onClick={handlePrev}
-            className="absolute left-0 z-30 flex items-center justify-center w-8 h-8 text-white -translate-y-1/2 border border-white rounded-full top-1/2"
+            className="flex absolute left-0 top-1/2 z-30 justify-center items-center w-8 h-8 text-white rounded-full border border-white -translate-y-1/2"
           >
             {'<'}
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-0 z-30 flex items-center justify-center w-8 h-8 text-white -translate-y-1/2 border border-white rounded-full top-1/2"
+            className="flex absolute right-0 top-1/2 z-30 justify-center items-center w-8 h-8 text-white rounded-full border border-white -translate-y-1/2"
           >
             {'>'}
           </button>
@@ -134,7 +134,7 @@ export default function CustomSlider() {
       </div>
 
       {/* 진료대기시간 그래프 + 설명 */}
-      <div className="flex flex-col items-center justify-center w-full max-w-6xl gap-12 px-4 mt-48 md:flex-row">
+      <div className="flex flex-col gap-12 justify-center items-center px-4 mt-48 w-full max-w-6xl md:flex-row">
         <div className="relative w-full max-w-md aspect-[4/3]">
           <Image
             src="/images/content/content-graph.png"
@@ -157,7 +157,7 @@ export default function CustomSlider() {
       </div>
 
       {/* 광고 반복 노출 + 설명 */}
-      <div className="flex flex-col items-center justify-center w-full max-w-6xl gap-12 px-4 mt-32 md:flex-row-reverse">
+      <div className="flex flex-col gap-12 justify-center items-center px-4 mt-32 w-full max-w-6xl md:flex-row-reverse">
         <div className="relative w-full max-w-md aspect-[4/3]">
           <Image
             src="/images/content/content-graph2.png"
@@ -179,7 +179,7 @@ export default function CustomSlider() {
         </div>
       </div>
 {/* ✅ 데스크탑 전용 비디오 영역 */}
-<div className="relative hidden w-full mt-24 md:block">
+<div className="hidden relative mt-24 w-full md:block">
   {/* 비디오 */}
   <video
     src="/videos/collection.mp4"
@@ -190,7 +190,7 @@ export default function CustomSlider() {
   />
 
   {/* 텍스트 오버레이 */}
-<div className="absolute inset-0 flex items-center justify-center text-center">
+<div className="flex absolute inset-0 justify-center items-center text-center">
   <div className="text-4xl font-extrabold leading-relaxed text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
     지금도 많은 <span className="text-green-400">병원과 브랜드가</span><br />
     <span className="text-green-400">바이오애드랩과 함께</span>하고 있습니다

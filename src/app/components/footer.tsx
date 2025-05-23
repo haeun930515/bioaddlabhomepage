@@ -36,81 +36,82 @@ export default function Footer() {
 
       <LogoSlider />
       <div className="grid w-full grid-cols-2">
-  {/* 초록 박스 */}
-  <div className="bg-[#66E274] px-2 md:px-6 py-6 md:py-12 text-black flex items-center justify-center text-center md:text-left">
-    <div className="flex flex-col items-center w-full max-w-4xl gap-2 mx-auto md:flex-row-reverse md:items-center md:gap-8 md:mr-24">
-      <Image
-        src="/images/message.png"
-        alt="상담 아이콘"
-        width={60}
-        height={60}
-        className="w-[60px] h-[60px] md:w-[80px] md:h-[60px]"
-      />
-      <div>
-        <div className="mb-1 text-xs font-extrabold md:text-lg">
-          설치하고 싶은 병원이라면
-        </div>
-        {/* ✅ 모바일: 줄바꿈 */}
-        <div className="text-[10px] md:hidden font-medium leading-relaxed">
-          “병원 부담 없이,<br />분위기는 새롭게!”<br />
-          지금 바이오애드랩과 상담하세요.
-        </div>
-        {/* ✅ 데스크탑: 한 줄 */}
-        <div className="hidden mr-24 text-sm font-medium leading-relaxed md:block">
-          “병원 부담 없이, 분위기는 새롭게!”<br />
-          지금 바이오애드랩과 상담하세요.
-        </div>
+        {/* 초록 박스 */}
+        <a href="http://pf.kakao.com/_pDByG/chat" target="_blank" rel="noopener noreferrer" className="block">
+          <div className="bg-[#66E274] px-2 md:px-6 py-6 md:py-12 text-black flex items-center justify-center text-center md:text-left h-full">
+            <div className="flex flex-col items-center w-full max-w-4xl gap-2 mx-auto md:flex-row-reverse md:items-center md:gap-8 md:mr-24">
+              <Image
+                src="/images/message.png"
+                alt="상담 아이콘"
+                width={60}
+                height={60}
+                className="w-[60px] h-[60px] md:w-[80px] md:h-[60px]"
+              />
+              <div>
+                <div className="mb-1 text-xs font-extrabold md:text-lg">
+                  설치하고 싶은 병원이라면
+                </div>
+                {/* ✅ 모바일: 줄바꿈 */}
+                <div className="text-[10px] md:hidden font-medium leading-relaxed">
+                  “병원 부담 없이,<br />분위기는 새롭게!”<br />
+                  지금 바이오애드랩과 상담하세요.
+                </div>
+                {/* ✅ 데스크탑: 한 줄 */}
+                <div className="hidden mr-24 text-sm font-medium leading-relaxed md:block">
+                  “병원 부담 없이, 분위기는 새롭게!”<br />
+                  지금 바이오애드랩과 상담하세요.
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        {/* 회색 박스 */}
+        <a href="http://pf.kakao.com/_pDByG/chat" target="_blank" rel="noopener noreferrer" className="block">
+          <div className="bg-[#1E1E1E] px-2 md:px-6 py-6 md:py-12 text-white h-full">
+            {/* ✅ 모바일: 세로형 그대로 유지 */}
+            <div className="flex flex-col items-center text-center md:hidden">
+              <Image
+                src="/images/friend.png"
+                alt="파트너 아이콘"
+                width={60}
+                height={60}
+                className="mb-4 w-[60px] h-[60px]"
+              />
+              <div className="mb-2 text-xs font-extrabold">파트너가 되고 싶다면</div>
+              <div className="text-[10px] font-medium leading-relaxed text-gray-300">
+                1000명 이상의 의료인이 선택한<br />
+                바이오애드랩과 함께,<br />
+                효과적이고 효율적인<br />
+                광고 전략을 경험하세요.
+              </div>
+            </div>
+
+            {/* ✅ 데스크탑: 텍스트 블록 + 아이콘 수평 정렬 */}
+            <div className="items-start hidden w-full max-w-4xl pl-24 mx-auto overflow-hidden md:flex">
+              {/* 텍스트 + 아이콘 묶기 */}
+              <div className="flex items-start gap-[100px]">
+                {/* 텍스트 */}
+                <div className="text-left">
+                  <div className="mb-1 text-lg font-extrabold">파트너가 되고 싶다면</div>
+                  <div className="text-sm font-medium leading-relaxed text-gray-300">
+                    1000명 이상의 의료인이 선택한 바이오애드랩과 함께,<br />
+                    효과적이고 효율적인 광고 전략을 경험하세요.
+                  </div>
+                </div>
+                {/* 아이콘 - 텍스트 블록 옆에 딱 붙이기 */}
+                <Image
+                  src="/images/friend.png"
+                  alt="파트너 아이콘"
+                  width={70}
+                  height={60}
+                  className="w-[70px] h-[60px] shrink-0"
+                />
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
-    </div>
-  </div>
-
-  {/* 회색 박스 */}
-<div className="bg-[#1E1E1E] px-2 md:px-6 py-6 md:py-12 text-white">
-  {/* ✅ 모바일: 세로형 그대로 유지 */}
-  <div className="flex flex-col items-center text-center md:hidden">
-    <Image
-      src="/images/friend.png"
-      alt="파트너 아이콘"
-      width={60}
-      height={60}
-      className="mb-4 w-[60px] h-[60px]"
-    />
-    <div className="mb-2 text-xs font-extrabold">파트너가 되고 싶다면</div>
-    <div className="text-[10px] font-medium leading-relaxed text-gray-300">
-      1000명 이상의 의료인이 선택한<br />
-      바이오애드랩과 함께,<br />
-      효과적이고 효율적인<br />
-      광고 전략을 경험하세요.
-    </div>
-  </div>
-
-  {/* ✅ 데스크탑: 텍스트 블록 + 아이콘 수평 정렬 */}
-  <div className="items-start hidden w-full max-w-4xl pl-24 mx-auto overflow-hidden md:flex">
-    {/* 텍스트 + 아이콘 묶기 */}
-    <div className="flex items-start gap-[100px]">
-      {/* 텍스트 */}
-      <div className="text-left">
-        <div className="mb-1 text-lg font-extrabold">파트너가 되고 싶다면</div>
-        <div className="text-sm font-medium leading-relaxed text-gray-300">
-          1000명 이상의 의료인이 선택한 바이오애드랩과 함께,<br />
-          효과적이고 효율적인 광고 전략을 경험하세요.
-        </div>
-      </div>
-
-      {/* 아이콘 - 텍스트 블록 옆에 딱 붙이기 */}
-      <Image
-        src="/images/friend.png"
-        alt="파트너 아이콘"
-        width={70}
-        height={60}
-        className="w-[70px] h-[60px] shrink-0"
-      />
-    </div>
-  </div>
-</div>
-</div>
-
-
     </div>
       {/* ✅ 하단 본문 푸터 */}
     <div className="flex flex-col items-start justify-between w-full max-w-screen-xl gap-8 px-6 py-10 mx-auto md:flex-row">
