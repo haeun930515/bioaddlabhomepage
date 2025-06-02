@@ -1,7 +1,7 @@
 import { type NextRequest } from 'next/server';
 
 // 사이트 설정
-const siteUrl = 'https://bioaddlab.com';
+const siteUrl = 'https://www.bioaddlab.com';
 const siteTitle = '바이오애드랩';
 const siteDescription = 'AI 기반 헬스케어 솔루션을 제공하는 바이오애드랩의 최신 소식입니다.';
 
