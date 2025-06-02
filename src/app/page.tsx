@@ -17,6 +17,7 @@ import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import VideoSection from "./components/VideoSection";
 
+
 export default function Home() {
   const timelineData = [
     {
@@ -71,7 +72,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-white bg-black">
+    <div className="flex flex-col justify-center items-center min-h-screen text-white bg-black">
       <div className="mt-40 text-center md:mt-72">
         <div className="mb-2 text-xl text-[#66E274]">
           <span className="md:hidden">
@@ -90,11 +91,11 @@ export default function Home() {
           src={MainBG}
           alt="배경"
           fill
-          className="z-0 "
+          className="z-0"
           priority
         />
         {/* 텍스트 박스 */}
-        <div className="relative z-10 flex flex-col justify-center px-4">
+        <div className="flex relative z-10 flex-col justify-center px-4">
           {/* 모바일용 */}
           <div className="mb-2 text-xl text-black md:hidden">
             서울대병원 의료진과 함께<br />
@@ -115,7 +116,7 @@ export default function Home() {
       </div>
 
       {/* 공통 wrapper */}
-      <div className="flex flex-col items-center justify-center gap-8 -mt-40 md:flex-row md:gap-16">
+      <div className="flex flex-col gap-8 justify-center items-center -mt-40 md:flex-row md:gap-16">
         {/* 모바일 전용 – 배경 이미지를 하나의 큰 카드처럼 */}
         <div className="relative w-[230px] mx-auto md:hidden">
           {/* 배경 이미지 */}
@@ -127,9 +128,9 @@ export default function Home() {
             className="w-[340px] h-auto"
           />
           {/* 오버레이 내용 - 이미지 위 정확한 위치에 배치 */}
-          <div className="absolute top-0 left-0 flex flex-col items-center justify-between w-full h-full px-6 py-20 text-white">
+          <div className="flex absolute top-0 left-0 flex-col justify-between items-center px-6 py-20 w-full h-full text-white">
             {/* 카드 1 */}
-            <div className="flex flex-col items-center gap-2 text-center">
+            <div className="flex flex-col gap-2 items-center text-center">
               <Image src={MainDoc} alt="의료진" width={80} height={80} />
               <p className="text-sm leading-tight">
                 병원 시스템의 디지털전환을<br />
@@ -138,7 +139,7 @@ export default function Home() {
               </p>
             </div>
             {/* 카드 2 */}
-            <div className="flex flex-col items-center gap-2 text-center">
+            <div className="flex flex-col gap-2 items-center text-center">
               <Image src={MainHealth} alt="헬스케어" width={80} height={80} />
               <p className="text-sm leading-tight">
                 메디컬 스마트보드를 넘어<br />
@@ -149,14 +150,14 @@ export default function Home() {
           </div>
         </div>
         {/* ✅ 데스크탑 전용 – 기존 방식 유지 */}
-        <div className="flex-row items-center justify-center hidden gap-16 md:flex">
+        <div className="hidden flex-row gap-16 justify-center items-center md:flex">
           <div className="w-52 flex flex-col items-center border border-[#16330F] bg-white/10 px-6 py-10 backdrop-blur-lg rounded-3xl">
             <Image src={MainDoc} alt="의료진" width={80} height={80} />
             <div className="mt-5 text-sm leading-tight text-center">
               병원 시스템의 디지털전환을<br />이끌고 병원, 고객, 광고주<br />모두에게 이로운 솔루션 제공
             </div>
           </div>
-          <div className="z-10 flex items-center justify-center">
+          <div className="flex z-10 justify-center items-center">
             <Image src={MainAI} alt="AI" width={150} height={150} />
           </div>
           <div className="w-52 flex flex-col items-center border border-[#16330F] bg-white/10 px-6 py-10 backdrop-blur-lg rounded-3xl">
@@ -168,7 +169,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full px-4 py-16 text-white bg-black">
+      <div className="px-4 py-16 w-full text-white bg-black">
         <div className="max-w-[1400px] mx-auto flex flex-col items-center justify-center gap-12 lg:flex-row lg:items-start lg:justify-center">
 
           {/* ✅ 모바일 전용 텍스트 */}
@@ -190,7 +191,7 @@ export default function Home() {
           </div>
 
           {/* ✅ 데스크탑용 텍스트 + 수치 */}
-          <div className="flex flex-col items-center justify-center w-full h-full max-w-xl text-start lg:items-start lg:text-left">
+          <div className="flex flex-col justify-center items-center w-full max-w-xl h-full text-start lg:items-start lg:text-left">
             {/* 데스크탑 전용 텍스트 */}
             <h2 className="hidden h-[100px] mb-8 text-2xl font-bold lg:block sm:text-3xl md:text-4xl">
               <span className="text-green-400">서울 수도권</span>을 중심으로<br />
@@ -220,8 +221,8 @@ export default function Home() {
         </div>
 
         {/* ✅ 데스크탑 전용: 숫자 + 수동 서픽스 출력 */}
-        <div className="flex-row items-center hidden gap-1 md:flex">
-          <div className="text-3xl font-extrabold leading-tight tabular-nums">
+        <div className="hidden flex-row gap-1 items-center md:flex">
+          <div className="text-3xl font-extrabold tabular-nums leading-tight">
             <CountUp end={item.end} duration={1.4} separator="," />
           </div>
           <div className="text-xl">{item.suffix}</div>
@@ -235,7 +236,7 @@ export default function Home() {
 
       <div className="relative w-full text-white bg-black">
         {/* ✅ 데스크탑 Swiper 타임라인 */}
-        <div className="relative hidden md:block">
+        <div className="hidden relative md:block">
           <div className="w-full h-[2px] bg-green-500 absolute z-0 top-[205px]" />
           <div className="ml-[200px] border-[#66E274] rounded-tl-3xl rounded-bl-3xl border border-t border-b border-l pb-12 pl-24 pt-12 pr-12 backdrop-blur-sm">
             <div className="text-4xl font-bold leading-snug whitespace-pre-line">
@@ -243,16 +244,16 @@ export default function Home() {
             </div>
 
             {/* 버튼 */}
-            <div className="absolute flex gap-4 top-30 right-72">
+            <div className="flex absolute right-72 gap-4 top-30">
               <button
                 onClick={() => swiperRef.current?.slidePrev()}
-                className="flex items-center justify-center w-8 h-8 border border-white rounded-full"
+                className="flex justify-center items-center w-8 h-8 rounded-full border border-white"
               >
                 &lt;
               </button>
               <button
                 onClick={() => swiperRef.current?.slideNext()}
-                className="flex items-center justify-center w-8 h-8 border border-white rounded-full"
+                className="flex justify-center items-center w-8 h-8 rounded-full border border-white"
               >
                 &gt;
               </button>
@@ -271,7 +272,7 @@ export default function Home() {
             >
               {timelineData.map((item, i) => (
                 <SwiperSlide key={i}>
-                  <div className="relative flex items-start">
+                  <div className="flex relative items-start">
                     {/* 좌측 점선 라인 */}
                     <div className="flex flex-col items-center mr-4">
                       <div className="w-5 h-5 rounded-full border-[3px] border-green-500 bg-black z-10" />
@@ -305,7 +306,7 @@ export default function Home() {
 
           {/* 배경 + 연혁 이미지 */}
           <div
-            className="w-full py-20 mt-12 bg-center bg-cover"
+            className="py-20 mt-12 w-full bg-center bg-cover"
             style={{ backgroundImage: "url('/images/mobile-years-bg.png')" }}
           >
             <div className="mx-auto w-[300px]">
