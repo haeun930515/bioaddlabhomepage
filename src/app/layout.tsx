@@ -68,7 +68,7 @@ export default function RootLayout({
     <html lang="ko">
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="naver-site-verification" content="5e6693096adadd5a1976f4dbc5f8d1bd0b56720f" />
+        <meta name="naver-site-verification" content="edad3c1d6fa6d44fbeba0ee005ebd03257e1e975" />
         <meta name="google-site-verification" content="zrhra_u7AExEETJX6B1BWMWRMt-2r4gAVEzdXdbFsPs" />
       </head>
       <body
