@@ -51,20 +51,20 @@ export default function ServicePage() {
   const titleOpacity = useTransform(scrollYProgress, [0.8, 0.9], [1, 0]);
 
   return (
-  <div ref={containerRef} className="relative h-[600vh] text-white">
-    <div className='h-[90vh] text-white snap-start snap-always'>
+  <div ref={containerRef} className="relative sm:h-[600vh] text-white">
+    <div className='h-[90vh] text-white snap-start snap-always hidden sm:block'>
       </div>
-    <div className='h-[85vh] text-white snap-start snap-always'>
+    <div className='h-[85vh] text-white snap-start snap-always hidden sm:block'>
       </div>
-    <div className='h-[81vh] text-white snap-start snap-always'>
+    <div className='h-[81vh] text-white snap-start snap-always hidden sm:block'>
       </div>
-    <div className='h-[81vh] text-white snap-start snap-always'>
+    <div className='h-[81vh] text-white snap-start snap-always hidden sm:block'>
       </div>
-      <div className='h-[80vh] text-white snap-start snap-always'>
+      <div className='h-[80vh] text-white snap-start snap-always hidden sm:block'>
       </div>
-      <div className='h-[80vh] text-white snap-start snap-always'>
+      <div className='h-[80vh] text-white snap-start snap-always hidden sm:block'>
       </div>
-      <div className='h-[215vh] text-white snap-end snap-always'>
+      <div className='h-[215vh] text-white snap-end snap-always hidden sm:block'>
       </div>
       <div
         className="fixed top-0 left-0 z-0 w-screen h-screen bg-center bg-cover"
