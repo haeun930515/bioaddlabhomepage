@@ -65,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko"  className="snap-y snap-mandatory scroll-pt-[62px]">
       <head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="naver-site-verification" content="edad3c1d6fa6d44fbeba0ee005ebd03257e1e975" />

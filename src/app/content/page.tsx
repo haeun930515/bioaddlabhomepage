@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
+import VideoSection from '../components/VideoSection';
 
 const contentItems = [
   { brand: 'BLACK FORET', file: 'content_blackforet.mp4' },
@@ -15,6 +16,9 @@ const contentItems = [
   { brand: '플랜트제로', file: 'content_plantzero.mp4' },
   { brand: '프라엘', file: 'content_prel.mp4' },
   { brand: 'VT코스메틱', file: 'content_vtcosmetic.mp4' },
+  { brand: '링티', file: 'content_lingt.mp4'},
+  { brand: '티퍼런스', file: 'content_teaference.mp4'},
+  { brand: '울트라콜', file: 'content_ultracol.mp4'}
 ];
 
 export default function CustomSlider() {
@@ -48,8 +52,8 @@ export default function CustomSlider() {
       const isCenter = offset === 0;
 
       const style = {
-        transform: `translateX(${offset * 130}px) scale(${
-          isCenter ? 1.2 : Math.abs(offset) === 1 ? 1 : 0.8
+        transform: `translateX(${offset * 140}px) scale(${
+          isCenter ? 1.6 : Math.abs(offset) === 1 ? 1 : 0.8
         }) translateY(${Math.abs(offset) * 60}px)`,
         zIndex: isCenter ? 20 : Math.abs(offset) === 1 ? 15 : 10,
       };
@@ -58,7 +62,7 @@ export default function CustomSlider() {
         <div
           key={idx}
           className={`absolute top-0 left-0 ml-[calc(50%-90px)] transition-all duration-300 w-[180px] aspect-[11/16] ${
-            isCenter ? 'opacity-100 blur-none w-[240px]' : 'opacity-100 blur-sm'
+            isCenter ? 'opacity-100 blur-none w-[230px]' : 'opacity-100 blur-sm'
           }`}
           style={style}
         >
@@ -87,9 +91,9 @@ export default function CustomSlider() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black pt-[120px] overflow-x-hidden">
+    <div className="flex overflow-x-hidden pt-[52px] flex-col justify-center items-center min-h-screen bg-black">
       <div className="z-10 text-center h-[300px] flex justify-center items-center flex-col">
-        <h2 className="text-4xl font-bold text-green-400">BIOADDLAB CONTENT</h2>
+        <h2 className="text-4xl font-extrabold text-green-400">BIOADDLAB CONTENT</h2>
         <p className="mt-2 text-lg text-white">
           유익한 혜택이 가득한 메디컬 스마트보드만의 콘텐츠를 만나보세요
         </p>
@@ -117,7 +121,7 @@ export default function CustomSlider() {
         </div>
       </div>
 
-      <div className="z-10 mt-16 text-lg font-medium text-white">
+      <div className="z-10 mt-0 text-lg font-medium text-white">
         Brand {contentItems[centerIndex].brand}
       </div>
 
@@ -178,27 +182,7 @@ export default function CustomSlider() {
           <p>확실한 광고 효과를 기대할 수 있습니다.</p>
         </div>
       </div>
-{/* ✅ 데스크탑 전용 비디오 영역 */}
-<div className="hidden relative mt-24 w-full md:block">
-  {/* 비디오 */}
-  <video
-    src="/videos/collection.mp4"
-    autoPlay
-    muted
-    playsInline
-    className="object-cover w-full h-auto aspect-video"
-  />
-
-  {/* 텍스트 오버레이 */}
-<div className="flex absolute inset-0 justify-center items-center text-center">
-  <div className="text-4xl font-extrabold leading-relaxed text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
-    지금도 많은 <span className="text-green-400">병원과 브랜드가</span><br />
-    <span className="text-green-400">바이오애드랩과 함께</span>하고 있습니다
-  </div>
-</div>
-</div>
-
-
+              <VideoSection/>
     </div>
   );
 }

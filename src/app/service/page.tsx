@@ -9,6 +9,8 @@ import {
 
 export default function ServicePage() {
   const containerRef = useRef(null);
+  // useScroll 훅을 하나로 통일합니다.
+  // 이제 전체 컴포넌트의 스크롤 진행 상황을 추적합니다.
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
@@ -41,24 +43,39 @@ export default function ServicePage() {
         ];
 
   const total = desktopImages.length;
+  // 이미지 opacity 애니메이션도 통합된 scrollYProgress를 사용합니다.
   const opacities = desktopImages.map((_, i) =>
-    useTransform(scrollYProgress, [(i - 1) / total, i / total, (i + 1) / total], [0, 1, 0])
+    useTransform(scrollYProgress, [(i - 0.5) / total, i / total, (i + 0.5) / total], [0, 1, 0])
   );
 
   const titleOpacity = useTransform(scrollYProgress, [0.8, 0.9], [1, 0]);
 
   return (
-  <div ref={containerRef} className="relative text-white overflow-hidden sm:min-h-[400vh]">
+  <div ref={containerRef} className="relative h-[600vh] text-white">
+    <div className='h-[90vh] text-white snap-start snap-always'>
+      </div>
+    <div className='h-[85vh] text-white snap-start snap-always'>
+      </div>
+    <div className='h-[81vh] text-white snap-start snap-always'>
+      </div>
+    <div className='h-[81vh] text-white snap-start snap-always'>
+      </div>
+      <div className='h-[80vh] text-white snap-start snap-always'>
+      </div>
+      <div className='h-[80vh] text-white snap-start snap-always'>
+      </div>
+      <div className='h-[215vh] text-white snap-end snap-always'>
+      </div>
       <div
         className="fixed top-0 left-0 z-0 w-screen h-screen bg-center bg-cover"
         style={{ backgroundImage: "url('/images/solution/solutionbg.png')" }}
       />
-
+      
       <motion.div
         style={{ opacity: titleOpacity }}
-        className="fixed z-30 hidden text-center -translate-x-1/2 top-20 left-1/2 sm:block"
+        className="hidden fixed top-40 left-1/2 z-30 text-center -translate-x-1/2 sm:block"
       >
-        <h2 className="text-2xl font-bold text-green-400 sm:text-3xl md:text-4xl">
+        <h2 className="text-2xl font-extrabold text-green-400 sm:text-3xl md:text-4xl">
           BIOADDLAB SMART BOARD
         </h2>
         <h3 className="mt-2 text-sm font-semibold tracking-widest text-white sm:text-base md:text-xl">
@@ -89,24 +106,26 @@ export default function ServicePage() {
         className="
           hidden sm:flex
           fixed top-[550px] left-1/2 -translate-x-1/2 -translate-y-1/2
-          w-[90vw] max-w-[700px] h-[500px] sm:h-[600px] md:h-[700px]
+          w-[90vw] max-w-[700px] h-auto
           rounded-2xl overflow-hidden z-20 items-center justify-center
         "
       >
-        <div className="relative w-full h-full">
+        <div className="relative w-full aspect-[7/6] ">
           {desktopImages.map((src, i) => (
             <motion.img
               key={i}
               src={src}
               alt={`slide-${i}`}
-              className="absolute object-contain max-w-full max-h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              className="object-contain absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2"
               style={{ opacity: opacities[i] }}
             />
           ))}
         </div>
       </motion.div>
 
-      <div className="relative z-10 block px-4 pt-20 pb-40 space-y-16 sm:hidden">
+
+      {/* --- 모바일 뷰 (변경 없음) --- */}
+      <div className="block relative z-10 px-4 pt-20 pb-40 space-y-16 sm:hidden">
         <div className="relative z-10 text-center">
           <h2 className="text-lg font-bold leading-snug text-green-400">
             BIOADDLAB <br /> SMART BOARD
@@ -117,7 +136,7 @@ export default function ServicePage() {
         </div>
 
         {mobileImages.map((src, i) => (
-          <div key={i} className="flex flex-col items-center gap-4">
+          <div key={i} className="flex flex-col gap-4 items-center">
             <img src={src} alt={`mobile-image-${i}`} className="w-[240px] h-auto rounded-xl" />
             {i === 0 && (
               <>

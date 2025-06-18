@@ -41,10 +41,6 @@ export default function Home() {
         "Y combinator 연계 프로그램 선정",
       ],
     },
-    {
-      year: "2022",
-      events: ["바이오애드랩 설립"],
-    },
   ];
 
   const swiperRef = useRef<SwiperType | null>(null);
@@ -72,9 +68,9 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen text-white bg-black">
-      <div className="mt-40 text-center md:mt-72">
-        <div className="mb-2 text-xl text-[#66E274]">
+    <div className="flex z-10 flex-col justify-center items-center min-h-screen text-white bg-black">
+      <div className="z-20 mt-40 text-center md:mt-72">
+        <div className="mb-2 text-3xl text-[#66E274]">
           <span className="md:hidden">
             Connecting Hospitals,<br /> Patients, and World
           </span>
@@ -82,10 +78,10 @@ export default function Home() {
             Connecting Hospitals, Patients, and World
           </span>
         </div>
-        <div className="text-3xl font-bold text-[#66E274]">Powered by AI.</div>
+        <div className="text-5xl font-bold text-[#66E274]">Powered by AI.</div>
       </div>
 
-      <div className="relative w-full h-[600px] mt-10 text-center flex items-center justify-center">
+      <div className="relative w-full h-[800px] -mt-32 -mb-20 text-center flex items-center justify-center">
         {/* 배경 이미지 */}
         <Image
           src={MainBG}
@@ -106,10 +102,10 @@ export default function Home() {
             AI로 이끌어갑니다.
           </div>
           {/* 데스크탑용 */}
-          <div className="hidden mb-2 text-xl text-black md:block">
+          <div className="hidden mb-0 text-[25px] font-light text-black md:block">
             서울대병원 의료진과 함께 헬스케어 스마트보드를 넘어,
           </div>
-          <div className="hidden text-3xl font-bold text-black md:block">
+          <div className="hidden text-[27px] font-extrabold text-black md:block">
             의료와 커뮤니케이션의 혁신을 AI로 이끌어갑니다.
           </div>
         </div>
@@ -150,26 +146,26 @@ export default function Home() {
           </div>
         </div>
         {/* ✅ 데스크탑 전용 – 기존 방식 유지 */}
-        <div className="hidden flex-row gap-16 justify-center items-center md:flex">
-          <div className="w-52 flex flex-col items-center border border-[#16330F] bg-white/10 px-6 py-10 backdrop-blur-lg rounded-3xl">
+        <div className="hidden flex-row gap-20 justify-center items-center md:flex">
+          <div className="w-52 h-60 flex flex-col items-center border border-[#16330F] bg-white/10 px-6 py-10 backdrop-blur-lg rounded-3xl">
             <Image src={MainDoc} alt="의료진" width={80} height={80} />
-            <div className="mt-5 text-sm leading-tight text-center">
+            <div className="mt-5 text-sm leading-6 text-center">
               병원 시스템의 디지털전환을<br />이끌고 병원, 고객, 광고주<br />모두에게 이로운 솔루션 제공
             </div>
           </div>
           <div className="flex z-10 justify-center items-center">
             <Image src={MainAI} alt="AI" width={150} height={150} />
           </div>
-          <div className="w-52 flex flex-col items-center border border-[#16330F] bg-white/10 px-6 py-10 backdrop-blur-lg rounded-3xl">
+          <div className="w-52 h-60 flex flex-col items-center border border-[#16330F] bg-white/10 px-6 py-10 backdrop-blur-lg rounded-3xl">
             <Image src={MainHealth} alt="헬스케어" width={80} height={80} />
-            <div className="mt-5 text-sm leading-tight text-center">
+            <div className="mt-10 text-sm leading-6 text-center">
               메디컬 스마트보드를 넘어<br />병원 운영데이터 연동 기반<br />헬스케어 플랫폼
             </div>
           </div>
         </div>
       </div>
 
-      <div className="px-4 py-16 w-full text-white bg-black">
+      <div className="px-4 py-16 mt-32 w-full text-white bg-black">
         <div className="max-w-[1400px] mx-auto flex flex-col items-center justify-center gap-12 lg:flex-row lg:items-start lg:justify-center">
 
           {/* ✅ 모바일 전용 텍스트 */}
@@ -193,13 +189,13 @@ export default function Home() {
           {/* ✅ 데스크탑용 텍스트 + 수치 */}
           <div className="flex flex-col justify-center items-center w-full max-w-xl h-full text-start lg:items-start lg:text-left">
             {/* 데스크탑 전용 텍스트 */}
-            <h2 className="hidden h-[100px] mb-8 text-2xl font-bold lg:block sm:text-3xl md:text-4xl">
+            <h2 className="hidden h-[100px] mb-8 text-2xl font-bold lg:block mt-24 sm:text-3xl md:text-4xl">
               <span className="text-green-400">서울 수도권</span>을 중심으로<br />
               <span className="text-green-400">빠르게 확장</span>합니다
             </h2>
 
             {/* 수치 카드 */}
-            <div className="grid md:w-[500px] grid-cols-2 gap-4 h-[300px]">
+            <div className="grid md:w-[500px] grid-cols-2 gap-4 h-[200px]">
             {[
       { label: '병의원', end: 1200, suffix: '개 병원 +' },
       { label: '의료인', end: 5000, suffix: '명 +' },
@@ -244,7 +240,7 @@ export default function Home() {
             </div>
 
             {/* 버튼 */}
-            <div className="flex absolute right-72 gap-4 top-30">
+            {/* <div className="flex absolute right-72 gap-4 top-30">
               <button
                 onClick={() => swiperRef.current?.slidePrev()}
                 className="flex justify-center items-center w-8 h-8 rounded-full border border-white"
@@ -257,7 +253,7 @@ export default function Home() {
               >
                 &gt;
               </button>
-            </div>
+            </div> */}
 
             {/* Swiper */}
             <Swiper
@@ -282,7 +278,7 @@ export default function Home() {
                     {/* 내용 */}
                     <div className="mt-8 text-left">
                       <div className="mb-2 text-2xl font-bold text-white">{item.year}</div>
-                      <div className="space-y-1 text-sm text-gray-300">
+                      <div className="space-y-1 text-sm leading-8 text-gray-300">
                         {item.events.map((e, ei) => (
                           <div key={ei}>{e}</div>
                         ))}

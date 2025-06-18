@@ -20,6 +20,15 @@
     --foreground: #ededed;
   }
 }
+
+.scroll-snap-container {
+  scroll-snap-type: y mandatory;
+}
+
+.scroll-snap-align-start {
+  scroll-snap-align: start;
+}
+
 @font-face {
   font-family: 'SUIT';
   src: url('/fonts/SUIT-Thin.ttf') format('truetype');
