@@ -312,6 +312,7 @@ export default function Home() {
                 width={300}
                 height={1000} // 실제 비율로 맞춰
                 className="w-full h-auto"
+                priority
               />
             </div>
           </div>

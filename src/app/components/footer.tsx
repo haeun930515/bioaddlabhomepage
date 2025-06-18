@@ -38,7 +38,7 @@ export default function Footer() {
       <div className="grid grid-cols-2 w-full">
         {/* 초록 박스 */}
         <a href="http://pf.kakao.com/_pDByG/chat" target="_blank" rel="noopener noreferrer" className="group/consult">
-          <div className="bg-[#66E274] px-2 md:px-6 py-6 md:py-12 text-black flex items-center justify-center text-center md:text-left h-full">
+          <div className="bg-[#66E274] px-2 md:px-6 md:pr-[120px] py-6 md:py-12 text-black flex items-center justify-center text-center md:text-left h-full">
             <div className="flex flex-col gap-2 items-center mx-auto w-full max-w-4xl md:flex-row-reverse md:items-center md:gap-8 md:mr-24">
               <Image
                 src="/images/message.png"
