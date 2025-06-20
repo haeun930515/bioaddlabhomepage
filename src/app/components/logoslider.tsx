@@ -24,7 +24,8 @@ export default function LogoSlider() {
      'daedamo', 'drgroot', 'ibdental', 'johnson',
     'lingt', 'maeil', 'medicalutd', 'medihub', 'pharmgen', 'plant',
     'rogaine', 'sejongmedical', 'selex', 'shinwon', 'tyrenol', 'ultrav',
-    'vtcosmetics', 'woosungmedics', 'ac'
+    'vtcosmetics', 'woosungmedics', 'ac', 'chunganmedical', 'dentime','drplus','isoi',
+    'oliveyoung','teaference'
   ];
 
   const mid = Math.ceil(allLogos.length / 2);
