@@ -10,6 +10,7 @@ const contentItems = [
   { brand: 'BLACK FORET', file: 'content_blackforet.mp4' },
   { brand: '로게인폼', file: 'content_rogaine.mp4' },
   { brand: '타이레놀', file: 'content_tyrenol.mp4' },
+  { brand: '올리브영', file: 'content_olivey.mp4'},
   { brand: '세라젬', file: 'content_cerazem.mp4' },
   { brand: '닥터그루트', file: 'content_drgroot.mp4' },
   { brand: '밀세라', file: 'content_milcera.mp4' },
@@ -99,7 +100,7 @@ export default function CustomSlider() {
         </p>
       </div>
 
-      <div className="relative z-0 pt-24 w-full">
+      <div className="relative z-0 w-full pt-24">
         <div
           className="absolute inset-0 bg-center bg-cover -z-10 mt-32 h-[1000px] w-full"
           style={{ backgroundImage: "url('/images/content/contentbg.png')" }}
@@ -108,13 +109,13 @@ export default function CustomSlider() {
           {renderSlides()}
           <button
             onClick={handlePrev}
-            className="flex absolute left-0 top-1/2 z-30 justify-center items-center w-8 h-8 text-white rounded-full border border-white -translate-y-1/2"
+            className="absolute left-0 z-30 flex items-center justify-center w-8 h-8 text-white -translate-y-1/2 border border-white rounded-full top-1/2"
           >
             {'<'}
           </button>
           <button
             onClick={handleNext}
-            className="flex absolute right-0 top-1/2 z-30 justify-center items-center w-8 h-8 text-white rounded-full border border-white -translate-y-1/2"
+            className="absolute right-0 z-30 flex items-center justify-center w-8 h-8 text-white -translate-y-1/2 border border-white rounded-full top-1/2"
           >
             {'>'}
           </button>
@@ -138,7 +139,7 @@ export default function CustomSlider() {
       </div>
 
       {/* 진료대기시간 그래프 + 설명 */}
-      <div className="flex flex-col gap-12 justify-center items-center px-4 mt-48 w-full max-w-6xl md:flex-row">
+      <div className="flex flex-col items-center justify-center w-full max-w-6xl gap-12 px-4 mt-48 md:flex-row">
         <div className="relative w-full max-w-md aspect-[4/3]">
           <Image
             src="/images/content/content-graph.png"
@@ -161,7 +162,7 @@ export default function CustomSlider() {
       </div>
 
       {/* 광고 반복 노출 + 설명 */}
-      <div className="flex flex-col gap-12 justify-center items-center px-4 mt-32 w-full max-w-6xl md:flex-row-reverse">
+      <div className="flex flex-col items-center justify-center w-full max-w-6xl gap-12 px-4 mt-32 md:flex-row-reverse">
         <div className="relative w-full max-w-md aspect-[4/3]">
           <Image
             src="/images/content/content-graph2.png"
