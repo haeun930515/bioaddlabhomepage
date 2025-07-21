@@ -20,8 +20,8 @@ export default function ServicePage() {
 
   const desktopImages =
     selectedTheme === 'white'
-      ? ['/images/solution/white1.png', '/images/solution/white2.png', '/images/solution/white3.png', '/images/solution/white4.png', '/images/solution/white5.png', '/images/solution/white6.png']
-      : ['/images/solution/black1.png', '/images/solution/black2.png', '/images/solution/black3.png', '/images/solution/black4.png', '/images/solution/black5.png', '/images/solution/black6.png'];
+      ? ['/images/solution/white1.png', '/images/solution/white2.png', '/images/solution/white3.png', '/images/solution/white4.png', '/images/solution/white5.png', '/images/solution/white6.png', '/images/solution/wb7.png']
+      : ['/images/solution/black1.png', '/images/solution/black2.png', '/images/solution/black3.png', '/images/solution/black4.png', '/images/solution/black5.png', '/images/solution/black6.png','/images/solution/wb7.png'];
 
   const mobileImages =
     selectedTheme === 'white'
@@ -32,6 +32,7 @@ export default function ServicePage() {
           '/images/solution/white4.png',
           '/images/solution/white5.png',
           '/images/solution/white6.png',
+          '/images/solution/wb7.png'
         ]
       : [
           '/images/solution/mobileblack1.png',
@@ -40,32 +41,33 @@ export default function ServicePage() {
           '/images/solution/black4.png',
           '/images/solution/black5.png',
           '/images/solution/black6.png',
+          '/images/solution/wb7.png'
         ];
 
   const total = desktopImages.length;
-  // 이미지 opacity 애니메이션도 통합된 scrollYProgress를 사용합니다.
-  const opacities = desktopImages.map((_, i) =>
-    useTransform(scrollYProgress, [(i - 0.5) / total, i / total, (i + 0.5) / total], [0, 1, 0])
-  );
+  // 각 이미지가 스크롤 위치에 따라 자연스럽게 나타나고 사라지도록 opacity 값을 계산합니다.
+  // 새롭게 변경된 스크롤 스냅 구조와 완벽하게 동기화됩니다.
+  const opacities = desktopImages.map((_, i) => {
+    // 각 이미지는 전체 스크롤(0~1) 중 1/total 만큼의 구간을 차지합니다.
+    // 예: 이미지가 7개일 경우, 각 이미지는 1/7 (약 0.14)의 구간을 가집니다.
+    const FADE_RANGE = 0.5; // 페이드 인/아웃이 일어나는 범위를 설정합니다 (0.5 = 절반 구간).
+
+    // i번째 이미지가 나타나기 시작하는 스크롤 지점 (scrollYProgress 기준)
+    const start = (i - FADE_RANGE) / total;
+    // i번째 이미지가 완전히 보이는 스크롤 지점 (스냅되는 지점)
+    const middle = i / total;
+    // i번째 이미지가 사라지는 스크롤 지점
+    const end = (i + FADE_RANGE) / total;
+
+    // scrollYProgress 값에 따라 [0, 1, 0] (사라짐 -> 나타남 -> 사라짐)으로 opacity를 변경합니다.
+    return useTransform(scrollYProgress, [start, middle, end], [0, 1, 0]);
+  });
 
   const titleOpacity = useTransform(scrollYProgress, [0.8, 0.9], [1, 0]);
 
   return (
-  <div ref={containerRef} className="relative sm:h-[600vh] text-white">
-    <div className='h-[90vh] text-white snap-start snap-always hidden sm:block'>
-      </div>
-    <div className='h-[85vh] text-white snap-start snap-always hidden sm:block'>
-      </div>
-    <div className='h-[81vh] text-white snap-start snap-always hidden sm:block'>
-      </div>
-    <div className='h-[81vh] text-white snap-start snap-always hidden sm:block'>
-      </div>
-      <div className='h-[80vh] text-white snap-start snap-always hidden sm:block'>
-      </div>
-      <div className='h-[80vh] text-white snap-start snap-always hidden sm:block'>
-      </div>
-      <div className='h-[215vh] text-white snap-end snap-always hidden sm:block'>
-      </div>
+   <div ref={containerRef} className="relative sm:h-[600vh] text-white snap-y snap-mandatory">
+      {/* 3. 각 이미지가 화면 전체(100vh)에서 스냅되도록 보이지 않는 div들을 생성합니다. */}
       <div
         className="fixed top-0 left-0 z-0 w-screen h-screen bg-center bg-cover"
         style={{ backgroundImage: "url('/images/solution/solutionbg.png')" }}
@@ -73,7 +75,7 @@ export default function ServicePage() {
       
       <motion.div
         style={{ opacity: titleOpacity }}
-        className="hidden fixed top-40 left-1/2 z-30 text-center -translate-x-1/2 sm:block"
+        className="fixed z-30 hidden text-center -translate-x-1/2 top-40 left-1/2 sm:block"
       >
         <h2 className="text-2xl font-extrabold text-green-400 sm:text-3xl md:text-4xl">
           BIOADDLAB SMART BOARD
@@ -116,7 +118,7 @@ export default function ServicePage() {
               key={i}
               src={src}
               alt={`slide-${i}`}
-              className="object-contain absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2"
+              className="absolute object-contain w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               style={{ opacity: opacities[i] }}
             />
           ))}
@@ -125,7 +127,7 @@ export default function ServicePage() {
 
 
       {/* --- 모바일 뷰 (변경 없음) --- */}
-      <div className="block relative z-10 px-4 pt-20 pb-40 space-y-16 sm:hidden">
+      <div className="relative z-10 block px-4 pt-20 pb-40 space-y-16 sm:hidden">
         <div className="relative z-10 text-center">
           <h2 className="text-lg font-bold leading-snug text-green-400">
             BIOADDLAB <br /> SMART BOARD
@@ -136,7 +138,7 @@ export default function ServicePage() {
         </div>
 
         {mobileImages.map((src, i) => (
-          <div key={i} className="flex flex-col gap-4 items-center">
+          <div key={i} className="flex flex-col items-center gap-4">
             <img src={src} alt={`mobile-image-${i}`} className="w-[240px] h-auto rounded-xl" />
             {i === 0 && (
               <>
