@@ -19,7 +19,8 @@ const contentItems = [
   { brand: 'VT코스메틱', file: 'content_vtcosmetic.mp4' },
   { brand: '링티', file: 'content_lingt.mp4'},
   { brand: '티퍼런스', file: 'content_teaference.mp4'},
-  { brand: '울트라콜', file: 'content_ultracol.mp4'}
+  { brand: '울트라콜', file: 'content_ultracol.mp4'},
+  { brand: '라인프렌즈', file: 'content_linefriends.mp4'}
 ];
 
 export default function CustomSlider() {

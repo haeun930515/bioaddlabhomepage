@@ -25,7 +25,7 @@ export default function LogoSlider() {
     'lingt', 'maeil', 'medicalutd', 'medihub', 'pharmgen', 'plant',
     'rogaine', 'sejongmedical', 'selex', 'shinwon', 'tyrenol', 'ultrav',
     'vtcosmetics', 'woosungmedics', 'ac', 'chunganmedical', 'dentime','drplus','isoi',
-    'oliveyoung','teaference'
+    'oliveyoung','teaference','linefriends'
   ];
 
   const mid = Math.ceil(allLogos.length / 2);
@@ -36,7 +36,7 @@ export default function LogoSlider() {
 
   return (
     <div
-  className="overflow-hidden py-10 w-full bg-black bg-center bg-cover md:py-20"
+  className="w-full py-10 overflow-hidden bg-black bg-center bg-cover md:py-20"
   style={{ backgroundImage: 'url(/images/logobg.png)' }}
 >
   {/* 상단 로고 */}
@@ -46,7 +46,7 @@ export default function LogoSlider() {
       style={{ width: 'max-content' }}
     >
       {[...topLogos, ...topLogos].map((name, idx) => (
-        <div key={`top-${idx}`} className="flex justify-center items-center px-4 md:px-6">
+        <div key={`top-${idx}`} className="flex items-center justify-center px-4 md:px-6">
           <Image
             src={`/images/logos/${name}.png`}
             alt={`logo-top-${name}`}
@@ -60,7 +60,7 @@ export default function LogoSlider() {
   </div>
 
   {/* 하단 로고 */}
-  <div className="overflow-hidden mt-8 whitespace-nowrap md:mt-12">
+  <div className="mt-8 overflow-hidden whitespace-nowrap md:mt-12">
     <div
       className="flex gap-12 md:gap-16 animate-[scroll-right_70s_linear_infinite]"
       style={{
@@ -69,7 +69,7 @@ export default function LogoSlider() {
       }}
     >
       {repeatedBottomLogos.map((name, idx) => (
-        <div key={`bottom-${idx}`} className="flex justify-center items-center px-4 md:px-6">
+        <div key={`bottom-${idx}`} className="flex items-center justify-center px-4 md:px-6">
           <Image
             src={`/images/logos/${name}.png`}
             alt={`logo-bottom-${name}`}
