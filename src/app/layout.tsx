@@ -42,11 +42,6 @@ export const metadata: Metadata = {
     description: 'AI 기반의 혁신적인 헬스케어 솔루션',
     images: ['/images/opengraph.png'],
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
   robots: {
     index: true,
     follow: true,
