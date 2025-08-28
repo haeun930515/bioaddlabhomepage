@@ -22,7 +22,7 @@ const contentItems = [
   { brand: '울트라콜', file: 'content_ultracol.mp4'},
   { brand: '라인프렌즈', file: 'content_linefriends.mp4'},
   { brand: '덴티미', file: 'content_dentime.mp4'},
-  { brand: '바이오더마', file: 'content_bioderma.mp4'},
+  { brand: '바이오더마', file: 'content_biotherma.mp4'},
   { brand: '라인프렌즈', file: 'content_linefriends2.mp4'},
   { brand: '르무통', file: 'content_rmutong.mp4'}
 ];
