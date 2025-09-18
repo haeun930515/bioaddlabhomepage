@@ -95,7 +95,7 @@ export default function CoverflowSlider() {
   const swiperOptions = isMobile ? mobileOptions : desktopOptions;
 
   return (
-    <div className="flex flex-col items-center justify-center w-full min-h-screen overflow-hidden bg-white md:bg-black">
+    <div className="flex flex-col items-center justify-center w-full overflow-hidden bg-white md:bg-black">
       <div className='py-12 text-2xl font-bold text-black md:text-white md:text-3xl'>
         BIOADDLAB PORTFOLIO.
       </div>
