@@ -146,9 +146,9 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
                   <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4">
                     <div className="container relative z-10 flex flex-col justify-center h-full px-4 mx-auto">
                       <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-3xl font-extrabold text-white md:text-4xl font-geist">Connecting Hospitals,</h1>
-                        <h1 className="mb-6 text-3xl font-extrabold text-white md:text-4xl font-geist">Patients, and World</h1>
-                        <p className="mb-8 text-xl font-extrabold text-green-500 md:text-4xl font-geist">Powered by AI.</p>
+                        <h1 className="text-[22px] font-bold font-suit text-white md:text-4xl">Connecting Hospitals,</h1>
+                        <h1 className="mb-2 text-[22px] font-bold font-suit text-white md:text-4xl">Patients, and World</h1>
+                        <p className="mb-8 text-[22px] font-bold text-green-500 md:text-4xl font-suit">Powered by AI.</p>
                       
                         
                       </div>

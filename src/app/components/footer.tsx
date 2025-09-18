@@ -150,7 +150,7 @@ export default function Footer() {
             />
           </div>
         
-          <div className="space-y-1 text-gray-300">
+          <div className="space-y-1 text-[12px] text-gray-300 md:text-base">
             <div className="flex gap-2">
               <span className="font-bold text-white w-14">이메일</span>
               <span>admin@bioaddlab.com</span>
@@ -168,9 +168,9 @@ export default function Footer() {
         </div>
 
         {/* 오른쪽: 연락처 + 카피라이트 */}
-        <div className="flex flex-col items-start w-full gap-2 text-lg font-extrabold text-white font-suit md:items-end md:w-auto">
+        <div className="flex flex-col items-start w-full gap-2 md:text-lg text-[12px] font-extrabold text-white font-suit md:items-end md:w-auto">
           <div>전화번호 : 02 - 2038 - 0088</div>
-          <div className="mt-2 text-lg font-medium text-white font-suit">
+          <div className="mt-2 md:text-lg text-[12px] font-medium text-white font-suit">
             Copyright ⓒ bioadd lab. All Rights Reserved.
           </div>
         </div>

@@ -78,7 +78,7 @@ export default function SubSwiper() {
       {/* ======================================================================= */}
       {/* 모바일 버전 (Flexbox로 수정) */}
       {/* ======================================================================= */}
-      <div className="block md:hidden w-full h-[225px] bg-black text-center mt-[120px] flex-col">
+      <div className="block md:hidden w-full h-[212px] bg-black text-center mt-[120px] flex-col">
         <div className='text-white text-[20px] mb-8 font-suit font-extrabold'>
           BIOADDLAB CONTENT<br/>
         </div>
@@ -88,7 +88,7 @@ export default function SubSwiper() {
         <div className='flex items-end justify-center'>
           <img
             src="/images/mobile/mobiletop2.png"
-            className='w-[80%]'
+            className='w-[80%] h-[120px]'
           />
         </div>
       </div>

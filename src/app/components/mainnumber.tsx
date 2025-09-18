@@ -33,6 +33,7 @@ export default function MainNumber() {
         className="absolute top-0 left-0 hidden object-cover w-full h-full -z-10 md:block"
         src="/videos/components/main1.mp4"
         autoPlay
+        playsInline
         loop
         muted
       />
