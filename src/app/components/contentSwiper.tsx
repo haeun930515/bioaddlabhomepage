@@ -9,7 +9,6 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 
-// ... (contentItems 데이터는 이전과 동일)
 const contentItems = [
     { brand: '타이레놀', file: 'content_tyrenol.mp4' },
     { brand: '올리브영', file: 'content_olivey.mp4'},
@@ -69,7 +68,6 @@ export default function CoverflowSlider() {
     }
   };
 
-  // --- 1. 모바일용 Coverflow 옵션을 따로 정의 ---
   const desktopOptions = {
     coverflowEffect: {
       rotate: 40,
@@ -82,9 +80,9 @@ export default function CoverflowSlider() {
 
   const mobileOptions = {
     coverflowEffect: {
-      rotate: 30,      // 회전 각도를 줄여 더 부드럽게
-      stretch: -10,    // 슬라이드 간격을 약간 좁힘
-      depth: 80,       // 3D 깊이를 줄여 부담 완화
+      rotate: 30,     
+      stretch: -10,    
+      depth: 80,       
       modifier: 1,
       slideShadows: true,
     },
@@ -108,7 +106,7 @@ export default function CoverflowSlider() {
           style={{ backgroundImage: "url('/images/content/contentbg.png')" }}
         />
         <Swiper
-          effect={'coverflow'} // 모바일/데스크톱 모두 Coverflow 사용
+          effect={'coverflow'} 
           {...swiperOptions}
           modules={[EffectCoverflow, Navigation, Autoplay]}
           grabCursor={true}
@@ -126,7 +124,6 @@ export default function CoverflowSlider() {
           className="w-full max-w-4xl h-[480px]"
         >
           {contentItems.map((item, index) => (
-            // --- 2. 모바일에서 슬라이드 너비를 65%로 조정 ---
             <SwiperSlide 
               key={index} 
               className={isMobile ? "!w-[75%]" : "!w-[320px]"}

@@ -56,14 +56,12 @@ export default function ContactPage() {
           className="absolute z-[1] hidden w-full h-full bg-black/40 md:block" 
           style={{ top: 0, left: 0 }}
         ></div>
-</div>
-      {/* 상단 타이틀 */}
+  </div>
       <div className="relative flex flex-row items-end justify-between w-full max-w-3xl mb-12">
           <div className="text-base font-bold text-green-400 md:text-4xl">SEND A MESSAGE.</div>
         <div className="right-0 text-xs font-bold text-green-400">* <span className='text-white'>필수</span></div>
       </div>
 
-      {/* 입력 폼 */}
       <form onSubmit={handleSubmit} className="z-10 w-full max-w-3xl space-y-8 font-bold">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="flex flex-col gap-2">
@@ -106,7 +104,6 @@ export default function ContactPage() {
             placeholder="문의 내용을 적어주세요."></textarea>
         </div>
 
-        {/* 파일 업로드 */}
         <div className="flex items-center justify-end gap-4">
           <label htmlFor="file-upload" className="px-4 py-2 text-sm border border-white rounded cursor-pointer hover:border-green-400">
             파일 업로드
@@ -143,7 +140,6 @@ export default function ContactPage() {
             </div>
           )}
       </form>
-      {/* 하단 배경 이미지: 스크린 전체 너비 꽉 채움 */}
     </div>
   );
 }

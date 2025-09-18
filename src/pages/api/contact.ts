@@ -5,7 +5,7 @@ import fs from 'fs';
 
 export const config = {
   api: {
-    bodyParser: false, // multiparty 직접 파싱
+    bodyParser: false, 
   },
 };
 
@@ -24,7 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       service: 'gmail',
       auth: {
         user: 'bioaddlab.ai@gmail.com',
-        pass: 'piwrqquqbbbjqzzg', // 앱 비번
+        pass: 'piwrqquqbbbjqzzg', 
       },
     });
 
@@ -44,7 +44,6 @@ ${fields.message?.[0] || ''}
       `,
     };
 
-    // 첨부파일 있으면 추가
     const uploaded = files.file?.[0];
     if (uploaded) {
       const buffer = fs.readFileSync(uploaded.path);

@@ -20,14 +20,12 @@ import Timeline from "./components/timeline";
 
 export default function Home() {
   
-  // 1. 스크롤 목적지를 가리킬 ref 생성
   const nextSectionRef = useRef<HTMLDivElement>(null);
 
-  // 2. 스크롤을 실행할 함수 정의
   const handleScrollDown = () => {
     nextSectionRef.current?.scrollIntoView({
-      behavior: 'smooth', // 부드럽게 스크롤
-      block: 'start',     // 목적지 상단에 맞춤
+      behavior: 'smooth',
+      block: 'start',     
     });
   };
 

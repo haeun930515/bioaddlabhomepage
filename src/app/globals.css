@@ -92,28 +92,26 @@
   font-style: normal;
 }
 
-/* 1. 영어, 숫자, 특수문자를 위한 Geist Mono 폰트 정의 (CDN) */
 @font-face {
   font-family: 'Geist Mono';
   src: url('https://cdn.jsdelivr.net/npm/@vercel/geist-mono/dist/fonts/woff2/GeistMono-Regular.woff2') format('woff2');
-  font-weight: 400; /* Regular */
+  font-weight: 400;
   font-style: normal;
-  unicode-range: U+0020-007E; /* 영어, 숫자, 기본 특수문자 */
+  unicode-range: U+0020-007E;
 }
 
 @font-face {
   font-family: 'Geist Mono';
   src: url('https://cdn.jsdelivr.net/npm/@vercel/geist-mono/dist/fonts/woff2/GeistMono-Bold.woff2') format('woff2');
-  font-weight: 700; /* Bold */
+  font-weight: 700; 
   font-style: normal;
   unicode-range: U+0020-007E;
 }
 
-/* 1. 'Galmuri9' 폰트 정의 (CDN) */
 @font-face {
     font-family: 'Galmuri9';
     src: url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css') format('woff2');
-    font-weight: 400; /* Regular */
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -124,20 +122,13 @@ body {
   font-family: 'Geist Mono','SUIT', sans-serif;
 }
 
-
-/* ▼▼▼ 아래 클래스를 파일 하단에 추가 ▼▼▼ */
 .font-suit {
-  /* 이 클래스가 적용된 곳에서는 SUIT 폰트를 최우선으로 사용합니다. */
   font-family: 'SUIT', sans-serif;
 }
-/* globals.css 파일 하단에 추가 */
-
 .font-geist {
   font-family: 'Geist Mono', sans-serif !important;
 }
 
-
-/* 또는 특정 클래스를 만들어 사용할 수 있습니다. */
 .font-galmuri {
   font-family: 'Galmuri9', sans-serif !important;
 }

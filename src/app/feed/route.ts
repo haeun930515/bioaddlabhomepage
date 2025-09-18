@@ -1,12 +1,9 @@
 import { type NextRequest } from 'next/server';
 
-// 사이트 설정
 const siteUrl = 'https://www.bioaddlab.com';
 const siteTitle = '바이오애드랩';
 const siteDescription = 'AI 기반 헬스케어 솔루션을 제공하는 바이오애드랩의 최신 소식입니다.';
 
-// RSS 피드에 표시할 콘텐츠 목록
-// 실제로는 CMS나 마크다운 파일에서 가져오는 것이 좋습니다.
 const posts = [
   {
     id: 1,
@@ -15,7 +12,6 @@ const posts = [
     date: '2025-05-15',
     slug: 'hospital-installation-announcement',
   },
-  // 더 많은 포스트를 추가하세요
 ];
 
 export async function GET() {
@@ -53,8 +49,6 @@ export async function GET() {
   });
 }
 
-// 빌드 타임에 정적으로 생성되도록 설정
 export const dynamic = 'force-static';
 
-// revalidate를 24시간으로 설정 (ISR)
 export const revalidate = 86400;

@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react';
 
-// props를 위한 타입을 정의합니다.
 interface ImageCardProps {
   imgSrc: string;
   imgAlt: string;

@@ -1,18 +1,13 @@
 "use client";
 
 import React from 'react';
-
-// 컴포넌트 및 라이브러리 import
 import ImageCard from './imagecard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-
-// Swiper.js CSS import
 import 'swiper/css';
 import 'swiper/css/navigation';
 import MobileImageCard from './mobileimagecard';
 
-// 이미지 import (경로는 실제 프로젝트에 맞게 수정해주세요)
 const backgroundImage = '/videos/components/solution2.mp4';
 const cardImage1 = '/images/content/bioadd1.png';
 const cardImage2 = '/images/content/bioadd2.png';
@@ -20,11 +15,6 @@ const cardImage3 = '/images/content/bioadd3.png';
 const cardImage4 = '/images/content/bioadd4.png';
 const cardImage5 = '/images/content/bioadd5.png';
 const cardImage6 = '/images/content/bioadd6.png';
-
-
-
-// 화살표 버튼 컴포넌트
-
 
 interface ArrowButtonProps {
   direction?: 'left' | 'right';
@@ -70,10 +60,8 @@ const BioaddSection = () => {
         className="absolute object-fill w-full h-full "
       />
 
-      {/* 1. container, mx-auto를 제거하여 전체 너비를 사용하도록 변경 */}
       <div className="relative z-10 flex w-full h-full">
 
-        {/* 2. 왼쪽 컨텐츠 영역: 화면 크기에 따라 적절한 왼쪽 여백(padding)을 줌 */}
         <div className="flex-shrink-0 w-[450px] self-start pt-16 pl-4 sm:pl-6 lg:pl-24 pr-12">
           <h2 className="mb-8 text-3xl font-extrabold leading-tight text-white">
             BIOADD.
@@ -86,7 +74,6 @@ const BioaddSection = () => {
           </div>
         </div>
 
-        {/* 3. 오른쪽 슬라이더 영역: 화면 오른쪽 끝까지 확장됨 */}
         <div className="self-start flex-grow min-w-0 pt-16 pr-4 overflow-hidden sm:pr-6 lg:pr-24">
           <Swiper
             modules={[Navigation]}
@@ -94,14 +81,12 @@ const BioaddSection = () => {
               nextEl: '.custom-next-button',
               prevEl: '.custom-prev-button',
             }}
-            // 4. slidesPerView를 'auto'로, spaceBetween을 32로 설정
             slidesPerView={'auto'}
             spaceBetween={32}
             loop={true}
             className="w-full"
           >
             {cardData.map((card, index) => (
-              // 5. 각 슬라이드에 명시적인 너비 지정
               <SwiperSlide key={index} style={{ width: '305px' }}>
                 <ImageCard
                   imgSrc={card.imgSrc}
@@ -124,18 +109,14 @@ const BioaddSection = () => {
 
       <div className="w-full min-w-0 pb-8 overflow-hidden">
             <Swiper
-              // navigation 모듈은 유지하되, 버튼은 아래에 추가합니다.
               modules={[Navigation]}
               loop={true}
               centeredSlides={true}
-              // --- 1. slidesPerView 값을 숫자로 변경 ---
               slidesPerView={1.25} 
-              // --- 2. spaceBetween 값을 줄여 간격 최적화 ---
               spaceBetween={16}
               className="w-full"
             >
               {cardData.map((card, index) => (
-                // 3. 각 슬라이드의 너비를 화면의 80%로 설정합니다.
                 <SwiperSlide key={index} className="object-contain ">
                   <MobileImageCard
                     imgSrc={card.imgSrc}

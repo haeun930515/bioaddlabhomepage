@@ -4,12 +4,8 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// GSAP에 ScrollTrigger 플러그인을 등록합니다.
 gsap.registerPlugin(ScrollTrigger);
 
-// =======================================================================
-// 1. 재사용 가능한 컬럼 컴포넌트 (변경 없음)
-// =======================================================================
 interface ContentColumnProps {
   imageSrc: string;
   imageAlt: string;
@@ -56,10 +52,6 @@ const ContentColumn: React.FC<ContentColumnProps> = ({ imageSrc, imageAlt, mainF
   );
 };
 
-
-// =======================================================================
-// 2. 메인 컴포넌트 및 데이터 (변경 없음)
-// =======================================================================
 const scrollableContentData: ContentColumnProps[] = [
   {
     imageSrc: "./images/solution/solution1.png",
@@ -84,18 +76,12 @@ const scrollableContentData: ContentColumnProps[] = [
   },
 ];
 
-
-// =======================================================================
-// 3. 메인 컴포넌트 (수정 완료)
-// =======================================================================
 export default function SmartBoardFeatures() {
-  // [수정 1] ref를 'trigger'와 'pin' 역할로 분리합니다.
   const triggerRef = useRef<HTMLDivElement>(null);
   const pinTargetRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    // [수정 2] GSAP 컨텍스트의 스코프를 새로운 트리거(triggerRef)로 지정합니다.
     let ctx = gsap.context(() => {
       const scrollAmount = trackRef.current!.scrollWidth - trackRef.current!.offsetWidth + 200;
 
@@ -103,7 +89,6 @@ export default function SmartBoardFeatures() {
         x: -scrollAmount,
         ease: "none",
         scrollTrigger: {
-          // [수정 3] trigger와 pin 대상을 명확히 분리합니다.
           trigger: triggerRef.current,
           pin: pinTargetRef.current,
           
@@ -111,7 +96,6 @@ export default function SmartBoardFeatures() {
           scrub: 1.3,
           start: "top top",
 
-          // [수정 4] end 값을 실제 스크롤 양과 정확히 일치시킵니다.
           end: () => `+=${scrollAmount}`,
           
           invalidateOnRefresh: true,
@@ -124,10 +108,7 @@ export default function SmartBoardFeatures() {
 
   return (
     <>
-      {/* [수정 5] 데스크톱 뷰의 JSX 구조를 trigger/pin으로 분리합니다. */}
-      {/* 바깥쪽 div는 애니메이션 시작점을 알려주는 'trigger' 역할만 합니다. */}
       <div ref={triggerRef} className="hidden bg-black md:block">
-        {/* 안쪽 div가 실제로 화면에 고정될 'pin' 대상입니다. */}
         <div ref={pinTargetRef} className="py-6 overflow-hidden h-[800px] bg-white md:py-32">
           <div ref={trackRef} className="flex gap-4 px-4 sm:px-6 lg:px-8">
             {scrollableContentData.map((data, index) => (
@@ -137,9 +118,7 @@ export default function SmartBoardFeatures() {
         </div>
       </div>
       
-      {/* ======================================================================= */}
-      {/* 모바일 뷰 (전혀 수정되지 않음) */}
-      {/* ======================================================================= */}
+      {/* 모바일 */}
       <div className='w-full h-[2000px] flex items-center justify-center md:hidden flex-col gap-8 bg-white'>
         <div className='w-[289px] h-[600px]'>
           <img

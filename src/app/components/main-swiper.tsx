@@ -3,12 +3,10 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import 'swiper/css'; // 이 줄이 반드시 있어야 합니다.
+import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import Link from 'next/link';
 
-// 슬라이드 데이터 인터페이스 (기존과 동일)
 interface SlideData {
   id: number;
   backgroundImage: string | null;
@@ -23,7 +21,6 @@ interface SlideData {
   headerText?: string;
 }
 
-// 슬라이드 데이터 (기존과 동일)
 const slideData: SlideData[] = [
   {
     id: 1,
@@ -58,9 +55,7 @@ interface MainSwiperProps {
 export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
   return (
     <div>
-      {/* ======================================================================= */}
-      {/* 데스크톱 버전 (수정 없음) */}
-      {/* ======================================================================= */}
+      {/* 데스크톱 버전 */}
       <div className="relative hidden w-full overflow-hidden mt-14 bg-black md:block rounded-bl-[34px] rounded-br-[34px]">
         <Swiper
           spaceBetween={0}
@@ -115,9 +110,7 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
         </button>
       </div>
 
-      {/* ======================================================================= */}
       {/* 모바일 버전 */}
-      {/* ======================================================================= */}
       <div className="block md:hidden w-full h-[700px]">
         <Swiper
           spaceBetween={0}
@@ -130,8 +123,6 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
           modules={[Autoplay, Pagination]}
           className="w-full h-[656px]"
         >
-          {/* ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ */}
-          {/* 모바일 슬라이드 1 */}
           <SwiperSlide className="relative flex items-center justify-center w-full bg-black">
               <div className="relative w-full h-0 min-h-[651px]">
                   <div className="absolute inset-0 w-full h-full">
@@ -156,15 +147,15 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
                   </div>
                 </div>
 
-        <button
-          onClick={onScrollDown}
-          className="absolute z-20 flex items-center justify-center w-12 h-12 transition-colors duration-300 -translate-x-1/2 border border-white rounded-full bottom-10 left-1/2 bg-black/20 hover:bg-white/10 animate-bounce"
-          aria-label="Scroll down"
-        >
-          <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L7 7L13 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
+                <button
+                  onClick={onScrollDown}
+                  className="absolute z-20 flex items-center justify-center w-12 h-12 transition-colors duration-300 -translate-x-1/2 border border-white rounded-full bottom-10 left-1/2 bg-black/20 hover:bg-white/10 animate-bounce"
+                  aria-label="Scroll down"
+                >
+                  <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L7 7L13 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
               </div>
             </SwiperSlide>
         </Swiper>

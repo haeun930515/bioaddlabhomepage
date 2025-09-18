@@ -38,14 +38,12 @@ const swiperRef = useRef<SwiperType | null>(null);
     
     return (
         <div className="relative w-full text-white">
-        {/* ✅ 데스크탑 Swiper 타임라인 */}
         <div className="relative hidden mt-32 md:block bg-black/80">
           <div className="w-full h-[2px] bg-white absolute z-0 top-[205px]" />
           <div className="ml-[200px] pb-12 pl-12 pt-12 pr-12 ">
             <div className="text-4xl font-bold leading-snug whitespace-pre-line">
               기술이 만든 신뢰,{"\n"}브랜드가 이끄는 미래
             </div>
-            {/* Swiper */}
             <Swiper
               onSwiper={(swiper) => (swiperRef.current = swiper)}
               breakpoints={{
@@ -59,13 +57,11 @@ const swiperRef = useRef<SwiperType | null>(null);
               {timelineData.map((item, i) => (
                 <SwiperSlide key={i}>
                   <div className="relative flex items-start">
-                    {/* 좌측 점선 라인 */}
                     <div className="flex flex-col items-center mr-4">
                       <div className="w-5 h-5 rounded-full border-[3px] border-white bg-black z-10" />
                       <div className="w-[2px] h-16 border-l-2 border-dotted border-white mt-1 mb-1" />
                       <div className="w-2 h-2 bg-white rounded-full" />
                     </div>
-                    {/* 내용 */}
                     <div className="mt-8 text-left">
                       <div className="mb-2 text-2xl font-bold text-white">{item.year}</div>
                       <div className="space-y-1 text-sm leading-8 text-gray-300">
@@ -81,16 +77,13 @@ const swiperRef = useRef<SwiperType | null>(null);
           </div>
         </div>
 
-        {/* ✅ 모바일용: 이미지 기반 타임라인 */}
         <div className="block text-center md:hidden">
-          {/* 타이틀 */}
           <div className="px-6">
             <h2 className="text-2xl font-bold leading-snug whitespace-pre-line">
               기술이 만든 신뢰,{'\n'}브랜드가 이끄는 미래
             </h2>
           </div>
 
-          {/* 배경 + 연혁 이미지 */}
           <div
             className="w-full mt-4 bg-center bg-cover"
           >
@@ -99,7 +92,7 @@ const swiperRef = useRef<SwiperType | null>(null);
                 src="/images/mobile-years.png"
                 alt="모바일 연혁"
                 width={300}
-                height={800} // 실제 비율로 맞춰
+                height={800} 
                 className="w-full h-auto"
                 priority
               />

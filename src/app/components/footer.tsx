@@ -5,13 +5,11 @@ import LogoSlider from './logoslider';
 export default function Footer() {
   return (
     <footer className="relative z-50 text-white bg-black md:min-w-[1440px]">
-    {/* 상단 배너 */}
       <div className="w-full">
 
         <div className="w-full px-4 py-20 text-white bg-[#373737]">
           <div className="max-w-6xl mx-auto">
 
-            {/* ✅ 데스크탑용 */}
             <div className="hidden md:block">
               <div className="mb-2 text-2xl font-extrabold font-geist">Our Partners & Clients</div>
               <div className="text-sm leading-relaxed">
@@ -20,7 +18,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* ✅ 모바일용 */}
             <div className="block px-10 md:hidden">
               <div className="mb-6 md:text-3xl md:font-extrabold font-extrabold text-[20px] font-suit md:font-geist">Our Partners & Clients</div>
               <div className="md:text-lg text-[14px] leading-relaxed">
@@ -36,7 +33,6 @@ export default function Footer() {
         <LogoSlider />
 
         <div className="grid w-full grid-cols-2">
-          {/* 초록 박스 */}
           <a href="http://pf.kakao.com/_pDByG" target="_blank" rel="noopener noreferrer" className="group/consult">
             <div className="bg-[#66E274] px-2 md:px-6 md:pr-[50px] py-6 md:py-12 text-black flex items-center justify-center text-center md:text-left h-full">
               <div className="flex flex-col items-center w-full max-w-4xl gap-2 mx-auto md:flex-row-reverse md:items-center md:gap-8 md:mr-24">
@@ -53,18 +49,15 @@ export default function Footer() {
                     <div className="mb-3 text-[14px] font-extrabold md:text-lg font-suit">
                       설치하고 싶은 병원이라면
                     </div>
-                    {/* ✅ 모바일: 줄바꿈 */}
                     <div className="text-[10px] md:hidden font-medium leading-relaxed font-suit">
                       "병원 부담 없이, 분위기는 새롭게!"<br />
                       지금 바이오애드랩과 상담하세요.
                     </div>
-                    {/* ✅ 데스크탑: 한 줄 */}
                     <div className="hidden mr-24 text-sm font-medium leading-relaxed md:block">
                       "병원 부담 없이, 분위기는 새롭게!"<br />
                       지금 바이오애드랩과 상담하세요.
                     </div>
                   </div>
-                  {/* 데스크탑 호버 시 보일 네모난 뷰 */}
                   
                   <div className="hidden absolute left-0 top-[85%] invisible px-6 py-2 text-sm text-white bg-black rounded-full shadow-lg opacity-0 whitespace-nowrap md:transition-all md:duration-300 md:translate-y-0 md:block md:group-hover/consult:opacity-100 md:group-hover/consult:visible">
                     문의 / 제안
@@ -74,10 +67,8 @@ export default function Footer() {
             </div>
           </a>
 
-          {/* 회색 박스 */}
           <a href="/contact" target="_blank" rel="noopener noreferrer"  className="group/partner">
             <div className="bg-[#1E1E1E] px-2 md:px-6 py-6 md:py-12 text-white h-full overflow-visible">
-              {/* ✅ 모바일: 세로형 그대로 유지 */}
               
               <div className="flex flex-col items-center text-center md:hidden">
                 <Image
@@ -98,11 +89,8 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* ✅ 데스크탑: 텍스트 블록 + 아이콘 수평 정렬 */}
               <div className="items-start hidden w-full max-w-4xl pl-12 mx-auto overflow-visible md:flex">
-                {/* 텍스트 + 아이콘 묶기 */}
                 <div className="flex items-start gap-[100px]">
-                  {/* 텍스트 */}
                   <div className="relative pb-6">
                     <div className="text-left md:transition-transform md:duration-300 md:group-hover/partner:-translate-y-6">
                       
@@ -114,12 +102,10 @@ export default function Footer() {
                       </div>
                     </div>
                   
-                    {/* 데스크탑 호버 시 보일 네모난 뷰 */}
                     <div className="absolute bottom-0 left-0 invisible hidden px-6 py-2 text-sm text-white bg-black rounded-full shadow-lg opacity-0 whitespace-nowrap md:transition-all md:duration-300 md:translate-y-0 md:block md:group-hover/partner:opacity-100 md:group-hover/partner:visible">
                       문의 / 제안
                     </div>
                   </div>
-                  {/* 아이콘 - 텍스트 블록 옆에 딱 붙이기 */}
                   
                   <Image
                     src="/images/friend.png"
@@ -136,9 +122,7 @@ export default function Footer() {
         </div>
       </div>
       
-      {/* ✅ 하단 본문 푸터 */}
       <div className="flex flex-col items-start justify-between w-full gap-8 px-6 py-20 mx-auto bg-black md:max-w-6xl md:px-0 md:flex-row">
-        {/* 왼쪽: 로고 + 회사정보 */}
         <div className="flex flex-col max-w-md gap-4">
           <div className="w-[120px]">
             <Image
@@ -167,7 +151,6 @@ export default function Footer() {
 
         </div>
 
-        {/* 오른쪽: 연락처 + 카피라이트 */}
         <div className="flex flex-col items-start w-full gap-2 md:text-lg text-[12px] font-extrabold text-white font-suit md:items-end md:w-auto">
           <div>전화번호 : 02 - 2038 - 0088</div>
           <div className="mt-2 md:text-lg text-[12px] font-medium text-white font-suit">
