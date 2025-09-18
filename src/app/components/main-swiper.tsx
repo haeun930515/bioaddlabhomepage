@@ -61,7 +61,7 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
       {/* ======================================================================= */}
       {/* 데스크톱 버전 (수정 없음) */}
       {/* ======================================================================= */}
-      <div className="relative hidden w-full overflow-hidden bg-black md:block rounded-bl-[34px] rounded-br-[34px]">
+      <div className="relative hidden w-full overflow-hidden mt-14 bg-black md:block rounded-bl-[34px] rounded-br-[34px]">
         <Swiper
           spaceBetween={0}
           centeredSlides={true}
@@ -74,13 +74,13 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
         >
           {slideData.map((slide) => (
             <SwiperSlide key={`desktop-${slide.id}`} className="relative flex items-center justify-center w-full bg-black">
-              <div className="relative w-full h-0 min-h-[651px]">
+              <div className="relative w-full aspect-[16/7]">
                 {slide.backgroundImage && (
                   <div className="absolute inset-0 w-full h-full">
                     <img
                       src={slide.backgroundImage}
                       alt={`Slide ${slide.id}`}
-                      className="object-cover object-center w-full h-full"
+                      className="object-center w-full h-full"
                     />
                     {slide.hasGradient && (
                       <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>

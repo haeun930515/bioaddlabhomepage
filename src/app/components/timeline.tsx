@@ -39,7 +39,7 @@ const swiperRef = useRef<SwiperType | null>(null);
     return (
         <div className="relative w-full text-white">
         {/* ✅ 데스크탑 Swiper 타임라인 */}
-        <div className="relative hidden md:block">
+        <div className="relative hidden mt-32 md:block bg-black/80">
           <div className="w-full h-[2px] bg-white absolute z-0 top-[205px]" />
           <div className="ml-[200px] pb-12 pl-12 pt-12 pr-12 ">
             <div className="text-4xl font-bold leading-snug whitespace-pre-line">

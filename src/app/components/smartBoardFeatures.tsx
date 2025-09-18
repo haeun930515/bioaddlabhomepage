@@ -33,7 +33,7 @@ const ContentColumn: React.FC<ContentColumnProps> = ({ imageSrc, imageAlt, mainF
               alt={imageAlt}
             />
           </div>
-          <div className="flex flex-col justify-between h-full py-4 pl-8">
+          <div className="flex flex-col justify-center h-full py-4 pl-8">
             <div className="text-2xl font-suit font-bold text-[#1d912a] leading-relaxed mb-4">
               {mainFeature.title}
             </div>
