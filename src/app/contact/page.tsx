@@ -59,7 +59,7 @@ export default function ContactPage() {
 </div>
       {/* 상단 타이틀 */}
       <div className="relative flex flex-row items-end justify-between w-full max-w-3xl mb-12">
-          <div className="text-4xl font-bold text-green-400">SEND A MESSAGE.</div>
+          <div className="text-base font-bold text-green-400 md:text-4xl">SEND A MESSAGE.</div>
         <div className="right-0 text-xs font-bold text-green-400">* <span className='text-white'>필수</span></div>
       </div>
 
