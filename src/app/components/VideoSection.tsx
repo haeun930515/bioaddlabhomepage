@@ -2,18 +2,18 @@
 
 export default function VideoSection() {
   return (
-    <div className="relative mt-24 w-full">
+    <div className="relative w-full p-4 overflow-hidden md:p-12 md:mt-24 rounded-3xl">
       <video
         src="/videos/collection.mp4"
         autoPlay
         muted
         playsInline
-        className="object-cover w-full h-auto aspect-video"
+        className="object-fill w-full h-auto aspect-video rounded-3xl"
       />
-      <div className="flex absolute inset-0 justify-center items-center px-4 text-center">
-        <div className="text-3xl md:text-5xl font-extrabold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
-          지금도 많은 <span className="text-green-400">병원과 브랜드가</span><br />
-          <div className="mt-4"><span className="text-green-400">바이오애드랩과 함께</span>하고 있습니다</div>
+      <div className="absolute inset-0 flex items-center justify-center px-4 text-center">
+        <div className="text-[20px] md:text-5xl font-extrabold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
+          지금도 많은 <span className="text-white">병원과 브랜드가</span><br />
+          <div className="md:mt-4"><span className="text-white">바이오애드랩과 함께</span>하고 있습니다</div>
         </div>
       </div>
     </div>

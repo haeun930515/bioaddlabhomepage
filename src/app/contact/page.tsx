@@ -42,23 +42,24 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col items-center px-4 py-20 text-white bg-black">
+
+<div className="w-screen px-0">
+  <video
+    src="/videos/components/contact1.mp4"
+    muted
+    loop
+    autoPlay
+    className="absolute z-0 hidden object-cover w-full h-auto md:block"
+  />
+</div>
       {/* 상단 타이틀 */}
-      <div className="relative w-full max-w-3xl mb-12">
-        <div className="flex flex-col items-center gap-1">
-          <Image
-            src="/images/message-icon.png"
-            alt="Message Icon"
-            width={48}
-            height={48}
-            className="mb-1"
-          />
-          <div className="text-4xl font-extrabold text-green-400">SEND A MESSAGE</div>
-        </div>
-        <div className="absolute top-[100px] font-bold right-0 text-xs text-green-400">* <span className='text-white'>필수</span></div>
+      <div className="relative flex flex-row items-end justify-between w-full max-w-3xl mb-12">
+          <div className="text-4xl font-bold text-green-400">SEND A MESSAGE.</div>
+        <div className="right-0 text-xs font-bold text-green-400">* <span className='text-white'>필수</span></div>
       </div>
 
       {/* 입력 폼 */}
-      <form onSubmit={handleSubmit} className="w-full max-w-3xl space-y-8 font-bold">
+      <form onSubmit={handleSubmit} className="z-10 w-full max-w-3xl space-y-8 font-bold">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="flex flex-col gap-2">
             <label className="text-sm">성함 (Name)<span className="text-green-400"> *</span></label>
@@ -118,10 +119,10 @@ export default function ContactPage() {
         <button
             type="submit"
             disabled={isSending}
-            className={`w-full py-3 mt-8 font-bold rounded transition ${
+            className={`w-full py-3 mt-8 font-bold rounded transition text-[24px] ${
               isSending
                 ? 'bg-gray-600 cursor-not-allowed text-white'
-                : 'bg-green-500 hover:bg-green-400 text-black'
+                : 'bg-white hover:bg-white text-black'
             }`}
           >
             {isSending ? '전송 중...' : '문의하기'}
@@ -138,15 +139,6 @@ export default function ContactPage() {
           )}
       </form>
       {/* 하단 배경 이미지: 스크린 전체 너비 꽉 채움 */}
-<div className="w-screen px-0">
-  <Image
-    src="/images/contactbg.png"
-    alt="Contact Background"
-    width={1920}
-    height={200}
-    className="object-cover w-full h-auto"
-  />
-</div>
     </div>
   );
 }

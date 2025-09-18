@@ -8,12 +8,12 @@ export default function Footer() {
     {/* 상단 배너 */}
     <div className="w-full">
 
-    <div className="w-full px-4 py-20 text-white bg-black">
+    <div className="w-full px-4 py-20 text-white bg-[#373737]">
   <div className="max-w-6xl mx-auto">
 
     {/* ✅ 데스크탑용 */}
     <div className="hidden md:block">
-      <div className="mb-2 text-2xl font-bold">Our Partners & Clients</div>
+      <div className="mb-2 text-2xl font-extrabold font-geist">Our Partners & Clients</div>
       <div className="text-sm leading-relaxed">
         병원 분과 별로 맞춤 세팅, 이제 당신의 브랜드가 가장 주목받는 의료 공간에서
         가장 필요한 타깃과 만날 시간입니다
@@ -22,7 +22,7 @@ export default function Footer() {
 
     {/* ✅ 모바일용 */}
     <div className="block px-10 md:hidden">
-      <div className="mb-2 text-3xl font-bold">Our Partners & Clients</div>
+      <div className="mb-6 text-3xl font-extrabold font-geist">Our Partners & Clients</div>
       <div className="text-lg leading-relaxed">
         병원 분과 별로 맞춤 세팅,<br />
         이제 당신의 브랜드가 가장 주목받는<br />
@@ -49,12 +49,12 @@ export default function Footer() {
               />
               <div className="relative">
                 <div className="md:transition-transform md:duration-300 md:group-hover/consult:-translate-y-6">
-                  <div className="mb-1 text-xs font-extrabold md:text-lg">
+                  <div className="mb-3 text-[14px] font-extrabold md:text-lg font-suit">
                     설치하고 싶은 병원이라면
                   </div>
                   {/* ✅ 모바일: 줄바꿈 */}
-                  <div className="text-[10px] md:hidden font-medium leading-relaxed">
-                    "병원 부담 없이,<br />분위기는 새롭게!"<br />
+                  <div className="text-[10px] md:hidden font-medium leading-relaxed font-suit">
+                    "병원 부담 없이, 분위기는 새롭게!"<br />
                     지금 바이오애드랩과 상담하세요.
                   </div>
                   {/* ✅ 데스크탑: 한 줄 */}
@@ -84,8 +84,8 @@ export default function Footer() {
                 height={60}
                 className="mb-4 w-[60px] h-[60px]"
               />
-                    <div className="mb-2 text-xs font-extrabold">파트너가 되고 싶다면</div>
-                    <div className="text-[10px] font-medium leading-relaxed text-gray-300">
+                    <div className="mb-2 text-[14px] font-suit font-extrabold">파트너가 되고 싶다면</div>
+                    <div className="text-[10px] text-left font-medium font-suit leading-relaxed text-gray-300">
                       1000명 이상의 의료인이 선택한<br />
                       바이오애드랩과 함께,<br />
                       효과적이고 효율적인<br />
@@ -126,7 +126,7 @@ export default function Footer() {
       </div>
     </div>
       {/* ✅ 하단 본문 푸터 */}
-    <div className="flex flex-col items-start justify-between w-full max-w-screen-xl gap-8 px-6 py-20 mx-auto md:flex-row">
+    <div className="flex flex-col items-start justify-between w-full max-w-screen-xl gap-8 px-6 py-20 mx-auto bg-black md:flex-row">
       {/* 왼쪽: 로고 + 회사정보 */}
       <div className="flex flex-col max-w-md gap-4">
         <div className="w-[120px]">
@@ -155,9 +155,9 @@ export default function Footer() {
       </div>
 
       {/* 오른쪽: 연락처 + 카피라이트 */}
-      <div className="flex flex-col items-start w-full gap-2 text-lg font-extrabold text-gray-400 md:items-end md:w-auto">
+      <div className="flex flex-col items-start w-full gap-2 text-lg font-extrabold text-white font-suit md:items-end md:w-auto">
         <div>전화번호 : 02 - 2038 - 0088</div>
-        <div className="mt-2 text-lg text-gray-500">
+        <div className="mt-2 text-lg font-medium text-white font-suit">
           Copyright ⓒ bioadd lab. All Rights Reserved.
         </div>
       </div>
