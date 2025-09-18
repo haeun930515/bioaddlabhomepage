@@ -49,8 +49,13 @@ export default function ContactPage() {
     muted
     loop
     autoPlay
+    playsInline
     className="absolute z-0 hidden object-cover w-full h-auto md:block"
   />
+   <div 
+          className="absolute z-[1] hidden w-full h-full bg-black/40 md:block" 
+          style={{ top: 0, left: 0 }}
+        ></div>
 </div>
       {/* 상단 타이틀 */}
       <div className="relative flex flex-row items-end justify-between w-full max-w-3xl mb-12">

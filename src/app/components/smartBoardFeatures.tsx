@@ -22,11 +22,11 @@ interface ContentColumnProps {
 
 const ContentColumn: React.FC<ContentColumnProps> = ({ imageSrc, imageAlt, mainFeature, subFeatures,title }) => {
   return (
-    <div className="w-[850px] flex-shrink-0 p-4">
-      <div className='text-[#7d7d7d] text-left text-[28px] font-bold relative h-[27px] mb-8'>{title}</div>
-      <div className="relative h-[258px] w-full mx-auto">
-        <div className="relative w-full h-full grid grid-cols-[auto_1fr] bg-white rounded-[34px] shadow-[3px_1px_10px_1px_rgba(0,0,0,0.19)]">
-          <div className="w-[258px] h-[258px]">
+    <div className="w-[1150px] flex-shrink-0 p-4 pt-14 pl-32">
+      <div className='text-[#7d7d7d] text-left text-[32px] font-geist font-extrabold relative h-[27px] mb-14'>{title}</div>
+      <div className="relative h-[338px] w-full mx-auto">
+        <div className="relative w-full h-full grid grid-cols-[auto_1fr] bg-white rounded-[38px] shadow-[3px_1px_10px_1px_rgba(0,0,0,0.19)]">
+          <div className="w-[368px] h-[338px]">
             <img
               className="object-fill rounded-tl-[34px] rounded-bl-[34px] w-full h-full"
               src={imageSrc}
@@ -34,11 +34,11 @@ const ContentColumn: React.FC<ContentColumnProps> = ({ imageSrc, imageAlt, mainF
             />
           </div>
           <div className="flex flex-col justify-center h-full py-4 pl-8">
-            <div className="text-2xl font-suit font-bold text-[#1d912a] leading-relaxed mb-4">
+            <div className="text-3xl font-suit font-bold text-[#1d912a] leading-relaxed mb-4">
               {mainFeature.title}
             </div>
             <div className="w-[470px] h-[2px] bg-[#ABABAB] my-2"></div>
-            <div className="grid grid-cols-2 w-[450px]">
+            <div className="grid grid-cols-2 w-[530px]">
               {subFeatures.map((featureText, index) => (
                 <div key={index} className="flex text-left">
                   <span className="text-xl font-bold text-black ">•</span>
@@ -58,10 +58,9 @@ const ContentColumn: React.FC<ContentColumnProps> = ({ imageSrc, imageAlt, mainF
 
 
 // =======================================================================
-// 2. 메인 컴포넌트 및 데이터 (GSAP 적용)
+// 2. 메인 컴포넌트 및 데이터 (변경 없음)
 // =======================================================================
 const scrollableContentData: ContentColumnProps[] = [
-  // ... (데이터는 이전과 동일)
   {
     imageSrc: "./images/solution/solution1.png",
     imageAlt: "43인치 스마트보드",
@@ -86,49 +85,62 @@ const scrollableContentData: ContentColumnProps[] = [
 ];
 
 
+// =======================================================================
+// 3. 메인 컴포넌트 (수정 완료)
+// =======================================================================
 export default function SmartBoardFeatures() {
-  // 애니메이션을 적용할 요소들을 참조하기 위해 useRef 사용
-  const componentRef = useRef<HTMLDivElement>(null);
+  // [수정 1] ref를 'trigger'와 'pin' 역할로 분리합니다.
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const pinTargetRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    // GSAP 컨텍스트를 사용하여 애니메이션 설정 및 정리(cleanup)를 쉽게 관리
+    // [수정 2] GSAP 컨텍스트의 스코프를 새로운 트리거(triggerRef)로 지정합니다.
     let ctx = gsap.context(() => {
-      // track의 전체 너비에서 화면 너비를 뺀 만큼만 스크롤되도록 계산
-      const scrollAmount = trackRef.current!.scrollWidth - trackRef.current!.offsetWidth+200;
+      const scrollAmount = trackRef.current!.scrollWidth - trackRef.current!.offsetWidth + 200;
 
-      // GSAP 애니메이션 설정
       gsap.to(trackRef.current, {
-        x: -scrollAmount, // x축으로 -scrollAmount 만큼 이동
-        ease: "none", // 일정한 속도로
+        x: -scrollAmount,
+        ease: "none",
         scrollTrigger: {
-          trigger: componentRef.current, // 이 컴포넌트가 트리거
-          pin: true, // 스크롤 동안 화면에 고정
-          scrub: 1.3, // 스크롤과 애니메이션을 부드럽게 연결 (숫자가 클수록 부드러움)
-          start: "top top", // 화면 상단에 컴포넌트 상단이 닿을 때 시작
-          end: `+=${scrollAmount}`, // 스크롤 양만큼 스크롤되면 종료
-          invalidateOnRefresh: true, // 화면 크기 변경 시 재계산
+          // [수정 3] trigger와 pin 대상을 명확히 분리합니다.
+          trigger: triggerRef.current,
+          pin: pinTargetRef.current,
+          
+          pinSpacing: true,
+          scrub: 1.3,
+          start: "top top",
+
+          // [수정 4] end 값을 실제 스크롤 양과 정확히 일치시킵니다.
+          end: () => `+=${scrollAmount}`,
+          
+          invalidateOnRefresh: true,
         },
       });
-    }, componentRef); // context의 스코프를 componentRef로 지정
+    }, triggerRef);
 
-    return () => ctx.revert(); // 컴포넌트 언마운트 시 애니메이션 정리
+    return () => ctx.revert();
   }, []);
 
   return (
     <>
-    <div ref={componentRef} className="hidden py-6 overflow-hidden bg-white md:py-32 md:block">
-      {/* 가로 스크롤될 카드들을 담는 '트랙'입니다.
-        화면 너비보다 훨씬 길게 만들어 좌우 스크롤 효과를 줍니다.
-      */}
-      <div ref={trackRef} className="flex gap-4 px-4 sm:px-6 lg:px-8">
-        {scrollableContentData.map((data, index) => (
-          <ContentColumn key={index} {...data} />
-        ))}
+      {/* [수정 5] 데스크톱 뷰의 JSX 구조를 trigger/pin으로 분리합니다. */}
+      {/* 바깥쪽 div는 애니메이션 시작점을 알려주는 'trigger' 역할만 합니다. */}
+      <div ref={triggerRef} className="hidden bg-black md:block">
+        {/* 안쪽 div가 실제로 화면에 고정될 'pin' 대상입니다. */}
+        <div ref={pinTargetRef} className="py-6 overflow-hidden h-[800px] bg-white md:py-32">
+          <div ref={trackRef} className="flex gap-4 px-4 sm:px-6 lg:px-8">
+            {scrollableContentData.map((data, index) => (
+              <ContentColumn key={index} {...data} />
+            ))}
+          </div>
+        </div>
       </div>
       
-    </div>
-    <div className='w-full h-[2000px] flex items-center justify-center md:hidden flex-col gap-8 bg-white'>
+      {/* ======================================================================= */}
+      {/* 모바일 뷰 (전혀 수정되지 않음) */}
+      {/* ======================================================================= */}
+      <div className='w-full h-[2000px] flex items-center justify-center md:hidden flex-col gap-8 bg-white'>
         <div className='w-[289px] h-[600px]'>
           <img
             src="/images/mobile/mobilefeature1.png"
@@ -151,8 +163,6 @@ export default function SmartBoardFeatures() {
           />
         </div>
       </div>
-
     </>
-
   );
 }

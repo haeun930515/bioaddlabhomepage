@@ -60,14 +60,14 @@ const BioaddSection = () => {
 
   return (
     <>
-    <section className="bg-black relative w-full py-24 min-h-[789px] overflow-hidden hidden md:block">
+    <section className="bg-black relative w-full py-24 min-h-[889px] overflow-hidden hidden md:block">
       <video
         src={backgroundImage}
         autoPlay
         loop
         muted
         playsInline
-        className="absolute object-cover w-full h-full "
+        className="absolute object-fill w-full h-full "
       />
 
       {/* 1. container, mx-auto를 제거하여 전체 너비를 사용하도록 변경 */}
@@ -75,7 +75,7 @@ const BioaddSection = () => {
 
         {/* 2. 왼쪽 컨텐츠 영역: 화면 크기에 따라 적절한 왼쪽 여백(padding)을 줌 */}
         <div className="flex-shrink-0 w-[450px] self-start pt-16 pl-4 sm:pl-6 lg:pl-24 pr-12">
-          <h2 className="mb-8 text-3xl font-normal leading-tight text-white">
+          <h2 className="mb-8 text-3xl font-extrabold leading-tight text-white">
             BIOADD.
             <br />
             이렇게 사용되고 있어요

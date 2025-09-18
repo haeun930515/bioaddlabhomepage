@@ -2,29 +2,13 @@
 
 import React, { useLayoutEffect, useRef, forwardRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
-// 💡 ScrollTrigger는 이제 부모가 제어하므로 자식에선 필요 없습니다.
 
-const GlobalStyles: React.FC = () => (
-  <style>{`
-    .glass-box-section1 {
-      background-color: rgba(255, 255, 255, 0.08);
-      border-radius: 8px; border: 2px solid;
-      border-image: linear-gradient(0deg, rgba(255, 255, 255, 0.23) 0%, rgba(134, 134, 134, 0.23) 100%);
-      border-image-slice: 1; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
-    }
-    /* ✅ 화면 전환을 부드럽게 만들기 위한 CSS transition 추가 */
-    .screen-image {
-      transition: opacity 0.3s ease-in-out;
-    }
-  `}</style>
-);
-// ▼▼▼ 수정 후 glassBoxStyle ▼▼▼
 const glassBoxStyle: React.CSSProperties = {
     position: 'absolute',
     left: '60.4%', // (1160 / 1920) * 100
     top: '18.7%',  // (202 / 1080) * 100
-    width: '500px', // (357 / 1920) * 100
-    height: '650px',  // (454 / 1080) * 100
+    width: '400px', // (357 / 1920) * 100
+    height: '550px',  // (454 / 1080) * 100
     zIndex: 5,
     display: 'flex',
     justifyContent: 'center',
@@ -67,61 +51,69 @@ const FirstSectionUI: React.FC = () => {
 
   // ✅ 2. 현재 활성화된 화면을 기억하기 위한 상태를 만듭니다. 기본값은 default 이미지입니다.
   const [activeScreen, setActiveScreen] = useState(screenImages.button1);
+  const [isFading, setIsFading] = useState(false);
+
+  // 3. 버튼 클릭 시 이미지 변경을 처리하는 함수
+  const handleScreenChange = (newScreen: string) => {
+    // 이미 같은 이미지를 보여주고 있다면 아무것도 안 함
+    if (newScreen === activeScreen) return; 
+    
+    // Fade-out 시작
+    setIsFading(true); 
+
+    // 0.3초 뒤에 이미지 소스를 바꾸고 Fade-in 시작
+    setTimeout(() => {
+      setActiveScreen(newScreen);
+      setIsFading(false);
+    }, 300); // CSS transition 시간과 동일하게 설정
+  };
 
   return (
     <div className="relative w-full h-full">
+      {/* 👇 이 효과에 필요한 CSS를 컴포넌트 안에 직접 추가 */}
+      <style>{`
+        .screen-image-dynamic {
+          /* 0.3초 동안 부드럽게 투명도 변경 */
+          transition: opacity 0.3s ease-in-out;
+        }
+        .screen-image-fading-out {
+          /* 투명하게 만듦 */
+          opacity: 0;
+        }
+      `}</style>
       <div style={{ position: 'absolute', left: '15%', top: '142px', color: '#ffffff', fontSize: '2.25rem', lineHeight: '139%', fontFamily: "'Suit-Bold', sans-serif", fontWeight: 'bold' }}>
         타겟의 시선고정을 위한<br />아이캐치 장치
       </div>
       {/* ✅ 위에서 정의한 인라인 스타일 객체를 직접 적용합니다. */}
       <div style={glassBoxStyle}>
-        {/* 1. 첫 번째 이미지 */}
-        <img 
-          src="./images/content/exampleui.png" 
-          alt="UI 화면 예시" 
-          className="screen-image" 
-          style={{ 
-            position: 'absolute',
-            top: '50%',
-            left: '52%',
-            transform: 'translate(-50%, -50%)', // ✨ 이 줄을 추가하세요
-            width: '90%',
-            height: '90%', 
-            objectFit: 'contain'
-          }} 
-        />
-        {/* 2. 위에 겹쳐질 이미지 */}
+        {/* 👇👇 효과를 적용할 바로 그 이미지 👇👇 */}
         <img 
           src={activeScreen} 
           alt="UI 화면 예시" 
-          className="screen-image" 
+          // isFading 상태에 따라 클래스를 붙였다 뗐다 하면서 fade 효과를 줌
+          className={`screen-image-dynamic ${isFading ? 'screen-image-fading-out' : ''}`} 
           style={{ 
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)', // ✨ 이 줄을 추가하세요
-            width: '90%',
-            height: '90%', 
-            objectFit: 'contain'
+            position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+            width: '90%', height: '90%', objectFit: 'contain'
           }} 
         />
       </div>
       {/* ✅ 3. 각 버튼에 onClick 이벤트를 추가하여 activeScreen 상태를 변경합니다. */}<MoreButton 
   color="green" 
   position={{ left: '33%', top: '34%' }} 
-  onClick={() => setActiveScreen(screenImages.button1)} 
+  onClick={() => handleScreenChange(screenImages.button1)} 
 />
 
 <MoreButton 
   color="white" 
   position={{ left: '25%', top: '58%' }} 
-  onClick={() => setActiveScreen(screenImages.button2)} 
+  onClick={() => handleScreenChange(screenImages.button2)} 
 />
 
 <MoreButton 
   color="green" 
   position={{ left: '50%', top: '50%' }} 
-  onClick={() => setActiveScreen(screenImages.button3)} 
+  onClick={() => handleScreenChange(screenImages.button3)} 
 />
     </div>
   );
@@ -288,7 +280,7 @@ export default function StickyEyeCatch({ progress }: StickyEyeCatchProps) {
 
   return (
     <>
-      <div className="relative hidden w-full h-screen overflow-hidden md:block">
+      <div className="relative hidden w-full h-[1000px] overflow-hidden md:block">
         <img src="/images/content/catchbg.png" alt="배경" className="absolute top-0 left-0 object-cover w-full h-full" />
         
         <div ref={firstSectionRef} className="absolute top-0 left-0 w-full h-full">

@@ -15,14 +15,14 @@ export default function SubSwiper() {
       {/* ======================================================================= */}
       {/* 데스크톱 버전 (Flexbox로 수정) */}
       {/* ======================================================================= */}
-      <div className="relative hidden w-full overflow-hidden bg-white md:block rounded-bl-[34px] rounded-br-[34px]">
+      <div className="relative hidden w-full overflow-hidden mt-14 bg-white md:block rounded-bl-[34px] rounded-br-[34px]">
         <Swiper
           spaceBetween={0}
           centeredSlides={true}
           modules={[Autoplay, Pagination]}
           className="w-full h-auto min-h-[651px] bg-transparent"
         >
-          <SwiperSlide className="relative w-full">
+          <SwiperSlide className="relative w-full aspect-[16/7]">
             {/* 배경 이미지 및 그라데이션 */}
             <div className="absolute inset-0 w-full h-full">
               <video

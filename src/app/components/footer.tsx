@@ -22,8 +22,8 @@ export default function Footer() {
 
             {/* ✅ 모바일용 */}
             <div className="block px-10 md:hidden">
-              <div className="mb-6 text-3xl font-extrabold font-geist">Our Partners & Clients</div>
-              <div className="text-lg leading-relaxed">
+              <div className="mb-6 md:text-3xl md:font-extrabold font-extrabold text-[20px] font-suit md:font-geist">Our Partners & Clients</div>
+              <div className="md:text-lg text-[14px] leading-relaxed">
                 병원 분과 별로 맞춤 세팅,<br />
                 이제 당신의 브랜드가 가장 주목받는<br />
                 의료 공간에서 가장 필요한 타깃과<br />

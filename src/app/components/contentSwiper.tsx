@@ -72,7 +72,7 @@ export default function CoverflowSlider() {
   // --- 1. 모바일용 Coverflow 옵션을 따로 정의 ---
   const desktopOptions = {
     coverflowEffect: {
-      rotate: 50,
+      rotate: 40,
       stretch: 0,
       depth: 100,
       modifier: 1,
