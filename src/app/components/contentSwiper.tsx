@@ -11,8 +11,8 @@ import 'swiper/css/navigation';
 
 const contentItems = [
     { brand: '타이레놀', file: 'content_tyrenol.mp4' },
+    { brand: '티퍼런스', file: 'content_teaference.mp4'},
     { brand: '올리브영', file: 'content_olivey.mp4'},
-    { brand: '링티', file: 'content_lingt.mp4'},
     { brand: '바이오더마', file: 'content_biotherma.mp4'},
     { brand: '세라젬', file: 'content_cerazem.mp4' },
     { brand: '닥터그루트', file: 'content_drgroot.mp4' },
@@ -27,7 +27,7 @@ const contentItems = [
     { brand: '로게인폼', file: 'content_rogaine.mp4' },
     { brand: '라인프렌즈', file: 'content_linefriends2.mp4'},
     { brand: '르무통', file: 'content_rmutong.mp4'},
-    { brand: '티퍼런스', file: 'content_teaference.mp4'},
+    { brand: '링티', file: 'content_lingt.mp4'},
 ];
 
 
