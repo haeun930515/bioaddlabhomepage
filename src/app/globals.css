@@ -104,7 +104,7 @@
   font-family: 'Geist Mono';
   src: url('https://cdn.jsdelivr.net/npm/@vercel/geist-mono/dist/fonts/woff2/GeistMono-Bold.woff2') format('woff2');
   font-weight: 700; 
-  font-style: normal;
+  font-style: bold;
   unicode-range: U+0020-007E;
 }
 
@@ -119,16 +119,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Geist Mono','SUIT', sans-serif;
-}
-
-.font-suit {
   font-family: 'SUIT', sans-serif;
-}
-.font-geist {
-  font-family: 'Geist Mono', sans-serif !important;
-}
-
-.font-galmuri {
-  font-family: 'Galmuri9', sans-serif !important;
 }

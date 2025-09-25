@@ -18,10 +18,10 @@ export default function SubSwiper() {
           spaceBetween={0}
           centeredSlides={true}
           modules={[Autoplay, Pagination]}
-          className="w-full h-auto min-h-[651px] bg-transparent"
+          className="w-full h-[651px] bg-transparent"
         >
-          <SwiperSlide className="relative w-full aspect-[16/7]">
-            <div className="absolute inset-0 w-full aspect-[16/7]">
+          <SwiperSlide className="relative w-full h-full">
+            <div className="absolute inset-0 w-full h-full">
               <video
                 src="/videos/components/solution1.mp4"
                 muted
@@ -35,7 +35,7 @@ export default function SubSwiper() {
             <div className="relative z-10 flex items-center justify-center w-full h-full min-h-[651px]">
               <div className="relative p-12 text-center text-white">
                 <svg
-                  className="absolute left-0 w-5 h-5 top-10"
+                  className="absolute w-5 h-5 left-5 top-10"
                   viewBox="0 0 17 19"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ export default function SubSwiper() {
                 </svg>
 
                 <svg
-                  className="absolute w-5 h-5 right-10 bottom-10"
+                  className="absolute w-5 h-5 right-40 bottom-10"
                   viewBox="0 0 17 19"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ export default function SubSwiper() {
                   <path d="M0 19L17 19L17 0" stroke="white" strokeWidth="5" />
                 </svg>
 
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center font-geist">
                   <h1 className="text-[39px] font-semibold">BIOADDLAB SMART BOARD</h1>
                   <h2 className="mt-2 text-[39px] font-semibold">TECHNOLOGY</h2>
                 </div>

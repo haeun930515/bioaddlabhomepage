@@ -5,6 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        geist: ['var(--font-geist-mono)', 'sans-serif'], // CSS 변수 사용
+        'suit': ['SUIT', 'sans-serif'],
+        'galmuri': ['Galmuri9', 'sans-serif'],
+
+      },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
@@ -37,9 +43,6 @@ module.exports = {
           400: "#66E274", // 네가 사용하는 초록색
           500: "#22c55e", // Tailwind 기본값도 같이 보장
         },
-      },
-      fontFamily: {
-        sans: ['Graphik', 'sans-serif'],
       },
     },
   },

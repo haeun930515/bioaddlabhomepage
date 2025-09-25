@@ -16,9 +16,9 @@ export default function SubSwiper() {
           spaceBetween={0}
           centeredSlides={true}
           modules={[Autoplay, Pagination]}
-          className="w-full h-auto min-h-[651px] bg-transparent"
+          className="w-full h-[651px] bg-transparent"
         >
-          <SwiperSlide className="relative w-full aspect-[16/7]">
+          <SwiperSlide className="relative w-full h-full">
             <div className="absolute inset-0 w-full h-full">
               <video
                 src="/videos/components/content1.mp4"
@@ -34,10 +34,10 @@ export default function SubSwiper() {
                 <div className="relative p-12 text-center text-white">
                 <div className="flex flex-col items-center">
 
-                    <h1 className="relative inline-block text-[39px] font-semibold px-3 py-0">
+                    <h1 className="relative inline-block text-[39px] font-geist font-semibold px-3 py-0">
                     
                     <svg
-                        className="absolute top-0 left-0 w-5 h-5"
+                        className="absolute top-0 w-5 h-5 -left-1"
                         viewBox="0 0 17 19"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"

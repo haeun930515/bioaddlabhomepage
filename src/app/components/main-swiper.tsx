@@ -65,11 +65,11 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
             disableOnInteraction: false,
           }}
           modules={[Autoplay, Pagination]}
-          className="w-full h-auto min-h-[651px] bg-black"
+          className="w-full h-[651px] bg-black"
         >
           {slideData.map((slide) => (
             <SwiperSlide key={`desktop-${slide.id}`} className="relative flex items-center justify-center w-full bg-black">
-              <div className="relative w-full aspect-[16/7]">
+              <div className="relative w-full h-full">
                 {slide.backgroundImage && (
                   <div className="absolute inset-0 w-full h-full">
                     <img
@@ -98,6 +98,7 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
             </SwiperSlide>
           ))}
         </Swiper>
+        
 
         <button
           onClick={onScrollDown}

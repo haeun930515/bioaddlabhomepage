@@ -4,16 +4,7 @@ import "./globals.css";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import GoogleAnalytics from "./googleAnalytics";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { GeistMono } from 'geist/font/mono'; // Mono 폰트를 원하시면 mono를 import
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bioaddlab.com'),
@@ -68,7 +59,7 @@ export default function RootLayout({
         <meta name="google-site-verification" content="zrhra_u7AExEETJX6B1BWMWRMt-2r4gAVEzdXdbFsPs" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={GeistMono.variable}
       >
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />

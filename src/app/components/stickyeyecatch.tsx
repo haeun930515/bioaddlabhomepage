@@ -101,8 +101,7 @@ const FirstSectionUI: React.FC = () => {
       />
     </div>
   );
-};
-const HorizontalScrollSection = forwardRef<HTMLDivElement>((props, ref) => {
+};const HorizontalScrollSection = forwardRef<HTMLDivElement, { blurRef: React.Ref<HTMLDivElement> }>(({ blurRef }, ref) => {
     const cardData = [
       {
         title: "대기환자 시간 별 광고 반복 노출 횟수",
@@ -123,6 +122,20 @@ const HorizontalScrollSection = forwardRef<HTMLDivElement>((props, ref) => {
 
     return (
         <div className="relative w-full h-full">
+          {/* 2. 이 div에 blurRef를 연결하고, 초기 블러 값을 0으로 설정합니다. */}
+            <div
+                ref={blurRef} 
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    WebkitBackdropFilter: 'blur(0px)', // 초기값 0
+                    backdropFilter: 'blur(0px)',     // 초기값 0
+                    zIndex: 0, 
+                }}
+            />
 
             <div style={{
                 position: 'absolute',
@@ -207,7 +220,7 @@ export default function StickyEyeCatch({ progress }: StickyEyeCatchProps) {
   const secondSectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const tl = useRef<gsap.core.Timeline | null>(null);
-  const backgroundRef = useRef<HTMLImageElement>(null);
+  const blurRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const track = trackRef.current!;
@@ -221,6 +234,11 @@ export default function StickyEyeCatch({ progress }: StickyEyeCatchProps) {
     tl.current
       .to({}, { duration: 1 })
       .to(firstSectionRef.current, { opacity: 0, duration: 1.5 })
+      .to(blurRef.current, { 
+        backdropFilter: 'blur(10px)', 
+        webkitBackdropFilter: 'blur(10px)', 
+        duration: 1.5 
+      }, "<") // "<"는 바로 앞 애니메이션과 동시에 시작하라는 의미입니다.
       .to(secondSectionRef.current, { opacity: 1, duration: 1.5 }, "<") 
       .to(track, {
         x: -totalScroll,
@@ -249,7 +267,7 @@ export default function StickyEyeCatch({ progress }: StickyEyeCatchProps) {
         </div>
 
         <div ref={secondSectionRef} className="absolute top-0 left-0 w-full h-full opacity-0">
-          <HorizontalScrollSection ref={trackRef} />
+          <HorizontalScrollSection ref={trackRef}  blurRef={blurRef}  />
         </div>
       </div>
 
