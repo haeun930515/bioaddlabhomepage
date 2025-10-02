@@ -122,31 +122,6 @@ const FirstSectionUI: React.FC = () => {
 
     return (
         <div className="relative w-full h-full">
-          {/* 2. 이 div에 blurRef를 연결하고, 초기 블러 값을 0으로 설정합니다. */}
-            <div
-                ref={blurRef} 
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    WebkitBackdropFilter: 'blur(0px)', // 초기값 0
-                    backdropFilter: 'blur(0px)',     // 초기값 0
-                    zIndex: 0, 
-                }}
-            />
-
-            <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                WebkitBackdropFilter: 'blur(10px)',
-                backdropFilter: 'blur(10px)',
-                zIndex: 0, 
-            }}/>
             <div style={{
                 position: 'absolute',
                 left: 0,
@@ -234,11 +209,6 @@ export default function StickyEyeCatch({ progress }: StickyEyeCatchProps) {
     tl.current
       .to({}, { duration: 1 })
       .to(firstSectionRef.current, { opacity: 0, duration: 1.5 })
-      .to(blurRef.current, { 
-        backdropFilter: 'blur(10px)', 
-        webkitBackdropFilter: 'blur(10px)', 
-        duration: 1.5 
-      }, "<") // "<"는 바로 앞 애니메이션과 동시에 시작하라는 의미입니다.
       .to(secondSectionRef.current, { opacity: 1, duration: 1.5 }, "<") 
       .to(track, {
         x: -totalScroll,

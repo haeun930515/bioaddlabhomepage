@@ -34,7 +34,7 @@ export default function Footer() {
 
         <div className="grid w-full md:grid-cols-2">
           <a href="http://pf.kakao.com/_pDByG" target="_blank" rel="noopener noreferrer" className="group/consult">
-            <div className="bg-[#66E274] md:px-6 md:m-0 m-4 md:pr-[50px] md:py-12 text-black flex items-center justify-center text-center md:text-left h-full">
+            <div className="bg-[#66E274] md:px-6 md:m-0 m-4 md:pr-[58px] md:py-12 text-black flex items-center justify-center text-center md:text-left h-full">
               <div className="flex flex-row-reverse items-center justify-center w-full max-w-4xl gap-2 mx-auto md:gap-8 md:mr-24 md:justify-start">
                 <Image
                   src="/images/message.png"
@@ -122,8 +122,19 @@ export default function Footer() {
         </div>
       </div>
       
-      <div className="flex flex-col items-start justify-between w-full gap-8 px-6 py-20 mx-auto bg-black md:max-w-6xl md:px-0 md:flex-row">
+      <div className="flex flex-col items-start justify-between w-full gap-8 px-6 py-10 mx-auto bg-black md:max-w-6xl md:px-6 md:flex-row">
         <div className="flex flex-col max-w-md gap-4">
+
+          <div className="flex items-center gap-2 text-white">
+            바이오애드랩 통합상품소개서 
+            <Image
+              src="/images/icon1.png"
+              alt="아이콘"
+              width={16}
+              height={16}
+              className="w-4 h-4"
+            />
+          </div>
           <div className="w-[120px]">
             <Image
               src="/images/bioaddlablogo.png"

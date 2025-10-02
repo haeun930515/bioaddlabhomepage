@@ -57,16 +57,17 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
     <div>
       {/* 데스크톱 버전 */}
       <div className="relative hidden w-full overflow-hidden mt-14 bg-black md:block rounded-bl-[34px] rounded-br-[34px]">
-        <Swiper
-          spaceBetween={0}
-          centeredSlides={true}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          modules={[Autoplay, Pagination]}
-          className="w-full h-[651px] bg-black"
-        >
+        <div className="relative w-full aspect-[16/7]">
+          <Swiper
+            spaceBetween={0}
+            centeredSlides={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay, Pagination]}
+            className="w-full h-full bg-black"
+          >
           {slideData.map((slide) => (
             <SwiperSlide key={`desktop-${slide.id}`} className="relative flex items-center justify-center w-full bg-black">
               <div className="relative w-full h-full">
@@ -97,8 +98,8 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
               </div>
             </SwiperSlide>
           ))}
-        </Swiper>
-        
+          </Swiper>
+        </div>
 
         <button
           onClick={onScrollDown}
