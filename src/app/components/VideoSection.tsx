@@ -2,7 +2,7 @@
 
 export default function VideoSection() {
   return (
-    <div className="relative w-full p-4 overflow-hidden md:p-12 md:mt-24 rounded-3xl">
+    <div className="relative w-full p-4 overflow-hidden md:p-12 md:pt-24 rounded-3xl bg-black/80">
       <video
         src="/videos/collection.mp4"
         autoPlay

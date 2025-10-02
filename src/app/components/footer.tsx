@@ -32,16 +32,16 @@ export default function Footer() {
 
         <LogoSlider />
 
-        <div className="grid w-full grid-cols-2">
+        <div className="grid w-full md:grid-cols-2">
           <a href="http://pf.kakao.com/_pDByG" target="_blank" rel="noopener noreferrer" className="group/consult">
-            <div className="bg-[#66E274] px-2 md:px-6 md:pr-[50px] py-6 md:py-12 text-black flex items-center justify-center text-center md:text-left h-full">
-              <div className="flex flex-col items-center w-full max-w-4xl gap-2 mx-auto md:flex-row-reverse md:items-center md:gap-8 md:mr-24">
+            <div className="bg-[#66E274] md:px-6 md:m-0 m-4 md:pr-[50px] md:py-12 text-black flex items-center justify-center text-center md:text-left h-full">
+              <div className="flex flex-row-reverse items-center justify-center w-full max-w-4xl gap-2 mx-auto md:gap-8 md:mr-24 md:justify-start">
                 <Image
                   src="/images/message.png"
                   alt="상담 아이콘"
                   width={60}
                   height={60}
-                  className="w-[60px] h-[60px] md:w-[80px] md:h-[60px]"
+                  className="w-[60px] h-[48px] md:w-[80px] md:h-[60px]"
                 />
               
                 <div className="relative">

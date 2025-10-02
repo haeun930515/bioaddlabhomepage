@@ -5,7 +5,6 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
-import "swiper/css";
 import Image from "next/image";
 
 const timelineData = [

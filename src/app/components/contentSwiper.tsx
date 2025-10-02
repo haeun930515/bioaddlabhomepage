@@ -5,10 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Navigation, Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/navigation';
-
 const contentItems = [
     { brand: '타이레놀', file: 'content_tyrenol.mp4' },
     { brand: '올리브영', file: 'content_olivey.mp4'},
