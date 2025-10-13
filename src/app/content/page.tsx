@@ -1,7 +1,8 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import CoverflowSlider from '../components/contentSwiper';
+import DesktopContentSwiper from '../components/contentSwiper';
+import MobileContentSwiper from '../components/MobileContentSwiper';
 import VideoSection from '../components/VideoSection';
 import StickyEyeCatch from '../components/stickyeyecatch';
 import StickyEyeCatchMobile from '../components/stickyeyecatchmobile';
@@ -9,7 +10,19 @@ import SubSwiper from '../components/sub-swiper2';
 
 export default function CustomSlider() {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const stickyWrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,12 +47,12 @@ export default function CustomSlider() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center w-full bg-black md:min-w-[1440px] relative">
+    <div className="flex flex-col items-center w-full bg-black md:min-w-[1440px] relative md:overflow-x-visible overflow-x-hidden">
 
       <SubSwiper/>
       
       <div className="pt-[52px]">
-        <CoverflowSlider />
+        {isMobile === null ? null : isMobile ? <MobileContentSwiper /> : <DesktopContentSwiper />}
       </div>
       
       <div ref={stickyWrapperRef} className="relative w-full h-[350vh] md:block hidden">

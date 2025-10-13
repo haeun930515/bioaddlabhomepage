@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Navigation, Autoplay } from 'swiper/modules';
+import { EffectCoverflow, Autoplay, Pagination } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 
 const contentItems = [
@@ -26,11 +26,8 @@ const contentItems = [
     { brand: '링티', file: 'content_lingt.mp4'},
 ];
 
-export default function DesktopContentSwiper() {
+export default function MobileContentSwiper() {
   const [activeIndex, setActiveIndex] = useState(0);
-  
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
 
   const handleSlideChange = (swiper: SwiperType) => {
     setActiveIndex(swiper.realIndex);
@@ -49,9 +46,9 @@ export default function DesktopContentSwiper() {
 
   const swiperOptions = {
     coverflowEffect: {
-      rotate: 40,
-      stretch: 0,
-      depth: 100,
+      rotate: 25,     
+      stretch: -15,    
+      depth: 60,       
       modifier: 1,
       slideShadows: true,
     },
@@ -59,17 +56,13 @@ export default function DesktopContentSwiper() {
       delay: 15000,
       disableOnInteraction: false,
     },
-    navigation: {
-      prevEl: prevRef.current,
-      nextEl: nextRef.current,
-    },
-    modules: [EffectCoverflow, Navigation, Autoplay],
+    modules: [EffectCoverflow, Autoplay, Pagination],
   };
 
   return (
     <div className="flex flex-col items-center justify-center w-full bg-black">
       {/* 제목 */}
-      <div className="mt-8 mb-8 text-[24px] font-['Noto_Sans'] text-white">
+      <div className="mt-6 mb-6 text-[18px] font-['Noto_Sans'] font-extrabold bg-gradient-to-r from-[#6AE266] to-[#0090EF] bg-clip-text text-transparent px-4">
         BIOADDLAB PORTFOLIO.
       </div>
 
@@ -81,7 +74,7 @@ export default function DesktopContentSwiper() {
         />
         
         {/* 스와이퍼 컨테이너 */}
-        <div className="relative flex items-center w-full h-full max-w-5xl mx-auto">
+        <div className="relative flex items-center w-full h-full px-4">
           <Swiper
             effect={'coverflow'} 
             {...swiperOptions}
@@ -90,56 +83,29 @@ export default function DesktopContentSwiper() {
             slidesPerView={'auto'}
             loop={true}
             onSlideChange={handleSlideChange}
-            onInit={(swiper) => {
-              if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
-                swiper.params.navigation.prevEl = prevRef.current;
-                swiper.params.navigation.nextEl = nextRef.current;
-                swiper.navigation.update();
-              }
-            }}
             onSwiper={(swiper: SwiperType) => {
                handleSlideChange(swiper);
             }}
-            className="w-full max-w-4xl h-[480px]"
+            className="w-full"
           >
             {contentItems.map((item, index) => (
               <SwiperSlide 
                 key={index} 
-                className="!w-[320px]"
+                className="!w-[75%] !h-[100%]"
               >
                 <video
                   src={`/videos/${item.file}`}
                   muted
                   playsInline
-                  className="object-cover w-full h-full rounded-lg aspect-[11/16]"
+                  className="object-cover w-full h-full rounded-lg aspect-[9/12]"
                 />
               </SwiperSlide>
             ))}
           </Swiper>
-
-          {/* 네비게이션 버튼 */}
-          <button
-            ref={prevRef}
-            className="absolute top-1/2 -translate-y-1/2 left-[-60px] z-10 w-12 h-12 bg-white/10 border border-white/20 rounded-full flex items-center justify-center transition hover:bg-white/20 disabled:opacity-50"
-            aria-label="Previous slide"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-            </svg>
-          </button>
-          <button
-            ref={nextRef}
-            className="absolute top-1/2 -translate-y-1/2 right-[-60px] z-10 w-12 h-12 bg-white/10 border border-white/20 rounded-full flex items-center justify-center transition hover:bg-white/20 disabled:opacity-50"
-            aria-label="Next slide"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-          </button>
         </div>
 
         {/* 브랜드명 표시 */}
-        <div className="z-10 mt-6 text-lg font-medium text-center text-white font-suit">
+        <div className="z-10 mt-6 text-center font-suit text-sm text-[#ABABAB] px-4">
           Brand: {contentItems[activeIndex].brand}
         </div>
       </div>
