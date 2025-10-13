@@ -16,7 +16,7 @@ export default function SubSwiper() {
           spaceBetween={0}
           centeredSlides={true}
           modules={[Autoplay, Pagination]}
-          className="w-full h-[651px] bg-transparent"
+          className="w-full h-[90vh] bg-transparent"
         >
           <SwiperSlide className="relative w-full h-full">
             <div className="absolute inset-0 w-full h-full">
@@ -30,7 +30,7 @@ export default function SubSwiper() {
               />
             </div>
 
-            <div className="relative z-10 flex items-center justify-center w-full h-full min-h-[651px]">
+            <div className="relative z-10 flex items-center justify-center w-full h-full">
                 <div className="relative p-12 text-center text-white">
                 <div className="flex flex-col items-center">
 
@@ -66,19 +66,38 @@ export default function SubSwiper() {
       </div>
 
       {/* 모바일 버전 */}
-      <div className="block md:hidden w-full h-[212px] bg-black text-center mt-[120px] flex-col">
-        <div className='text-white text-[20px] mb-8 font-suit font-extrabold'>
-          BIOADDLAB CONTENT<br/>
-        </div>
-        <div className='mb-8 leading-1'>
-          유익한 혜택이 가득한<br/>메디컬 스마트보드만의 콘텐츠를<br/>만나보세요
-        </div>
-        <div className='flex items-end justify-center'>
-          <img
-            src="/images/mobile/mobiletop2.png"
-            className='w-[80%] h-[120px]'
-          />
-        </div>
+      <div className="relative block w-full overflow-hidden bg-black mt-14 md:hidden">
+        <Swiper
+          spaceBetween={0}
+          centeredSlides={true}
+          modules={[Autoplay, Pagination]}
+          className="w-full h-[40vh] bg-transparent"
+        >
+          <SwiperSlide className="relative w-full h-full">
+            <div className="absolute inset-0 w-full h-full">
+              <video
+                src="/videos/components/content1.mp4"
+                muted
+                autoPlay
+                loop
+                playsInline
+                className="object-cover w-full h-full"
+              />
+            </div>
+
+            <div className="relative z-10 flex items-center justify-center w-full h-full">
+              <div className="relative p-12 text-center text-white">
+
+                <div className="flex flex-col items-center leading-none font-geist">
+                  <div className="text-[22px] mb-1 font-regular font-geist">유익한 혜택이 가득한</div>
+                  <div className="text-[22px] mb-1 font-regular font-geist">메디컬 스마트보드만의 콘텐츠를</div>
+                  <div className="text-[22px] mb-1 font-regular font-geist">만나보세요</div>
+                  <h2 className="mt-8 text-[36px] font-['Noto_Sans'] font-extrabold bg-gradient-to-r from-[#6AE266] to-[#0090EF] bg-clip-text text-transparent">CONTENT</h2>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   );

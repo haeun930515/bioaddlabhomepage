@@ -1,6 +1,10 @@
 import React from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 export default function MainNumber() {
   type StatBoxProps = {
@@ -26,7 +30,41 @@ export default function MainNumber() {
   };
 
   return (
-    <div className="z-10 w-full md:px-4 md:py-16 text-white min-h-[600px] flex flex-col justify-center relative">
+    <>
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .swiper-pagination {
+            position: absolute !important;
+            bottom: 10px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: auto !important;
+            height: auto !important;
+            z-index: 10 !important;
+          }
+          
+          .swiper-pagination-bullet {
+            width: 8px !important;
+            height: 8px !important;
+            background: white !important;
+            opacity: 0.5 !important;
+            border-radius: 4px !important;
+            margin: 0 4px !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+          }
+          
+          .swiper-pagination-bullet-active {
+            width: 24px !important;
+            height: 8px !important;
+            background: white !important;
+            opacity: 1 !important;
+            border-radius: 4px !important;
+          }
+        `
+      }} />
+    
+    <div className="z-10 w-full md:px-4 md:py-16 text-white md:min-h-[600px] h-[400px] md:h-auto flex flex-col justify-center relative">
       <video
         className="absolute top-0 left-0 hidden object-cover w-full h-full -z-10 md:block"
         src="/videos/components/main1.mp4"
@@ -36,14 +74,9 @@ export default function MainNumber() {
         muted
       />
 
-      <div className="w-full min-h-[600px] md:px-4 md:py-16 text-white flex flex-col items-center justify-center z-10">
+      <div className="w-full md:min-h-[600px] md:px-4 md:py-16 text-white flex flex-col items-center justify-center z-10">
         
-      <div className="w-full h-[250px] text-center justify-center items-center flex md:hidden">
-          <img
-            src="/images/mobile/mobilemainbg.png"
-            className="absolute z-0 object-cover w-full h-[250px]"
-            alt="모바일 배경 이미지"
-          />
+      <div className="w-full md:h-[250px] h-[120px] text-center justify-center items-center flex md:hidden">
           <h2 className="absolute z-10 text-2xl font-regular sm:text-3xl">
             <span className="mb-3 font-bold text-white">서울 수도권</span>을 중심으로<br />
             <span className="text-white">빠르게 확장</span>합니다
@@ -83,32 +116,59 @@ export default function MainNumber() {
           );
         })}
       </div>
+        {/* 모바일 */}
+      <div className="w-full h-[200px] text-center justify-center items-center flex flex-col md:hidden">
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={1}
+          centeredSlides={true}
+          pagination={{ clickable: true }}
+          modules={[Pagination]}
+          className="w-full h-[150px]"
+        >
+          <SwiperSlide>
+            <div className="h-[141px] w-[300px] flex flex-col justify-center items-center text-white p-4 rounded-md mx-auto">
+              <div className="text-xl font-bold text-white">병의원</div>
+              <div className="flex items-center gap-1 mt-2 text-green-500">
+                <div className="text-3xl font-extrabold leading-tight tabular-nums">1,200</div>
+                <div className="text-3xl font-extrabold font-suit">개 병원 +</div>
+              </div>
+            </div>
+          </SwiperSlide>
 
-      <div className="w-full h-[200px] text-center justify-center items-center flex md:hidden bg-white">
-        <div className="grid grid-cols-2 gap-4 md:hidden h-[130px] w-[300px] bg-white items-center justify-center">
-          <img
-            src="/images/mobile/mobilenum1.png"
-            className="w-[144px] h-[63px]"
-            alt="asdf"
-            />
-          <img
-            src="/images/mobile/mobilenum2.png"
-            className="w-[144px] h-[63px]"
-            alt="asdf"
-            />
-          <img
-            src="/images/mobile/mobilenum3.png"
-            className="w-[144px] h-[63px]"
-            alt="asdf"
-            />
-          <img
-            src="/images/mobile/mobilenum4.png"
-            className="w-[144px] h-[63px]"
-            alt="asdf"
-            />
-        </div>
+          <SwiperSlide>
+            <div className="h-[141px] w-[300px] flex flex-col justify-center items-center text-white p-4 rounded-md mx-auto">
+              <div className="text-xl font-bold text-white">의료인</div>
+              <div className="flex items-center gap-1 mt-2 text-green-500">
+                <div className="text-3xl font-extrabold leading-tight tabular-nums">5,000</div>
+                <div className="text-3xl font-extrabold font-suit">명 +</div>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="h-[141px] w-[300px] flex flex-col justify-center items-center text-white p-4 rounded-md mx-auto">
+              <div className="text-xl font-bold text-white">월 방문객</div>
+              <div className="flex items-center gap-1 mt-2 text-green-500">
+                <div className="text-3xl font-extrabold leading-tight tabular-nums">1,500,000</div>
+                <div className="text-3xl font-extrabold font-suit">명 +</div>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="h-[141px] w-[300px] flex flex-col justify-center items-center text-white p-4 rounded-md mx-auto">
+              <div className="text-xl font-bold text-white">월 노출수</div>
+              <div className="flex items-center gap-1 mt-2 text-green-500">
+                <div className="text-3xl font-extrabold leading-tight tabular-nums">5,280,000</div>
+                <div className="text-3xl font-extrabold font-suit">회 +</div>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
       </div>
     </div>
+    </>
   );
 }

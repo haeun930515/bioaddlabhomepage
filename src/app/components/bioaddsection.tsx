@@ -9,12 +9,12 @@ import 'swiper/css/navigation';
 import MobileImageCard from './mobileimagecard';
 
 const backgroundImage = '/videos/components/solution2.mp4';
-const cardImage1 = '/images/content/bioadd1.png';
-const cardImage2 = '/images/content/bioadd2.png';
-const cardImage3 = '/images/content/bioadd3.png';
-const cardImage4 = '/images/content/bioadd4.png';
-const cardImage5 = '/images/content/bioadd5.png';
-const cardImage6 = '/images/content/bioadd6.png';
+const cardImage1 = '/images/content/bioadd1.jpg';
+const cardImage2 = '/images/content/bioadd2.jpg';
+const cardImage3 = '/images/content/bioadd3.jpg';
+const cardImage4 = '/images/content/bioadd4.jpg';
+const cardImage5 = '/images/content/bioadd5.jpg';
+const cardImage6 = '/images/content/bioadd6.jpg';
 
 interface ArrowButtonProps {
   direction?: 'left' | 'right';
@@ -98,8 +98,8 @@ const BioaddSection = () => {
         </div>
       </div>
     </section>
-    <div className='block md:hidden'>
-      <div className="self-start flex-shrink-0 w-full pt-16 text-center">
+    <div className='block py-16 bg-black md:hidden'>
+      <div className="self-start flex-shrink-0 w-full pt-8 text-center">
           <h2 className="mb-8 text-[20px] font-extrabold font-suit leading-tight text-white">
             BIOADD.
             <br />
@@ -107,7 +107,7 @@ const BioaddSection = () => {
           </h2>
         </div>
 
-      <div className="w-full min-w-0 pb-8 overflow-hidden">
+      <div className="w-full min-w-0 px-4 pb-8 overflow-hidden">
             <Swiper
               modules={[Navigation]}
               loop={true}
@@ -117,7 +117,7 @@ const BioaddSection = () => {
               className="w-full"
             >
               {cardData.map((card, index) => (
-                <SwiperSlide key={index} className="object-contain ">
+                <SwiperSlide key={index}>
                   <MobileImageCard
                     imgSrc={card.imgSrc}
                     imgAlt={card.imgAlt}

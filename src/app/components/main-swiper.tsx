@@ -113,7 +113,7 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
       </div>
 
       {/* 모바일 버전 */}
-      <div className="block md:hidden w-full h-[700px]">
+        <div className="block w-full md:hidden aspect-[9/14]">
         <Swiper
           spaceBetween={0}
           centeredSlides={true}
@@ -123,27 +123,41 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
           }}
           pagination={{ clickable: true }}
           modules={[Autoplay, Pagination]}
-          className="w-full h-[656px]"
+          className="w-full h-full"
         >
           <SwiperSlide className="relative flex items-center justify-center w-full bg-black">
-              <div className="relative w-full h-0 min-h-[651px]">
+              <div className="relative w-full aspect-[9/14]">
                   <div className="absolute inset-0 w-full h-full">
                     <img
                       src="/images/mobile/main-swiper-mobile.png"
                       alt="바이오애드랩대기실"
-                      className="object-cover object-center w-full h-full"
+                        className="object-fill w-full h-full"
                     />
                     
                   </div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4">
                     <div className="container relative z-10 flex flex-col justify-center h-full px-4 mx-auto">
-                      <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-[22px] font-bold font-suit text-white md:text-4xl">Connecting Hospitals,</h1>
-                        <h1 className="mb-2 text-[22px] font-bold font-suit text-white md:text-4xl">Patients, and World</h1>
-                        <p className="mb-8 text-[22px] font-bold text-green-500 md:text-4xl font-suit">Powered by AI.</p>
-                      
-                        
+                      <div className="max-w-4xl mx-auto leading-none text-center">
+                        <div className="text-[30px] font-bold text-white font-['Noto_Sans']">CONNECTING</div>
+                        <div className="text-[22px] font-regular text-white font-['Noto_Sans']">HOSPITALS,</div>
+                        <div className="text-[22px] font-regular text-white font-['Noto_Sans']">PATIENTS,</div>
+                        <div className="text-[30px] font-bold text-white font-['Noto_Sans']">AND WORLD</div>
+                        <div className="mt-12 text-[50px] font-bold font-['Noto_Sans']">
+                          POWERED <br/>BY <span 
+                            style={{
+                              background: 'linear-gradient(45deg, #32FF00, #00E1FF, #32FF00)',
+                              backgroundClip: 'text',
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent',
+                              color: '#32FF00',
+                              backgroundSize: '200% 200%',
+                              animation: 'gradientShift 3s ease-in-out infinite'
+                            }}
+                          >
+                            AI.
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>

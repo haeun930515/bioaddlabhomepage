@@ -20,6 +20,14 @@ export default function Header() {
     <header className="fixed top-0 left-0 z-50 w-full text-white md:bg-black">
       <div className="flex items-center justify-between max-w-screen-xl px-6 py-4 mx-auto md:justify-center md:flex-row">
         <div className="flex justify-between w-full md:w-auto">
+          <Link href="/" className="block md:hidden">
+            <Image
+              src="/images/bioaddlablogo.png"
+              alt="Bioaddlab Logo"
+              width={140}
+              height={30}
+            />
+          </Link>
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -32,15 +40,6 @@ export default function Header() {
               height={24}
             />
           </button>
-
-          <Link href="/" className="block ml-auto md:hidden">
-            <Image
-              src="/images/bioaddlablogo.png"
-              alt="Bioaddlab Logo"
-              width={140}
-              height={30}
-            />
-          </Link>
         </div>
 
         <nav className="items-center hidden gap-16 text-lg font-extrabold md:flex font-geist">
@@ -51,13 +50,40 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* 모바일 드롭다운 메뉴 */}
+      {/* 모바일 전체 화면 메뉴 */}
       {menuOpen && (
-        <div className="flex flex-col gap-4 px-6 py-4 overflow-hidden text-[12px] font-suit font-extrabold text-black bg-white shadow-md md:hidden w-[143px]">
-          <Link href="/" onClick={() => setMenuOpen(false)}>HOME</Link>
-          <Link href="/service" onClick={() => setMenuOpen(false)}>SOLUTIONS</Link>
-          <Link href="/content" onClick={() => setMenuOpen(false)}>CONTENT</Link>
-          <Link href="/contact" onClick={() => setMenuOpen(false)}>CONTACT</Link>
+        <div className="fixed inset-0 z-40 flex flex-col items-start justify-center gap-8 px-16 text-[20px] text-black bg-white font-['Noto Sans'] md:hidden animate-fadeIn">
+          {/* X 닫기 버튼 */}
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="absolute text-4xl transition-colors top-6 right-6 hover:text-green-400"
+          >
+            ×
+          </button>
+          
+          {/* 로고 */}
+          <Link href="/" onClick={() => setMenuOpen(false)} className="mb-8">
+            <Image
+              src="/images/logoblack.png"
+              alt="Bioaddlab Logo"
+              width={200}
+              height={50}
+            />
+          </Link>
+          
+          {/* 메뉴 항목들 */}
+          <Link href="/service" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 transition-colors hover:text-green-400">
+            <span className="font-['Noto Sans']" style={{fontWeight: 900}}>SOLUTIONS.</span>
+            <span className="text-lg font-normal">↗</span>
+          </Link>
+          <Link href="/content" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 transition-colors hover:text-green-400">
+            <span className="font-['Noto Sans']" style={{fontWeight: 900}}>CONTENT.</span>
+            <span className="text-lg font-normal">↗</span>
+          </Link>
+          <Link href="/contact" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 transition-colors hover:text-green-400">
+            <span className="font-['Noto Sans']" style={{fontWeight: 900}}>CONTACT.</span>
+            <span className="text-lg font-normal">↗</span>
+          </Link>
         </div>
       )}
     </header>

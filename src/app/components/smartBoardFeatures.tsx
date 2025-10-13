@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -76,6 +76,106 @@ const scrollableContentData: ContentColumnProps[] = [
   },
 ];
 
+const mobileFeaturesData = [
+  {
+    id: 1,
+    title: "inch",
+    subtitle: "시스템",
+    image: "/images/mobile/mobilefeature1.png",
+    features: [
+      "병원별 맞춤형 컨텐츠 제공",
+      "병원 내 스마트보드에서 카카오 실손보험 청구 연계 지원",
+      "광고+병원 안내+환자 커뮤니케이션 통합",
+      "환자 편의성 강화, 병원 업무 부담 경감"
+    ]
+  },
+  {
+    id: 2,
+    title: "AI Vital Sign",
+    subtitle: "측정",
+    image: "/images/mobile/mobilefeature2.png",
+    features: [
+      "카메라로 원격 생체데이터 측정 및 AI 질환 예측 솔루션 연계",
+      "피부나이, 산소포화도 등 분과별 기술 Customize",
+      "성별, 연령, 시선등 측정 (노출 효과 분석)",
+      "스마트보드 유일 카카오 실손보험청구 연계"
+    ]
+  },
+  {
+    id: 3,
+    title: "CAMERA",
+    subtitle: "솔루션",
+    image: "/images/mobile/mobilefeature3.png",
+    features: [
+      "성별/연령/인원 수 행동 패턴 데이터 수집",
+      "AI분석으로 유형별 맞춤정보제공 (광고/건강정보)",
+      "측정 카메라를 통한 광고 성과 측정",
+      "실시간 공간 분석 및 최적화"
+    ]
+  }
+];
+
+const MobileFeatures = () => {
+  const [activeTab, setActiveTab] = useState(0);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const handleTabClick = (index: number) => {
+    if (contentRef.current) {
+      gsap.to(contentRef.current, {
+        opacity: 0,
+        duration: 0.3,
+        onComplete: () => {
+          setActiveTab(index);
+          gsap.to(contentRef.current, {
+            opacity: 1,
+            duration: 0.3
+          });
+        }
+      });
+    } else {
+      setActiveTab(index);
+    }
+  };
+
+  return (
+    <div className='w-full min-h-[850px] flex items-center justify-center md:hidden flex-col gap-8 bg-white py-8'>
+      <div className='flex flex-col items-center justify-center font-extrabold text-black text-[22px] mb-8'>
+        <div>헬스케어</div>
+        <div>SMART BOARD SYSTEM</div>
+      </div>
+      
+      {/* 탭 버튼들 */}
+      <div className='flex gap-4 mb-8'>
+        {mobileFeaturesData.map((item, index) => (
+          <button
+            key={item.id}
+            onClick={() => handleTabClick(index)}
+            className={`px-4 py-2 rounded-2xl text-sm font-medium transition-all duration-300 ${
+              activeTab === index
+                ? 'bg-black text-white shadow-lg'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+          >
+            {item.title}
+          </button>
+        ))}
+      </div>
+
+      {/* 콘텐츠 영역 */}
+      <div ref={contentRef} className='flex flex-col items-center gap-6'>
+        <div className='w-[289px] h-[600px]'>
+          <img
+            src={mobileFeaturesData[activeTab].image}
+            alt={mobileFeaturesData[activeTab].title}
+            className='w-[289px] h-[600px] object-fill rounded-lg'
+          />
+        </div>
+        
+      </div>
+    </div>
+  );
+};
+
 export default function SmartBoardFeatures() {
   const triggerRef = useRef<HTMLDivElement>(null);
   const pinTargetRef = useRef<HTMLDivElement>(null);
@@ -119,29 +219,7 @@ export default function SmartBoardFeatures() {
       </div>
       
       {/* 모바일 */}
-      <div className='w-full h-[2000px] flex items-center justify-center md:hidden flex-col gap-8 bg-white'>
-        <div className='w-[289px] h-[600px]'>
-          <img
-            src="/images/mobile/mobilefeature1.png"
-            alt='바이오애드'
-            className='w-[289px] h-[600px] object-fill'
-          />
-        </div>
-        <div className='w-[289px] h-[657px]'>
-          <img
-            src="/images/mobile/mobilefeature2.png"
-            alt='바이오애드'
-            className='w-[289px] h-[657px] object-fill'
-          />
-        </div>
-        <div className='w-[289px] h-[528px]'>
-          <img
-            src="/images/mobile/mobilefeature3.png"
-            alt='바이오애드'
-            className='w-[289px] h-[528px] object-fill'
-          />
-        </div>
-      </div>
+      <MobileFeatures />
     </>
   );
 }

@@ -7,7 +7,6 @@ export default function ContactPage() {
   const [file, setFile] = useState<File | null>(null);
   const [isSending, setIsSending] = useState(false);
   const [result, setResult] = useState<'success' | 'error' | null>(null);
-  
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -19,18 +18,18 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSending(true);
     setResult(null);
-  
+
     const form = e.currentTarget;
     const formData = new FormData(form);
     if (file) formData.append('file', file);
-  
+
     const res = await fetch('/api/contact', {
       method: 'POST',
       body: formData,
     });
-  
+
     setIsSending(false);
-  
+
     if (res.ok) {
       setResult('success');
       form.reset();
@@ -41,25 +40,39 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex flex-col items-center px-4 py-20 text-white bg-black">
-
-<div className="w-screen px-0">
-  <video
-    src="/videos/components/contact1.mp4"
-    muted
-    loop
-    autoPlay
-    playsInline
-    className="absolute z-0 hidden object-cover w-full h-auto md:block"
-  />
-   <div 
-          className="absolute z-[1] hidden w-full h-full bg-black/40 md:block" 
+    <div className="relative flex flex-col items-center min-h-screen px-4 py-20 text-white bg-black">
+      <div className="absolute top-0 left-0 w-full h-full">
+        <video
+          src="/videos/components/contact1.mp4"
+          muted
+          loop
+          autoPlay
+          playsInline
+          className="absolute z-0 object-cover w-full h-full"
+        />
+        <div 
+          className="absolute z-[1] w-full h-full bg-black/60" 
           style={{ top: 0, left: 0 }}
         ></div>
-  </div>
-      <div className="relative flex flex-row items-end justify-between w-full max-w-3xl mb-12">
+      </div>
+      <div className="relative z-10 w-full max-w-3xl mb-12">
+        {/* 데스크톱 버전 */}
+        <div className="hidden md:flex md:flex-row md:items-end md:justify-between">
           <div className="text-base font-bold text-green-400 md:text-4xl">SEND A MESSAGE.</div>
-        <div className="right-0 text-xs font-bold text-green-400">* <span className='text-white'>필수</span></div>
+          <div className="right-0 text-xs font-bold text-green-400">* <span className='text-white'>필수</span></div>
+        </div>
+        {/* 모바일 버전 */}
+        <div className="flex flex-col items-center md:hidden">
+          <Image
+            src="/images/message-icon.png"
+            alt="메시지 아이콘"
+            width={35}
+            height={30}
+            className="w-[35px] h-[30px] mb-2"
+          />
+          <div className="text-[22px] font-bold text-green-400">SEND A MESSAGE</div>
+          <div className="self-end mt-2 text-xs font-bold text-green-400">* <span className='text-white'>필수</span></div>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit} className="z-10 w-full max-w-3xl space-y-8 font-bold">
@@ -119,26 +132,26 @@ export default function ContactPage() {
         </div>
 
         <button
-            type="submit"
-            disabled={isSending}
-            className={`w-full py-3 mt-8 font-bold rounded transition text-[24px] ${
-              isSending
-                ? 'bg-gray-600 cursor-not-allowed text-white'
-                : 'bg-white hover:bg-white text-black'
-            }`}
-          >
-            {isSending ? '전송 중...' : '문의하기'}
-          </button>
-          {result === 'success' && (
-            <div className="mt-4 text-center text-green-400">
-              메일이 전송되었습니다 ✅
-            </div>
-          )}
-          {result === 'error' && (
-            <div className="mt-4 text-center text-red-400">
-              메일 전송에 실패했습니다. 잠시 후 다시 시도해주세요 ❌
-            </div>
-          )}
+          type="submit"
+          disabled={isSending}
+          className={`w-full py-3 mt-8 font-bold rounded transition text-[24px] ${
+            isSending
+              ? 'bg-gray-600 cursor-not-allowed text-white'
+              : 'bg-white hover:bg-white text-black'
+          }`}
+        >
+          {isSending ? '전송 중...' : '문의하기'}
+        </button>
+        {result === 'success' && (
+          <div className="mt-4 text-center text-green-400">
+            메일이 전송되었습니다 ✅
+          </div>
+        )}
+        {result === 'error' && (
+          <div className="mt-4 text-center text-red-400">
+            메일 전송에 실패했습니다. 잠시 후 다시 시도해주세요 ❌
+          </div>
+        )}
       </form>
     </div>
   );

@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import CoverflowSlider from '../components/contentSwiper';
 import VideoSection from '../components/VideoSection';
 import StickyEyeCatch from '../components/stickyeyecatch';
+import StickyEyeCatchMobile from '../components/stickyeyecatchmobile';
 import SubSwiper from '../components/sub-swiper2';
 
 export default function CustomSlider() {
@@ -41,14 +42,14 @@ export default function CustomSlider() {
         <CoverflowSlider />
       </div>
       
-      <div ref={stickyWrapperRef} className="relative w-full h-[300vh] md:block hidden">
+      <div ref={stickyWrapperRef} className="relative w-full h-[350vh] md:block hidden">
         <div className="sticky top-0 w-full h-screen overflow-hidden">
           <StickyEyeCatch progress={scrollProgress} />
         </div>
       </div>
 
       <div className='block md:hidden'>
-        <StickyEyeCatch progress={scrollProgress}/>
+        <StickyEyeCatchMobile/>
       </div>
 
       <VideoSection />

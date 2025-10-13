@@ -108,7 +108,6 @@ const FirstSectionUI: React.FC = () => {
         mainFeatureText: "광고 반복 노출 ",
         mainFeatureHighlight: "평균 6회",
         description: "환자와 보호자는 ‘관람자’가 아닌 건강·미용·보험·금융 등에<br />관심이 높고 구매력 있는 핵심 타겟입니다.<br />그렇기에 대기시간 18분동안 평균 6회 이상 반복 노출로<br />확실한 광고 효과를 기대할 수 있습니다.",
-       
         graphImageSrc: "/images/content/content-graph.png"
       },
       {
@@ -229,39 +228,15 @@ export default function StickyEyeCatch({ progress }: StickyEyeCatchProps) {
 
   return (
     <>
-      <div className="relative hidden w-full h-[1000px] overflow-hidden md:block">
+      <div className="relative flex items-center justify-center w-full h-screen overflow-hidden">
         <img src="/images/content/catchbg.png" alt="배경" className="absolute top-0 left-0 object-cover w-full h-full" />
         
-        <div ref={firstSectionRef} className="absolute top-0 left-0 w-full h-full">
+        <div ref={firstSectionRef} className="absolute left-0 flex items-center justify-center w-full h-full">
           <FirstSectionUI />
         </div>
 
-        <div ref={secondSectionRef} className="absolute top-0 left-0 w-full h-full opacity-0">
+        <div ref={secondSectionRef} className="absolute left-0 flex items-center justify-center w-full h-full opacity-0">
           <HorizontalScrollSection ref={trackRef}  blurRef={blurRef}  />
-        </div>
-      </div>
-
-      <div className='w-full h-[1700px] md:hidden flex items-center justify-center flex-col gap-12'>
-        <div className='w-[261px] h-[626px]'>
-          <img
-            src="/images/mobile/mobilecontent1.png"
-            alt='바이오애드'
-            className='w-[261px] h-[626px] object-fill'
-          />
-        </div>
-        <div className='w-[324px] h-[461px]'>
-          <img
-            src="/images/mobile/mobilecontent2.png"
-            alt='바이오애드'
-            className='w-[324px] h-[461px] object-fill'
-          />
-        </div>
-        <div className='w-[320px] h-[400px]'>
-          <img
-            src="/images/mobile/mobilecontent3.png"
-            alt='바이오애드'
-            className='w-[320px] h-[400px] object-fill'
-          />
         </div>
       </div>
     </>

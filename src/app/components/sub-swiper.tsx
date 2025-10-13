@@ -18,7 +18,7 @@ export default function SubSwiper() {
           spaceBetween={0}
           centeredSlides={true}
           modules={[Autoplay, Pagination]}
-          className="w-full h-[651px] bg-transparent"
+          className="w-full h-[90vh] bg-transparent"
         >
           <SwiperSlide className="relative w-full h-full">
             <div className="absolute inset-0 w-full h-full">
@@ -32,7 +32,7 @@ export default function SubSwiper() {
               />
             </div>
 
-            <div className="relative z-10 flex items-center justify-center w-full h-full min-h-[651px]">
+            <div className="relative z-10 flex items-center justify-center w-full h-full">
               <div className="relative p-12 text-center text-white">
                 <svg
                   className="absolute w-5 h-5 left-5 top-10"
@@ -63,16 +63,37 @@ export default function SubSwiper() {
       </div>
 
       {/* 모바일 버전 */}
-      <div className="block md:hidden w-full h-[212px] bg-black text-center mt-[120px] flex-col">
-        <div className='text-white text-[20px] mb-8 font-suit font-extrabold'>
-          BIOADDLAB SMART BOARD<br/> TECHNOLOGY
-        </div>
-        <div className='flex items-end justify-center'>
-          <img
-            src="/images/mobile/mobiletop1.png"
-            className='w-[80%] h-[120px]'
-          />
-        </div>
+      <div className="relative block w-full overflow-hidden bg-white mt-14 md:hidden">
+        <Swiper
+          spaceBetween={0}
+          centeredSlides={true}
+          modules={[Autoplay, Pagination]}
+          className="w-full h-[40vh] bg-transparent"
+        >
+          <SwiperSlide className="relative w-full h-full">
+            <div className="absolute inset-0 w-full h-full">
+              <video
+                src="/videos/components/solution1.mp4"
+                muted
+                autoPlay
+                loop
+                playsInline
+                className="object-cover w-full h-full"
+              />
+            </div>
+
+            <div className="relative z-10 flex items-center justify-center w-full h-full">
+              <div className="relative p-12 text-center text-white">
+
+                <div className="flex flex-col items-center leading-none font-geist">
+                  <div className="text-[25px] font-light font-geist">BIOADDLAB</div>
+                  <div className="text-[25px] font-light font-geist">SMART BOARD</div>
+                  <h2 className="mt-8 text-[36px] font-['Noto_Sans'] font-extrabold bg-gradient-to-r from-[#6AE266] to-[#0090EF] bg-clip-text text-transparent">TECHNOLOGY</h2>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   );

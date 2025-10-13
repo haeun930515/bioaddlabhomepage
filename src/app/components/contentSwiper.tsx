@@ -94,17 +94,20 @@ export default function CoverflowSlider() {
   const swiperOptions = isMobile ? mobileOptions : desktopOptions;
 
   return (
-    <div className="flex flex-col items-center justify-center w-full bg-white md:bg-black">
-      <div className='py-12 text-2xl text-black md:text-white md:text-3xl font-geist'>
+    <div className="flex flex-col items-center justify-center w-full bg-black">
+      <div className="md:block hidden mt-8 mb-8 text-[24px] font-['Noto_Sans'] text-white">
+        BIOADDLAB PORTFOLIO.
+      </div>
+      <div className="block md:hidden mt-8 mb-8 text-[21px] font-['Noto_Sans'] font-extrabold bg-gradient-to-r from-[#6AE266] to-[#0090EF] bg-clip-text text-transparent">
         BIOADDLAB PORTFOLIO.
       </div>
 
       <div className="relative w-full pb-16">
         <div
-          className="absolute inset-0 bg-center bg-cover -z-10 h-[1000px] w-full"
+          className="absolute inset-0 w-full h-full bg-center bg-cover -z-10"
           style={{ backgroundImage: "url('/images/content/contentbg.png')" }}
         />
-        <div className="relative w-full max-w-5xl mx-auto">
+        <div className="relative flex items-center w-full h-full max-w-5xl mx-auto">
           <Swiper
             effect={'coverflow'} 
             {...swiperOptions}
@@ -134,12 +137,12 @@ export default function CoverflowSlider() {
             onSwiper={(swiper: SwiperType) => {
                handleSlideChange(swiper);
             }}
-            className="w-full max-w-4xl h-[480px]"
+            className={`w-full max-w-4xl ${isMobile ? 'aspect-[9/5]' : 'h-[480px]'}`}
           >
             {contentItems.map((item, index) => (
               <SwiperSlide 
                 key={index} 
-                className={isMobile ? "!w-[75%]" : "!w-[320px]"}
+                className={isMobile ? "!w-[280px]" : "!w-[320px]"}
               >
                 <video
                   src={`/videos/${item.file}`}

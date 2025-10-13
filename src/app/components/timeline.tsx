@@ -3,9 +3,11 @@
 import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 import { useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
-import Image from "next/image";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const timelineData = [
     {
@@ -39,7 +41,7 @@ const swiperRef = useRef<SwiperType | null>(null);
         <div className="relative w-full text-white">
         <div className="relative hidden mt-32 md:block bg-black/80">
           <div className="w-full h-[2px] bg-white absolute z-0 top-[205px]" />
-          <div className="ml-[200px] pb-12 pl-12 pt-12 pr-12 ">
+          <div className="pt-12 pb-12 pl-12 pr-12 ">
             <div className="text-4xl font-bold leading-snug whitespace-pre-line">
               기술이 만든 신뢰,{"\n"}브랜드가 이끄는 미래
             </div>
@@ -76,26 +78,77 @@ const swiperRef = useRef<SwiperType | null>(null);
           </div>
         </div>
 
-        <div className="block text-center md:hidden">
-          <div className="px-6">
-            <h2 className="text-2xl font-bold leading-snug whitespace-pre-line">
+        <div className="block mt-8 md:hidden bg-black/80">
+          <div className="px-6 pt-8 pb-8">
+            <h2 className="text-2xl font-bold leading-snug text-center whitespace-pre-line">
               기술이 만든 신뢰,{'\n'}브랜드가 이끄는 미래
             </h2>
           </div>
 
-          <div
-            className="w-full mt-4 bg-center bg-cover"
-          >
-            <div className="mx-auto w-[300px]">
-              <Image
-                src="/images/mobile-years.png"
-                alt="모바일 연혁"
-                width={300}
-                height={800} 
-                className="w-full h-auto"
-                priority
-              />
-            </div>
+          <div className="relative pb-8">
+            <div className="w-full h-[2px] border-white border-2 border-dotted absolute z-0 top-[10px]" />
+            <Swiper
+              spaceBetween={20}
+              slidesPerView={1}
+              centeredSlides={true}
+              pagination={{ 
+                clickable: true,
+                bulletClass: 'swiper-pagination-bullet !bg-white !opacity-50',
+                bulletActiveClass: 'swiper-pagination-bullet-active !bg-white !opacity-100'
+              }}
+              modules={[Pagination]}
+              className="w-full h-[350px]"
+            >
+              {/* 첫 번째 슬라이드: 2025 + 2024 세로 배치 */}
+              <SwiperSlide>
+                <div className="pb-16 space-y-12">
+                  <div className="relative flex items-start">
+                    <div className="flex flex-col items-center mr-4">
+                      <div className="w-5 h-5 rounded-full border-[3px] border-white bg-black z-10" />
+                    </div>
+                    <div className="mt-8 text-left">
+                      <div className="mb-2 text-lg font-bold text-[#707070]">{timelineData[0].year}</div>
+                      <div className="space-y-1 text-xs leading-6 text-gray-300">
+                        {timelineData[0].events.map((e, ei) => (
+                          <div key={ei}>{e}</div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="relative flex items-start">
+                    <div className="flex flex-col items-center mr-4">
+                      <div className="w-5 h-5 rounded-full" />
+                    </div>
+                    <div className="mt-8 text-left">
+                      <div className="mb-2 text-lg font-bold text-[#707070]">{timelineData[1].year}</div>
+                      <div className="space-y-1 text-xs leading-6 text-gray-300">
+                        {timelineData[1].events.map((e, ei) => (
+                          <div key={ei}>{e}</div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+
+              {/* 두 번째 슬라이드: 2023 */}
+              <SwiperSlide>
+                <div className="relative flex items-start justify-center pb-16">
+                  <div className="flex flex-col items-center mr-4">
+                    <div className="w-5 h-5 rounded-full border-[3px] border-white bg-black z-10" />
+                  </div>
+                  <div className="mt-8 text-left">
+                    <div className="mb-2 text-lg font-bold text-[#707070]">{timelineData[2].year}</div>
+                    <div className="space-y-1 text-xs leading-6 text-gray-300">
+                      {timelineData[2].events.map((e, ei) => (
+                        <div key={ei}>{e}</div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
           </div>
         </div>
       </div>

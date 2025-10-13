@@ -1,65 +1,87 @@
 'use client';
 import Image from 'next/image';
 import LogoSlider from './logoslider';
+import { useEffect } from 'react';
 
 export default function Footer() {
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
+
   return (
     <footer className="relative z-50 text-white bg-black md:min-w-[1440px]">
       <div className="w-full">
 
-        <div className="w-full px-4 py-20 text-white bg-[#373737]">
+        {/* 데스크탑 버전 */}
+        <div className="hidden w-full px-4 py-20 text-white bg-[#373737] md:block">
           <div className="max-w-6xl mx-auto">
-
-            <div className="hidden md:block">
-              <div className="mb-2 text-2xl font-extrabold font-geist">Our Partners & Clients</div>
-              <div className="text-sm leading-relaxed">
-                병원 분과 별로 맞춤 세팅, 이제 당신의 브랜드가 가장 주목받는 의료 공간에서
-                가장 필요한 타깃과 만날 시간입니다
-              </div>
-            </div>
-
-            <div className="block px-10 md:hidden">
-              <div className="mb-6 md:text-3xl md:font-extrabold font-extrabold text-[20px] font-suit md:font-geist">Our Partners & Clients</div>
-              <div className="md:text-lg text-[14px] leading-relaxed">
-                병원 분과 별로 맞춤 세팅,<br />
-                이제 당신의 브랜드가 가장 주목받는<br />
-                의료 공간에서 가장 필요한 타깃과<br />
-                만날 시간입니다
-              </div>
+            <div className="mb-2 text-2xl font-extrabold font-geist">Our Partners & Clients</div>
+            <div className="text-sm leading-relaxed">
+              병원 분과 별로 맞춤 세팅, 이제 당신의 브랜드가 가장 주목받는 의료 공간에서
+              가장 필요한 타깃과 만날 시간입니다
             </div>
           </div>
         </div>
 
-        <LogoSlider />
+        {/* 모바일 버전 */}
+        <div className="block w-full py-8 text-white bg-center bg-cover md:hidden" style={{ backgroundImage: 'url(/images/logobg.png)' }}>
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-4 font-extrabold text-[22px] px-12 font-suit text-center" style={{
+              background: 'linear-gradient(45deg, #32FF00, #00E1FF, #32FF00)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundSize: '200% 200%',
+              animation: 'gradientShift 3s ease-in-out infinite'
+            }}>Our Partners & Clients</div>
+            <div className="mb-6 text-[14px] leading-relaxed px-12 text-center">
+              병원 분과 별로 맞춤 세팅,<br />
+              이제 당신의 브랜드가 가장 주목받는<br />
+              의료 공간에서 가장 필요한 타깃과<br />
+              만날 시간입니다
+            </div>
+            <LogoSlider />
+          </div>
+        </div>
 
-        <div className="grid w-full md:grid-cols-2">
+        {/* 데스크탑용 로고슬라이더 */}
+        <div className="hidden md:block">
+          <LogoSlider />
+        </div>
+
+        {/* 데스크탑 버전 */}
+        <div className="hidden w-full md:grid md:grid-cols-2">
           <a href="http://pf.kakao.com/_pDByG" target="_blank" rel="noopener noreferrer" className="group/consult">
-            <div className="bg-[#66E274] md:px-6 md:m-0 m-4 md:pr-[58px] md:py-12 text-black flex items-center justify-center text-center md:text-left h-full">
-              <div className="flex flex-row-reverse items-center justify-center w-full max-w-4xl gap-2 mx-auto md:gap-8 md:mr-24 md:justify-start">
+            <div className="bg-[#66E274] px-6 pr-[58px] py-12 text-black flex items-center justify-center text-left h-full">
+              <div className="flex flex-row-reverse items-center justify-start w-full max-w-4xl gap-8 mr-24">
                 <Image
                   src="/images/message.png"
                   alt="상담 아이콘"
-                  width={60}
+                  width={80}
                   height={60}
-                  className="w-[60px] h-[48px] md:w-[80px] md:h-[60px]"
+                  className="w-[80px] h-[60px]"
                 />
               
                 <div className="relative">
-                  <div className="md:transition-transform md:duration-300 md:group-hover/consult:-translate-y-6">
-                    <div className="mb-3 text-[14px] font-extrabold md:text-lg font-suit">
+                  <div className="transition-transform duration-300 group-hover/consult:-translate-y-6">
+                    <div className="mb-3 text-lg font-extrabold font-suit">
                       설치하고 싶은 병원이라면
                     </div>
-                    <div className="text-[10px] md:hidden font-medium leading-relaxed font-suit">
-                      "병원 부담 없이, 분위기는 새롭게!"<br />
-                      지금 바이오애드랩과 상담하세요.
-                    </div>
-                    <div className="hidden mr-24 text-sm font-medium leading-relaxed md:block">
+                    <div className="mr-24 text-sm font-medium leading-relaxed">
                       "병원 부담 없이, 분위기는 새롭게!"<br />
                       지금 바이오애드랩과 상담하세요.
                     </div>
                   </div>
                   
-                  <div className="hidden absolute left-0 top-[85%] invisible px-6 py-2 text-sm text-white bg-black rounded-full shadow-lg opacity-0 whitespace-nowrap md:transition-all md:duration-300 md:translate-y-0 md:block md:group-hover/consult:opacity-100 md:group-hover/consult:visible">
+                  <div className="absolute left-0 top-[85%] invisible px-6 py-2 text-sm text-white bg-black rounded-full shadow-lg opacity-0 whitespace-nowrap transition-all duration-300 translate-y-0 block group-hover/consult:opacity-100 group-hover/consult:visible">
                     문의 / 제안
                   </div>
                 </div>
@@ -67,42 +89,20 @@ export default function Footer() {
             </div>
           </a>
 
-          <a href="/contact" target="_blank" rel="noopener noreferrer"  className="group/partner">
-            <div className="bg-[#1E1E1E] px-2 md:px-6 py-6 md:py-12 text-white h-full overflow-visible">
-              
-              <div className="flex flex-col items-center text-center md:hidden">
-                <Image
-                  src="/images/friend.png"
-                  alt="파트너 아이콘"
-                  width={60}
-                  height={60}
-                  className="mb-4 w-[60px] h-[60px]"
-                />
-                
-                <div className="mb-2 text-[14px] font-suit font-extrabold">파트너가 되고 싶다면</div>
-                    
-                <div className="text-[10px] text-left font-medium font-suit leading-relaxed text-gray-300">
-                  1000명 이상의 의료인이 선택한<br />
-                  바이오애드랩과 함께,<br />
-                  효과적이고 효율적인<br />
-                  광고 전략을 경험하세요.
-                </div>
-              </div>
-
-              <div className="items-start hidden w-full max-w-4xl pl-12 mx-auto overflow-visible md:flex">
+          <a href="/contact" target="_blank" rel="noopener noreferrer" className="group/partner">
+            <div className="bg-[#1E1E1E] px-6 py-12 text-white h-full overflow-visible">
+              <div className="flex items-start w-full max-w-4xl pl-12 mx-auto overflow-visible">
                 <div className="flex items-start gap-[100px]">
                   <div className="relative pb-6">
-                    <div className="text-left md:transition-transform md:duration-300 md:group-hover/partner:-translate-y-6">
-                      
+                    <div className="text-left transition-transform duration-300 group-hover/partner:-translate-y-6">
                       <div className="mb-1 text-lg font-extrabold">파트너가 되고 싶다면</div>
-                      
                       <div className="text-sm font-medium leading-relaxed text-gray-300">
                         1000명 이상의 의료인이 선택한 바이오애드랩과 함께,<br />
                         효과적이고 효율적인 광고 전략을 경험하세요.
                       </div>
                     </div>
                   
-                    <div className="absolute bottom-0 left-0 invisible hidden px-6 py-2 text-sm text-white bg-black rounded-full shadow-lg opacity-0 whitespace-nowrap md:transition-all md:duration-300 md:translate-y-0 md:block md:group-hover/partner:opacity-100 md:group-hover/partner:visible">
+                    <div className="absolute bottom-0 left-0 invisible block px-6 py-2 text-sm text-white transition-all duration-300 translate-y-0 bg-black rounded-full shadow-lg opacity-0 whitespace-nowrap group-hover/partner:opacity-100 group-hover/partner:visible">
                       문의 / 제안
                     </div>
                   </div>
@@ -118,7 +118,58 @@ export default function Footer() {
               </div>
             </div>
           </a>
-      
+        </div>
+
+        {/* 모바일 버전 */}
+        <div className="block w-full md:hidden">
+          <a href="http://pf.kakao.com/_pDByG" target="_blank" rel="noopener noreferrer" className="group/consult">
+            <div className="bg-[#66E274] m-4 rounded-2xl py-4 text-black flex items-center justify-center text-center h-full">
+              <div className="flex flex-row-reverse items-center justify-center w-full max-w-4xl gap-2 mx-auto">
+                <Image
+                  src="/images/message.png"
+                  alt="상담 아이콘"
+                  width={60}
+                  height={48}
+                  className="w-[60px] h-[48px]"
+                />
+              
+                <div className="relative">
+                  <div className="mb-3 text-[14px] font-extrabold font-suit">
+                    설치하고 싶은 병원이라면
+                  </div>
+                  <div className="text-[10px] font-medium leading-relaxed font-suit">
+                    "병원 부담 없이, 분위기는 새롭게!<br />
+                    지금 바이오애드랩과 상담하세요.""
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="/contact" target="_blank" rel="noopener noreferrer" className="group/partner">
+            <div className="bg-[#1E1E1E] m-4 rounded-2xl py-4 text-white h-full overflow-visible">
+              <div className="flex flex-row-reverse items-center justify-center w-full max-w-4xl gap-2 mx-auto">
+                <Image
+                  src="/images/friend.png"
+                  alt="파트너 아이콘"
+                  width={60}
+                  height={60}
+                  className="mb-4 w-[60px] h-[60px]"
+                />
+                <div className='relative'>
+                <div className="mb-2 text-[14px] font-suit font-extrabold">파트너가 되고 싶다면</div>
+                    
+                    <div className="text-[10px] text-left font-medium font-suit leading-relaxed text-gray-300">
+                      
+                      "효과와 효율을 동시에! 1000명<br />
+                      이상 의료인의 선택 바이오애드랩"
+                    </div>
+
+                </div>
+                
+              </div>
+            </div>
+          </a>
         </div>
       </div>
       

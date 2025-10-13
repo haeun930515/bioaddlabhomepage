@@ -5,7 +5,7 @@ import fs from 'fs';
 
 export const config = {
   api: {
-    bodyParser: false, 
+    bodyParser: false,
   },
 };
 
@@ -24,7 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       service: 'gmail',
       auth: {
         user: 'bioaddlab.ai@gmail.com',
-        pass: 'piwrqquqbbbjqzzg', 
+        pass: 'piwrqquqbbbjqzzg',
       },
     });
 
