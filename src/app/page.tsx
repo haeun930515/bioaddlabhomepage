@@ -31,14 +31,22 @@ export default function Home() {
 
   
   return (
-    <div className="bg-black md:min-w-[1440px]">
-      <MainSwiper onScrollDown={handleScrollDown}/>
-      <div ref={nextSectionRef}>
-      <MainIntro/>
+    <div className="bg-black md:min-w-[1440px] md:snap-y md:snap-mandatory">
+      <div className="md:snap-start md:h-screen">
+        <MainSwiper onScrollDown={handleScrollDown}/>
       </div>
-      <MainNumber/>
-      <Timeline/>
-      <VideoSection/>
+      <div ref={nextSectionRef} className="md:snap-start md:h-screen">
+        <MainIntro/>
+      </div>
+      <div className="md:snap-start md:h-screen">
+        <MainNumber/>
+      </div>
+      <div className="md:snap-start md:h-screen">
+        <Timeline/>
+      </div>
+      <div className="md:snap-start md:h-screen">
+        <VideoSection/>
+      </div>
     </div>
   );
 }

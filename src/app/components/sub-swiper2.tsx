@@ -89,9 +89,9 @@ export default function SubSwiper() {
               <div className="relative p-12 text-center text-white">
 
                 <div className="flex flex-col items-center leading-none font-geist">
-                  <div className="text-[22px] mb-1 font-regular font-geist">유익한 혜택이 가득한</div>
-                  <div className="text-[22px] mb-1 font-regular font-geist">메디컬 스마트보드만의 콘텐츠를</div>
-                  <div className="text-[22px] mb-1 font-regular font-geist">만나보세요</div>
+                  <div className="text-[15px] mb-1 font-regular font-geist">유익한 혜택이 가득한</div>
+                  <div className="text-[15px] mb-1 font-regular font-geist">메디컬 스마트보드만의 콘텐츠를</div>
+                  <div className="text-[15px] mb-1 font-regular font-geist">만나보세요</div>
                   <h2 className="mt-8 text-[36px] font-['Noto_Sans'] font-extrabold bg-gradient-to-r from-[#6AE266] to-[#0090EF] bg-clip-text text-transparent">CONTENT</h2>
                 </div>
               </div>
