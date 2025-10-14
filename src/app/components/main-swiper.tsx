@@ -128,12 +128,15 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
           <SwiperSlide className="relative flex items-center justify-center w-full bg-black">
               <div className="relative w-full aspect-[9/14]">
                   <div className="absolute inset-0 w-full h-full">
-                    <img
-                      src="/images/mobile/main-swiper-mobile.png"
-                      alt="바이오애드랩대기실"
-                        className="object-fill w-full h-full"
+                    <video
+                      src="/videos/components/mainmobile.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="object-cover w-full h-full"
                     />
-                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#5B6972]/80 via-black/20 to-transparent"></div>
                   </div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4">

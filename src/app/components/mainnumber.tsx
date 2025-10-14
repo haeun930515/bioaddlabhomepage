@@ -1,10 +1,6 @@
 import React from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
 
 export default function MainNumber() {
   type StatBoxProps = {
@@ -30,39 +26,6 @@ export default function MainNumber() {
   };
 
   return (
-    <>
-      <style dangerouslySetInnerHTML={{
-        __html: `
-          .swiper-pagination {
-            position: absolute !important;
-            bottom: 10px !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            width: auto !important;
-            height: auto !important;
-            z-index: 10 !important;
-          }
-          
-          .swiper-pagination-bullet {
-            width: 8px !important;
-            height: 8px !important;
-            background: white !important;
-            opacity: 0.5 !important;
-            border-radius: 4px !important;
-            margin: 0 4px !important;
-            transition: all 0.3s ease !important;
-            display: inline-block !important;
-          }
-          
-          .swiper-pagination-bullet-active {
-            width: 24px !important;
-            height: 8px !important;
-            background: white !important;
-            opacity: 1 !important;
-            border-radius: 4px !important;
-          }
-        `
-      }} />
     
     <div className="z-10 w-full md:px-4 md:py-16 text-white md:min-h-[600px] h-[400px] md:h-auto flex flex-col justify-center relative">
       <video
@@ -117,58 +80,35 @@ export default function MainNumber() {
         })}
       </div>
         {/* 모바일 */}
-      <div className="w-full h-[200px] text-center justify-center items-center flex flex-col md:hidden">
-        <Swiper
-          spaceBetween={20}
-          slidesPerView={1}
-          centeredSlides={true}
-          pagination={{ clickable: true }}
-          modules={[Pagination]}
-          className="w-full h-[150px]"
-        >
-          <SwiperSlide>
-            <div className="h-[141px] w-[300px] flex flex-col justify-center items-center text-white p-4 rounded-md mx-auto">
-              <div className="text-xl font-bold text-white">병의원</div>
-              <div className="flex items-center gap-1 mt-2 text-green-500">
-                <div className="text-3xl font-extrabold leading-tight tabular-nums">1,200</div>
-                <div className="text-3xl font-extrabold font-suit">개 병원 +</div>
-              </div>
-            </div>
-          </SwiperSlide>
+      <div className="flex flex-col items-center w-full gap-4 px-4 md:hidden">
+        {[
+          { label: '병의원', end: 1200, suffix: '개 병원 +' },
+          { label: '월 방문객', end: 1500000, suffix: '명 +' },
+          { label: '의료인', end: 5000, suffix: '명 +' },
+          { label: '월 노출수', end: 5280000, suffix: '회 +' },
+        ].map((item, i) => {
+          const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
-          <SwiperSlide>
-            <div className="h-[141px] w-[300px] flex flex-col justify-center items-center text-white p-4 rounded-md mx-auto">
-              <div className="text-xl font-bold text-white">의료인</div>
-              <div className="flex items-center gap-1 mt-2 text-green-500">
-                <div className="text-3xl font-extrabold leading-tight tabular-nums">5,000</div>
-                <div className="text-3xl font-extrabold font-suit">명 +</div>
+          return (
+            <div
+              ref={ref} 
+              key={i}
+              className="h-[60px] w-full max-w-[320px] flex flex-row items-center bg-white/10 rounded-full border border-[#868686] backdrop-blur-sm text-white p-4 "
+            >
+              <div className="w-24 pl-2 text-lg font-bold text-gray-500">
+                {item.label}
+              </div>
+              <div className="flex items-center gap-1 text-green-500">
+                <div className="text-2xl font-extrabold leading-tight tabular-nums">
+                  {inView ? <CountUp end={item.end} duration={2} separator="," /> : '0'}
+                </div>
+                <div className="text-2xl font-extrabold font-suit">{item.suffix}</div>
               </div>
             </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="h-[141px] w-[300px] flex flex-col justify-center items-center text-white p-4 rounded-md mx-auto">
-              <div className="text-xl font-bold text-white">월 방문객</div>
-              <div className="flex items-center gap-1 mt-2 text-green-500">
-                <div className="text-3xl font-extrabold leading-tight tabular-nums">1,500,000</div>
-                <div className="text-3xl font-extrabold font-suit">명 +</div>
-              </div>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="h-[141px] w-[300px] flex flex-col justify-center items-center text-white p-4 rounded-md mx-auto">
-              <div className="text-xl font-bold text-white">월 노출수</div>
-              <div className="flex items-center gap-1 mt-2 text-green-500">
-                <div className="text-3xl font-extrabold leading-tight tabular-nums">5,280,000</div>
-                <div className="text-3xl font-extrabold font-suit">회 +</div>
-              </div>
-            </div>
-          </SwiperSlide>
-        </Swiper>
+          );
+        })}
       </div>
       </div>
     </div>
-    </>
   );
 }

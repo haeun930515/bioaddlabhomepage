@@ -35,7 +35,7 @@ export default function LogoSlider() {
   const repeatedBottomLogos = Array(4).fill(bottomLogos).flat();
 
   return (
-    <div className="w-full py-6 overflow-hidden bg-transparent md:py-20 md:bg-black md:bg-[url(/images/logobg.png)]">
+    <div className="w-full py-1 overflow-hidden bg-transparent md:py-20 md:bg-black md:bg-[url(/images/logobg.png)] md:bg-center md:bg-no-repeat md:bg-cover">
       <div className="overflow-hidden whitespace-nowrap">
         <div className="flex gap-12 md:gap-16 animate-[scroll-left_70s_linear_infinite]" style={{ width: 'max-content' }}>
           {[...topLogos, ...topLogos].map((name, idx) => (
@@ -44,7 +44,7 @@ export default function LogoSlider() {
                 src={`/images/logos/${name}.png`}
                 alt={`logo-top-${name}`}
                 width={160}
-                height={60}
+                height={40}
                 className="object-contain md:w-[140px] md:h-[100px]"
               />
             </div>
@@ -52,7 +52,7 @@ export default function LogoSlider() {
         </div>
       </div>
 
-      <div className="mt-8 overflow-hidden whitespace-nowrap md:mt-12">
+      <div className="mt-0 overflow-hidden whitespace-nowrap md:mt-12">
 
         <div className="flex gap-12 md:gap-16 animate-[scroll-right_70s_linear_infinite]" style={{ width: 'max-content', transform: 'translateX(-50%)', }}>
           {repeatedBottomLogos.map((name, idx) => (
@@ -61,7 +61,7 @@ export default function LogoSlider() {
                 src={`/images/logos/${name}.png`}
                 alt={`logo-bottom-${name}`}
                 width={160}
-                height={60}
+                height={30}
                 className="object-contain md:w-[140px] md:h-[100px]"
               />
             </div>
