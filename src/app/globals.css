@@ -1,5 +1,4 @@
-/* Noto Sans English */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* SUIT 폰트만 사용하도록 Noto Sans 제거 */
 
 @tailwind base;
 @tailwind components;
@@ -13,8 +12,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'SUIT', sans-serif;
+  --font-mono: 'SUIT', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {

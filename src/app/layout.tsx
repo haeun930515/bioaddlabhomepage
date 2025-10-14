@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import GoogleAnalytics from "./googleAnalytics";
-import { GeistMono } from 'geist/font/mono'; // Mono 폰트를 원하시면 mono를 import
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bioaddlab.com'),
@@ -58,9 +56,7 @@ export default function RootLayout({
         <meta name="naver-site-verification" content="edad3c1d6fa6d44fbeba0ee005ebd03257e1e975" />
         <meta name="google-site-verification" content="zrhra_u7AExEETJX6B1BWMWRMt-2r4gAVEzdXdbFsPs" />
       </head>
-      <body
-        className={GeistMono.variable}
-      >
+      <body>
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         )}

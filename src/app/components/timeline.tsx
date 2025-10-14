@@ -89,7 +89,7 @@ const swiperRef = useRef<SwiperType | null>(null);
             <div className="w-full h-[2px] border-white border-2 border-dotted absolute z-0 top-[10px]" />
             <Swiper
               spaceBetween={20}
-              slidesPerView={1}
+              slidesPerView={2}
               centeredSlides={true}
               pagination={{ 
                 clickable: true,
