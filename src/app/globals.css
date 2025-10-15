@@ -1,4 +1,5 @@
-/* SUIT 폰트만 사용하도록 Noto Sans 제거 */
+/* Noto Sans English */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;

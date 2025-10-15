@@ -9,7 +9,7 @@ module.exports = {
         geist: ['var(--font-geist-mono)', 'sans-serif'], // CSS 변수 사용
         'suit': ['SUIT', 'sans-serif'],
         'galmuri': ['Galmuri9', 'sans-serif'],
-
+        'noto-sans': ['Noto Sans', 'sans-serif'],
       },
       keyframes: {
         marquee: {
