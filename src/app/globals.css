@@ -15,6 +15,7 @@
   --color-foreground: var(--foreground);
   --font-sans: 'SUIT', sans-serif;
   --font-mono: 'SUIT', sans-serif;
+  --font-geist-mono: 'Geist Mono', monospace;
 }
 
 @media (prefers-color-scheme: dark) {

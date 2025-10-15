@@ -51,14 +51,14 @@ export default function ContactPage() {
           className="absolute z-0 object-cover w-full h-full"
         />
         <div 
-          className="absolute z-[1] w-full h-full bg-black/60" 
+          className="absolute z-[1] w-full h-full bg-black/80" 
           style={{ top: 0, left: 0 }}
         ></div>
       </div>
-      <div className="relative z-10 w-full max-w-3xl mb-12">
+      <div className="relative z-10 w-full max-w-3xl mt-8 mb-12 md:mt-24">
         {/* 데스크톱 버전 */}
         <div className="hidden md:flex md:flex-row md:items-end md:justify-between">
-          <div className="text-base font-bold text-green-400 md:text-4xl">SEND A MESSAGE.</div>
+          <div className="text-base text-green-400 md:text-4xl font-geist">SEND A MESSAGE.</div>
           <div className="right-0 text-xs font-bold text-green-400">* <span className='text-white'>필수</span></div>
         </div>
         {/* 모바일 버전 */}
@@ -70,7 +70,7 @@ export default function ContactPage() {
             height={30}
             className="w-[35px] h-[30px] mb-2"
           />
-          <div className="text-[22px] font-bold text-green-400">SEND A MESSAGE</div>
+          <div className="text-[22px]  font-geist text-green-400">SEND A MESSAGE</div>
           <div className="self-end mt-2 text-xs font-bold text-green-400">* <span className='text-white'>필수</span></div>
         </div>
       </div>

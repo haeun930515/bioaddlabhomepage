@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        geist: ['var(--font-geist-mono)', 'sans-serif'], // CSS 변수 사용
+        geist: ['Geist Mono', 'monospace'],
         'suit': ['SUIT', 'sans-serif'],
         'galmuri': ['Galmuri9', 'sans-serif'],
         'noto-sans': ['Noto Sans', 'sans-serif'],
