@@ -111,6 +111,7 @@ export default function DesktopContentSwiper() {
                   src={`/videos/${item.file}`}
                   muted
                   playsInline
+                  controls={false}
                   className="object-cover w-full h-full rounded-lg aspect-[11/16]"
                 />
               </SwiperSlide>

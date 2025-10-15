@@ -8,6 +8,7 @@ export default function VideoSection() {
         autoPlay
         muted
         playsInline
+        controls={false}
         className="object-fill w-full h-auto aspect-video rounded-3xl"
       />
       <div className="absolute inset-0 flex items-center justify-center px-4 text-center">

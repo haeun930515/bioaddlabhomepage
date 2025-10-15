@@ -26,6 +26,7 @@ export default function SubSwiper() {
                 autoPlay
                 loop
                 playsInline
+                controls={false}
                 className="object-cover w-full h-full"
               />
             </div>
@@ -81,6 +82,7 @@ export default function SubSwiper() {
                 autoPlay
                 loop
                 playsInline
+                controls={false}
                 className="object-cover w-full h-full"
               />
             </div>

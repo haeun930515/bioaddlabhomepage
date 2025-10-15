@@ -134,6 +134,7 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
                       loop
                       muted
                       playsInline
+                      controls={false}
                       className="object-cover w-full h-full"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#5B6972]/80 via-black/20 to-transparent"></div>
