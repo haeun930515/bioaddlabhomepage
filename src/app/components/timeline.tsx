@@ -78,14 +78,47 @@ const swiperRef = useRef<SwiperType | null>(null);
           </div>
         </div>
 
-        <div className="block mt-8 md:hidden bg-black/80">
-          <div className="px-6 pt-8 pb-8">
-            <h2 className="text-2xl font-bold leading-snug text-center whitespace-pre-line">
+        <div className="block h-auto mt-16 md:hidden bg-black/80">
+          <div className="px-6 pt-6 pb-4">
+            <h2 className="text-xl font-bold leading-snug text-center whitespace-pre-line">
               기술이 만든 신뢰,{'\n'}브랜드가 이끄는 미래
             </h2>
           </div>
 
-          <div className="relative pb-8">
+          <style dangerouslySetInnerHTML={{
+            __html: `
+              .swiper-pagination {
+                position: absolute !important;
+                bottom: 10px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: auto !important;
+                height: auto !important;
+                z-index: 10 !important;
+              }
+              
+              .swiper-pagination-bullet {
+                width: 8px !important;
+                height: 8px !important;
+                background: white !important;
+                opacity: 0.5 !important;
+                border-radius: 4px !important;
+                margin: 0 4px !important;
+                transition: all 0.3s ease !important;
+                display: inline-block !important;
+              }
+              
+              .swiper-pagination-bullet-active {
+                width: 24px !important;
+                height: 8px !important;
+                background: white !important;
+                opacity: 1 !important;
+                border-radius: 4px !important;
+              }
+            `
+          }} />
+
+          <div className="relative pb-4">
             <div className="w-full h-[2px] border-white border-2 border-dotted absolute z-0 top-[10px]" />
             <Swiper
               spaceBetween={20}
@@ -97,16 +130,16 @@ const swiperRef = useRef<SwiperType | null>(null);
                 bulletActiveClass: 'swiper-pagination-bullet-active !bg-white !opacity-100'
               }}
               modules={[Pagination]}
-              className="w-full h-[350px]"
+              className="w-full h-auto"
             >
               {/* 첫 번째 슬라이드: 2025 + 2024 세로 배치 */}
               <SwiperSlide>
-                <div className="pb-16 space-y-12">
+                <div className="pb-8 space-y-8">
                   <div className="relative flex items-start">
                     <div className="flex flex-col items-center mr-4">
                       <div className="w-5 h-5 rounded-full border-[3px] border-white bg-black z-10" />
                     </div>
-                    <div className="mt-8 text-left">
+                    <div className="mt-8 -ml-8 text-left">
                       <div className="mb-2 text-lg font-bold text-[#707070]">{timelineData[0].year}</div>
                       <div className="space-y-1 text-xs leading-6 text-gray-300">
                         {timelineData[0].events.map((e, ei) => (
@@ -120,7 +153,7 @@ const swiperRef = useRef<SwiperType | null>(null);
                     <div className="flex flex-col items-center mr-4">
                       <div className="w-5 h-5 rounded-full" />
                     </div>
-                    <div className="mt-8 text-left">
+                    <div className="mt-8 -ml-8 text-left">
                       <div className="mb-2 text-lg font-bold text-[#707070]">{timelineData[1].year}</div>
                       <div className="space-y-1 text-xs leading-6 text-gray-300">
                         {timelineData[1].events.map((e, ei) => (
@@ -134,11 +167,11 @@ const swiperRef = useRef<SwiperType | null>(null);
 
               {/* 두 번째 슬라이드: 2023 */}
               <SwiperSlide>
-                <div className="relative flex items-start justify-center pb-16">
+                <div className="relative flex items-start justify-center pb-8">
                   <div className="flex flex-col items-center mr-4">
                     <div className="w-5 h-5 rounded-full border-[3px] border-white bg-black z-10" />
                   </div>
-                  <div className="mt-8 text-left">
+                  <div className="mt-8 -ml-8 text-left">
                     <div className="mb-2 text-lg font-bold text-[#707070]">{timelineData[2].year}</div>
                     <div className="space-y-1 text-xs leading-6 text-gray-300">
                       {timelineData[2].events.map((e, ei) => (
