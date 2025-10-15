@@ -17,7 +17,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative z-50 text-white bg-black md:min-w-[1440px]">
+    <footer className="relative text-white bg-black md:min-w-[1440px]">
       <div className="w-full">
 
         {/* 데스크탑 버전 */}
@@ -32,8 +32,9 @@ export default function Footer() {
         </div>
 
         {/* 모바일 버전 */}
-        <div className="block w-full py-8 text-white bg-center bg-cover md:hidden" style={{ backgroundImage: 'url(/images/logobg.png)' }}>
-          <div className="max-w-6xl mx-auto">
+        <div className="relative block w-full py-8 pt-12 text-white bg-center bg-cover md:hidden" style={{ backgroundImage: 'url(/images/logobgmobile.png)' }}>
+          <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+          <div className="relative z-10 max-w-6xl mx-auto">
             <div className="mb-4 font-extrabold text-[22px] px-12 font-suit text-center" style={{
               background: 'linear-gradient(45deg, #32FF00, #00E1FF, #32FF00)',
               backgroundClip: 'text',
@@ -124,57 +125,76 @@ export default function Footer() {
         <div className="block w-full md:hidden">
           <a href="http://pf.kakao.com/_pDByG" target="_blank" rel="noopener noreferrer" className="group/consult">
             <div className="bg-[#66E274] m-4 rounded-2xl py-4 text-black flex items-center justify-center text-center h-full">
-              <div className="flex flex-row-reverse items-center justify-center w-full max-w-4xl gap-2 mx-auto">
-                <Image
-                  src="/images/message.png"
-                  alt="상담 아이콘"
-                  width={60}
-                  height={48}
-                  className="w-[60px] h-[48px]"
-                />
-              
+              <div className="flex items-center justify-between w-full max-w-4xl px-4 mx-auto">
                 <div className="relative">
-                  <div className="mb-3 text-[14px] font-extrabold font-suit">
+                  <div className="mb-2 text-[16px] text-left ml-2 font-extrabold font-suit">
                     설치하고 싶은 병원이라면
                   </div>
-                  <div className="text-[10px] font-medium leading-relaxed font-suit">
+                  <div className="text-[13px] font-medium leading-relaxed font-suit">
                     "병원 부담 없이, 분위기는 새롭게!<br />
                     지금 바이오애드랩과 상담하세요.""
                   </div>
                 </div>
+                <Image
+                  src="/images/message.png"
+                  alt="상담 아이콘"
+                  width={54}
+                  height={42}
+                  className="w-[54px] h-[42px] mr-4"
+                />
               </div>
             </div>
           </a>
 
           <a href="/contact" target="_blank" rel="noopener noreferrer" className="group/partner">
-            <div className="bg-[#1E1E1E] m-4 rounded-2xl py-4 text-white h-full overflow-visible">
-              <div className="flex flex-row-reverse items-center justify-center w-full max-w-4xl gap-2 mx-auto">
-                <Image
-                  src="/images/friend.png"
-                  alt="파트너 아이콘"
-                  width={60}
-                  height={60}
-                  className="mb-4 w-[60px] h-[60px]"
-                />
+            <div className="bg-[#5B5B5B] m-4 rounded-2xl py-4 text-white h-full overflow-visible">
+              <div className="flex items-center justify-between w-full max-w-4xl px-4 mx-auto">
                 <div className='relative'>
-                <div className="mb-2 text-[14px] font-suit font-extrabold">파트너가 되고 싶다면</div>
+                <div className="mb-2 text-[16px] font-suit ml-2 font-extrabold">파트너가 되고 싶다면</div>
                     
-                    <div className="text-[10px] text-left font-medium font-suit leading-relaxed text-gray-300">
+                    <div className="text-[13px] text-left font-medium font-suit leading-relaxed text-gray-300">
                       
                       "효과와 효율을 동시에! 1000명<br />
                       이상 의료인의 선택 바이오애드랩"
                     </div>
 
                 </div>
-                
+                <Image
+                  src="/images/friend.png"
+                  alt="파트너 아이콘"
+                  width={54}
+                  height={52}
+                  className="w-[52px] h-[52px] mr-4"
+                />
               </div>
             </div>
           </a>
         </div>
       </div>
       
-      <div className="flex flex-col items-start justify-between w-full gap-8 px-6 py-10 mx-auto bg-black md:max-w-6xl md:px-6 md:flex-row">
-        <div className="flex flex-col max-w-md gap-4">
+      <div className="flex flex-col items-start justify-between w-full gap-8 px-6 py-10 mx-auto bg-[#2D2D2D] md:bg-black md:max-w-6xl md:px-6 md:flex-row relative z-10">
+        {/* 탑 버튼 */}
+        <button 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="absolute top-0 right-4 w-10 h-10 bg-[#5B5B5B] hover:bg-[#6B6B6B] transition-colors duration-200 flex items-center justify-center"
+          aria-label="맨 위로 이동"
+        >
+          <svg 
+            width="20" 
+            height="20" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="white" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          >
+            <path d="M12 19l0-14"/>
+            <path d="M5 12l7-7 7 7"/>
+          </svg>
+        </button>
+        
+        <div className="flex flex-col max-w-md gap-4 text-[#8E8E8E]">
 
           <div className="flex items-center gap-2 text-white">
             바이오애드랩 통합상품소개서 
@@ -188,7 +208,7 @@ export default function Footer() {
           </div>
           <div className="w-[120px]">
             <Image
-              src="/images/bioaddlablogo.png"
+              src="/images/logogray.png"
               alt="bioaddlab logo"
               width={120}
               height={30}
@@ -196,26 +216,26 @@ export default function Footer() {
             />
           </div>
         
-          <div className="space-y-1 text-[12px] text-gray-300 md:text-base">
+          <div className="space-y-1 text-[12px] md:text-base">
             <div className="flex gap-2">
-              <span className="font-bold text-white w-14">이메일</span>
+              <span className="font-bold w-14">이메일</span>
               <span>admin@bioaddlab.com</span>
             </div>
             <div className="flex gap-2">
-              <span className="font-bold text-white w-14">Biz No.</span>
+              <span className="font-bold w-14">Biz No.</span>
               <span>261-86-02932</span>
             </div>
             <div className="flex gap-2">
-              <span className="font-bold text-white w-14">주소</span>
+              <span className="font-bold w-14">주소</span>
               <span>서울시 강남구 압구정로 30길 63 401호</span>
             </div>
           </div>
 
         </div>
 
-        <div className="flex flex-col items-start w-full gap-2 md:text-lg text-[12px] font-extrabold text-white font-suit md:items-end md:w-auto">
+        <div className="flex flex-col items-start w-full md:mt-[98px] gap-2 md:gap-0 md:text-lg  text-[12px] font-extrabold md:font-medium font-suit md:items-start md:w-[600px] text-[#8E8E8E]">
           <div>전화번호 : 02 - 2038 - 0088</div>
-          <div className="mt-2 md:text-lg text-[12px] font-medium text-white font-suit">
+          <div className="mt-2 md:mt-0 md:text-lg text-[12px] font-medium font-suit">
             Copyright ⓒ bioadd lab. All Rights Reserved.
           </div>
         </div>

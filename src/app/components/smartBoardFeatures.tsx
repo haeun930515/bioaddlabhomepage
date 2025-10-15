@@ -138,19 +138,19 @@ const MobileFeatures = () => {
   };
 
   return (
-    <div className='w-full min-h-[850px] flex items-center justify-center md:hidden flex-col gap-8 bg-white py-8'>
-      <div className='flex flex-col items-center justify-center font-extrabold text-black text-[22px] mb-8'>
+    <div className='w-full min-h-[850px] flex items-center justify-center md:hidden flex-col gap-8 py-8 bg-white'>
+      <div className='flex flex-col items-center justify-center font-extrabold text-black text-[22px] mb-0 mt-4'>
         <div>헬스케어</div>
         <div>SMART BOARD SYSTEM</div>
       </div>
       
       {/* 탭 버튼들 */}
-      <div className='flex gap-4 mb-8'>
+      <div className='flex gap-4 mb-0'>
         {mobileFeaturesData.map((item, index) => (
           <button
             key={item.id}
             onClick={() => handleTabClick(index)}
-            className={`px-4 py-2 rounded-2xl text-sm font-medium transition-all duration-300 ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
               activeTab === index
                 ? 'bg-black text-white shadow-lg'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -163,11 +163,11 @@ const MobileFeatures = () => {
 
       {/* 콘텐츠 영역 */}
       <div ref={contentRef} className='flex flex-col items-center gap-6'>
-        <div className='w-[289px] h-[600px]'>
+        <div className='w-[292px] h-[620px]'>
           <img
             src={mobileFeaturesData[activeTab].image}
             alt={mobileFeaturesData[activeTab].title}
-            className='w-[289px] h-[600px] object-fill rounded-lg'
+            className='w-[292px] h-[620px] object-fill rounded-lg'
           />
         </div>
         

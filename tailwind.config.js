@@ -31,7 +31,6 @@ module.exports = {
         subtlePing: 'subtlePing 2.5s ease-in-out infinite',
       },
       colors: {
-        white: "#ffffff",
         black: "#000000",
         gray: {
           100: "#F5F6F8",

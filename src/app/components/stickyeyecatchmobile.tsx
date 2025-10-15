@@ -21,7 +21,7 @@ export default function StickyEyeCatchMobile() {
         __html: `
           .swiper-pagination {
             position: absolute !important;
-            top: 10px !important;
+            bottom: 10px !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
             width: auto !important;
@@ -49,21 +49,19 @@ export default function StickyEyeCatchMobile() {
           }
         `
       }} />
-        <div className='w-[350px] h-[700px] flex flex-col items-center justify-center border-2 bg-white/10 border-[#4e5254] backdrop-blur-lg rounded-3xl'>
-            
-          {/* 고정 이미지 */}
-          <div className='w-[280px] h-[350px] mb-4'>
-            <img
-              src="/images/mobile/mobilecontenttop.png"
-              alt='바이오애드 고정 이미지'
-              className='w-[280px] h-[350px] object-cover rounded-lg'
-            />
+        <div className='w-[350px] h-[630px] flex flex-col items-center justify-center border-2 bg-white/10 border-[#4e5254] backdrop-blur-lg rounded-3xl relative'>
+          
+          {/* 아이캐치 텍스트 */}
+          <div className='mt-12'>
+            <h2 className='text-[20px] font-bold text-center text-white'>
+              타겟의 시선고정을 위한<br/> 아이캐치
+            </h2>
           </div>
           
           {/* 스와이퍼 */}
           <Swiper
             slidesPerView={1}
-            className="w-full h-[250px]"
+            className="absolute inset-0 w-full h-full"
             centeredSlides={true}
             pagination={{ 
               clickable: true,
@@ -76,60 +74,37 @@ export default function StickyEyeCatchMobile() {
               disableOnInteraction: false,
             }}
           >
-            <SwiperSlide className="flex items-center justify-center ">
-              <div className='w-[350px] h-[300px] rounded-lg p-6 flex flex-col justify-center items-center'>
-                  <div className="space-y-2 text-base text-white">
-                  <div className="flex items-center">
-                    <img src="/images/mobile/mobilecheck.png" alt='체크' className='w-4 h-4 mr-2' />
-                    <p>카메라 측정 기능</p>
-                  </div>
-                  <div className="flex items-center">
-                    <img src="/images/mobile/mobilecheck.png" alt='체크' className='w-4 h-4 mr-2' />
-                    <p>진료 대기자 수 표시</p>
-                  </div>
-                  <div className="flex items-center">
-                    <img src="/images/mobile/mobilecheck.png" alt='체크' className='w-4 h-4 mr-2' />
-                    <p>진료 대기 현황 표시</p>
-                  </div>
-                </div>
+            <SwiperSlide className="flex items-center justify-center">
+              <div className='flex items-center justify-center w-full h-full'>
+                <img
+                  src="/images/mobile/mobileeye1.png"
+                  alt='바이오애드 이미지 1'
+                  className='w-[276px] h-[462px] object-cover rounded-lg'
+                />
               </div>
             </SwiperSlide>
-            <SwiperSlide className="flex items-center justify-center ">
-              <div className='w-[350px] h-[300px]  rounded-lg p-6 flex flex-col justify-center items-center'>
-                  <div className="space-y-2 text-base text-white">
-                  <div className="flex items-center">
-                    <img src="/images/mobile/mobilecheck.png" alt='체크' className='w-4 h-4 mr-2' />
-                    <p>날씨 현황 표시</p>
-                  </div>
-                  <div className="flex items-center">
-                    <img src="/images/mobile/mobilecheck.png" alt='체크' className='w-4 h-4 mr-2' />
-                    <p>43인치 풀 스크린 대형 광고 영역</p>
-                  </div>
-                  <div className="flex items-center">
-                    <img src="/images/mobile/mobilecheck.png" alt='체크' className='w-4 h-4 mr-2' />
-                    <p>이용자 관심 증대를 위한 뉴스레터 상시 노출</p>
-                  </div>
-                </div>
+            <SwiperSlide className="flex items-center justify-center">
+              <div className='flex items-center justify-center w-full h-full'>
+                <img
+                  src="/images/mobile/mobileeye2.png"
+                  alt='바이오애드 이미지 2'
+                  className='w-[276px] h-[462px] object-cover rounded-lg'
+                />
               </div>
             </SwiperSlide>
-            <SwiperSlide className="flex items-center justify-center ">
-              <div className='w-[350px] h-[300px]  rounded-lg p-6 flex flex-col justify-center items-center'>
-                  <div className="space-y-2 text-base text-white">
-                  <div className="flex items-center">
-                    <img src="/images/mobile/mobilecheck.png" alt='체크' className='w-4 h-4 mr-2' />
-                    <p>재진 접수기능</p>
-                  </div>
-                  <div className="flex items-center">
-                    <img src="/images/mobile/mobilecheck.png" alt='체크' className='w-4 h-4 mr-2' />
-                    <p>카카오톡 연계 실손보험청구 기능</p>
-                  </div>
-                </div>
+            <SwiperSlide className="flex items-center justify-center">
+              <div className='flex items-center justify-center w-full h-full'>
+                <img
+                  src="/images/mobile/mobileeye3.png"
+                  alt='바이오애드 이미지 3'
+                  className='w-[276px] h-[462px] object-cover rounded-lg'
+                />
               </div>
             </SwiperSlide>
           </Swiper>
         </div>
 
-         <div className="flex flex-col gap-4 mt-4">
+         <div className="flex flex-col gap-4 mt-12">
            <img
              src="/images/mobile/mobilecatch1.png"
              alt='모바일 캐치1'
@@ -138,7 +113,7 @@ export default function StickyEyeCatchMobile() {
            <img
              src="/images/mobile/mobilecatch2.png"
              alt='모바일 캐치2'
-             className='w-[350px] h-auto object-contain'
+             className='w-[350px] h-auto object-contain mt-12'
            />
          </div>
       </div>

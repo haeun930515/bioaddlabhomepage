@@ -40,7 +40,7 @@ export default function MainNumber() {
       <div className="w-full md:min-h-[600px] md:px-4 md:py-16 text-white flex flex-col items-center justify-center z-10">
         
       <div className="w-full md:h-[250px] h-[120px] text-center justify-center items-center flex md:hidden">
-          <h2 className="absolute z-10 text-2xl font-regular sm:text-3xl">
+          <h2 className="absolute z-10 text-[20px] font-regular sm:text-3xl">
             <span className="mb-3 font-bold text-white">서울 수도권</span>을 중심으로<br />
             <span className="text-white">빠르게 확장</span>합니다
           </h2>
@@ -93,16 +93,16 @@ export default function MainNumber() {
             <div
               ref={ref} 
               key={i}
-              className="h-[60px] w-full max-w-[320px] flex flex-row items-center bg-white/10 rounded-full border border-[#868686] backdrop-blur-sm text-white p-4 "
+              className="h-[60px] w-full max-w-[320px] flex flex-row items-center bg-white/10 rounded-full border border-[#3a3a3a] backdrop-blur-sm text-white p-4 "
             >
-              <div className="w-24 pl-2 text-lg font-bold text-gray-500">
+              <div className="w-24 pl-2 text-lg font-bold text-[#7b7b7b]">
                 {item.label}
               </div>
               <div className="flex items-center gap-1 text-green-500">
-                <div className="text-2xl font-extrabold leading-tight tabular-nums">
+                <div className="text-[25px] font-extrabold leading-tight tabular-nums">
                   {inView ? <CountUp end={item.end} duration={2} separator="," /> : '0'}
                 </div>
-                <div className="text-2xl font-extrabold font-suit">{item.suffix}</div>
+                <div className="text-[25px] font-extrabold font-suit">{item.suffix}</div>
               </div>
             </div>
           );

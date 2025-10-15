@@ -33,10 +33,14 @@ export default function Home() {
   return (
     <div className="bg-black md:min-w-[1440px]">
       <MainSwiper onScrollDown={handleScrollDown}/>
-      <div ref={nextSectionRef}>
-      <MainIntro/>
+      <div ref={nextSectionRef} className="flex flex-col md:flex-col">
+        <div className="order-2 md:order-1">
+          <MainIntro/>
+        </div>
+        <div className="order-1 md:order-2">
+          <MainNumber/>
+        </div>
       </div>
-      <MainNumber/>
       <Timeline/>
       <VideoSection/>
     </div>

@@ -6,8 +6,8 @@ export default function MainIntro() {
     return (
         <>
         {/* 모바일 */}
-          <div className="relative w-full h-[700px] mx-auto md:hidden flex items-center justify-center">
-            <div className="absolute w-full h-[500px] bottom-0 left-0 ">
+          <div className="relative w-full h-[700px] mx-auto md:hidden flex flex-col items-center justify-start mt-16">
+            <div className="absolute w-full h-[450px] bottom-0 left-0 ">
             <Image
               src="/images/content/contentbg.png"
               fill 
@@ -16,8 +16,8 @@ export default function MainIntro() {
             />
             </div>
 
-            <div className="w-[350px] h-[468px]  border-[#3a3a3a/20] bg-white/10  px-6 py-10 backdrop-blur-lg rounded-3xl">
-            <div className="relative z-10 flex flex-col justify-center mb-10 text-center">
+            <div className="w-[300px] h-[468px]  border-[#3b3b3b] border-[1px] bg-white/[0.08] flex flex-col items-center justify-center py-10 backdrop-blur-lg rounded-2xl">
+            <div className="relative z-10 flex flex-col justify-center mt-5 mb-10 text-center">
               <div className="text-[18px] font-suit text-white">
                 의료와 커뮤니케이션의 혁신을
               </div>
@@ -25,16 +25,16 @@ export default function MainIntro() {
                 AI로 이끌어갑니다.
               </div>
             </div>
-            <div className="flex flex-col items-center justify-between w-full h-[300px] px-6  text-white">
-              <div className="flex flex-col items-center justify-center border border-[#a9a9a9] bg-white/10 px-6 py-10 backdrop-blur-lg rounded-3xl">
-                <div className="text-sm text-center">
-                  병원 시스템의 디지털전환을<br />
-                  이끌고 병원, 고객, 광고주<br />
+            <div className="flex flex-col items-center justify-between w-[280px] h-[300px] text-white">
+              <div className="flex flex-col items-center justify-center border w-full mb-4 h-[140px] border-[#555555] bg-white/[0.02] px-6 py-10 backdrop-blur-lg rounded-2xl">
+                <div className="text-[15px] text-center">
+                  병원 시스템의 디지털전환을 이끌고<br />
+                  병원, 고객, 광고주<br />
                   모두에게 이로운 솔루션 제공
                 </div>
               </div>
-              <div className="flex flex-col items-center justify-center border border-[#a9a9a9] bg-white/10 px-6 py-10 backdrop-blur-lg rounded-3xl">
-                <p className="text-sm text-center">
+              <div className="flex flex-col items-center justify-center w-full h-[140px] border border-[#555555] bg-white/[0.02] px-6 py-10 backdrop-blur-lg rounded-2xl">
+                <p className="text-[15px] text-center">
                   메디컬 스마트보드를 넘어<br />
                   병원 운영데이터 연동 기반<br />
                   헬스케어 플랫폼

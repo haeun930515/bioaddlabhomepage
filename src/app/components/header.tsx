@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -15,6 +15,20 @@ export default function Header() {
     }
     return pathname.startsWith(path);
   };
+
+  // 모바일 메뉴가 열렸을 때 body 스크롤 막기
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // 컴포넌트 언마운트 시 스크롤 복원
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [menuOpen]);
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full text-white md:bg-black">
@@ -52,7 +66,7 @@ export default function Header() {
 
       {/* 모바일 전체 화면 메뉴 */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 flex flex-col items-start justify-center gap-8 px-16 text-[20px] text-black bg-white font-['Noto Sans'] md:hidden animate-fadeIn">
+        <div className="fixed inset-0 z-[60] flex flex-col items-start justify-center gap-8 px-16 text-[20px] text-black bg-white font-['Noto Sans'] md:hidden animate-fadeIn">
           {/* X 닫기 버튼 */}
           <button
             onClick={() => setMenuOpen(false)}

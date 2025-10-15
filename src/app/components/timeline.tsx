@@ -78,7 +78,7 @@ const swiperRef = useRef<SwiperType | null>(null);
           </div>
         </div>
 
-        <div className="block h-auto mt-16 md:hidden bg-black/80">
+        <div className="block h-auto -mt-28 md:hidden bg-black/80">
           <div className="px-6 pt-6 pb-4">
             <h2 className="text-xl font-bold leading-snug text-center whitespace-pre-line">
               기술이 만든 신뢰,{'\n'}브랜드가 이끄는 미래
@@ -118,11 +118,10 @@ const swiperRef = useRef<SwiperType | null>(null);
             `
           }} />
 
-          <div className="relative pb-4">
-            <div className="w-full h-[2px] border-white border-2 border-dotted absolute z-0 top-[10px]" />
+          <div className="relative pb-4 overflow-hidden">
+             <div className="w-full h-[2px] border-white border-t-2 border-dotted absolute z-0 top-[10px] left-[25%] " />
             <Swiper
-              spaceBetween={20}
-              slidesPerView={2}
+              slidesPerView={1.3}
               centeredSlides={true}
               pagination={{ 
                 clickable: true,
@@ -134,6 +133,8 @@ const swiperRef = useRef<SwiperType | null>(null);
             >
               {/* 첫 번째 슬라이드: 2025 + 2024 세로 배치 */}
               <SwiperSlide>
+                {/* 첫 번째 슬라이드의 점선 - 중간부터 절반만 */}
+                <div className="absolute h-[2px] border-white border-t-2 border-dotted z-0 top-[10px] w-full bg-black" />
                 <div className="pb-8 space-y-8">
                   <div className="relative flex items-start">
                     <div className="flex flex-col items-center mr-4">
@@ -167,7 +168,9 @@ const swiperRef = useRef<SwiperType | null>(null);
 
               {/* 두 번째 슬라이드: 2023 */}
               <SwiperSlide>
-                <div className="relative flex items-start justify-center pb-8">
+                {/* 두 번째 슬라이드의 점선 - 전체 */}
+                <div className="absolute h-[2px] border-white border-t-2 border-dotted z-0 top-[10px] w-full bg-black" />
+                 <div className="relative flex items-start justify-center pb-8">
                   <div className="flex flex-col items-center mr-4">
                     <div className="w-5 h-5 rounded-full border-[3px] border-white bg-black z-10" />
                   </div>

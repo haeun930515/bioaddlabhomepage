@@ -97,7 +97,7 @@ export default function MobileContentSwiper() {
                   src={`/videos/${item.file}`}
                   muted
                   playsInline
-                  className="object-cover w-full h-full rounded-lg aspect-[9/12]"
+                  className="object-cover w-full h-full rounded-lg aspect-[9/13]"
                 />
               </SwiperSlide>
             ))}

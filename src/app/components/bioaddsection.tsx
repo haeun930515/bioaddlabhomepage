@@ -98,9 +98,9 @@ const BioaddSection = () => {
         </div>
       </div>
     </section>
-    <div className='block py-16 bg-black md:hidden'>
-      <div className="self-start flex-shrink-0 w-full pt-8 text-center">
-          <h2 className="mb-8 text-[20px] font-extrabold font-suit leading-tight text-white">
+    <div className='block py-10 bg-black md:hidden'>
+      <div className="self-start flex-shrink-0 w-full text-center">
+          <h2 className="mb-8 text-[20px] font-bold font-suit leading-tight text-white">
             BIOADD.
             <br />
             이렇게 사용되고 있어요
