@@ -169,7 +169,7 @@ export default function MainSwiper({ onScrollDown }: MainSwiperProps) {
 
                 <button
                   onClick={onScrollDown}
-                  className="absolute z-20 flex items-center justify-center w-12 h-12 transition-colors duration-300 -translate-x-1/2 border border-white rounded-full bottom-10 left-1/2 bg-black/20 hover:bg-white/10 animate-bounce"
+                  className="absolute z-20 flex items-center justify-center w-12 h-12 transition-colors duration-300 -translate-x-1/2 border border-white rounded-full bottom-10 left-[46%] bg-black/20 hover:bg-white/10 animate-bounce"
                   aria-label="Scroll down"
                 >
                   <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
