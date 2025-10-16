@@ -55,6 +55,8 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <meta name="naver-site-verification" content="edad3c1d6fa6d44fbeba0ee005ebd03257e1e975" />
         <meta name="google-site-verification" content="zrhra_u7AExEETJX6B1BWMWRMt-2r4gAVEzdXdbFsPs" />
+        <link rel="preload" href="https://cdn.jsdelivr.net/npm/@vercel/geist-mono/dist/fonts/woff2/GeistMono-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="https://cdn.jsdelivr.net/npm/@vercel/geist-mono/dist/fonts/woff2/GeistMono-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
       <body>
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (

@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        geist: ['Geist Mono', 'monospace'],
+        geist: ['Geist Mono', 'Consolas', 'Monaco', 'Courier New', 'monospace'],
         'suit': ['SUIT', 'sans-serif'],
         'galmuri': ['Galmuri9', 'sans-serif'],
         'noto-sans': ['Noto Sans', 'sans-serif'],
