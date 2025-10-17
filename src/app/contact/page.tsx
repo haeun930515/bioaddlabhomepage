@@ -119,7 +119,7 @@ export default function ContactPage() {
         </div>
 
         <div className="flex items-center justify-end gap-4">
-          <label htmlFor="file-upload-desktop" className="px-4 py-2 text-sm border border-white rounded cursor-pointer hover:border-green-400">
+          <label htmlFor="file-upload-desktop" className="px-4 py-2 text-sm bg-[#2D2D2D] rounded cursor-pointer hover:border-green-400">
             파일 업로드
           </label>
           <input
@@ -161,39 +161,39 @@ export default function ContactPage() {
           <div className="flex flex-col gap-2">
             <label className="text-sm">성함 (Name)<span className="text-green-400"> *</span></label>
             <input name="name" type="text" required
-              className="py-3 text-base bg-black border-b border-white focus:outline-none focus:border-green-400" />
+              className="py-3 text-base bg-black border-[0.2px] border-[#3a3a3a] rounded-md focus:outline-none focus:border-green-400" />
           </div>
           <div className="flex flex-col gap-2">
             <label className="text-sm">연락받으실 메일 (E-mail)<span className="text-green-400"> *</span></label>
             <input name="email" type="email" required
-              className="py-3 text-base bg-black border-b border-white focus:outline-none focus:border-green-400" />
+              className="py-3 text-base bg-black border-[0.2px] border-[#3a3a3a] rounded-md focus:outline-none focus:border-green-400" />
           </div>
           <div className="flex flex-col gap-2">
             <label className="text-sm">회사명 (Company name)</label>
             <input name="company" type="text"
-              className="py-3 text-base bg-black border-b border-white focus:outline-none focus:border-green-400" />
+              className="py-3 text-base bg-black border-[0.2px] border-[#3a3a3a] rounded-md focus:outline-none focus:border-green-400" />
           </div>
           <div className="flex flex-col gap-2">
             <label className="text-sm">직함 (Position)</label>
             <input name="position" type="text"
-              className="py-3 text-base bg-black border-b border-white focus:outline-none focus:border-green-400" />
+              className="py-3 text-base bg-black border-[0.2px] border-[#3a3a3a] rounded-md focus:outline-none focus:border-green-400" />
           </div>
           <div className="flex flex-col gap-2">
             <label className="text-sm">전화번호 (Phone number)<span className="text-green-400"> *</span></label>
             <input name="phone" type="tel" required
-              className="py-3 text-base bg-black border-b border-white focus:outline-none focus:border-green-400" />
+              className="py-3 text-base bg-black border-[0.2px] border-[#3a3a3a] rounded-md focus:outline-none focus:border-green-400" />
           </div>
         </div>
 
         <div className="flex flex-col gap-2">
           <label className="text-sm">문의 내용 (Questions)</label>
           <textarea name="message"
-            className="bg-black border border-white rounded-md p-4 min-h-[120px] focus:outline-none focus:border-green-400 text-base"
-            placeholder="문의 내용을 적어주세요."></textarea>
+            className="bg-black border-[0.2px] border-[#3a3a3a] rounded-md p-4 min-h-[120px] focus:outline-none focus:border-green-400 text-base"
+            ></textarea>
         </div>
 
-        <div className="flex flex-col gap-3">
-          <label htmlFor="file-upload-mobile" className="px-4 py-3 text-sm text-center border border-white rounded cursor-pointer hover:border-green-400">
+        <div className="flex flex-col items-end gap-3">
+          <label htmlFor="file-upload-mobile" className="w-32 px-4 py-3 text-sm text-center bg-[#2D2D2D] rounded cursor-pointer hover:border-green-400">
             파일 업로드
           </label>
           <input
@@ -212,7 +212,7 @@ export default function ContactPage() {
           className={`w-full py-4 mt-6 font-bold rounded transition text-lg ${
             isSending
               ? 'bg-gray-600 cursor-not-allowed text-white'
-              : 'bg-white hover:bg-white text-black'
+              : 'bg-[#66E274] hover:bg-white text-black'
           }`}
         >
           {isSending ? '전송 중...' : '문의하기'}
