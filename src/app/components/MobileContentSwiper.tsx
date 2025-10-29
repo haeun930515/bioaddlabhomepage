@@ -8,11 +8,12 @@ import type { Swiper as SwiperType } from 'swiper';
 const contentItems = [
     { brand: '타이레놀', file: 'content_tyrenol.mp4' },
     { brand: '올리브영', file: 'content_olivey.mp4'},
-    { brand: '티퍼런스', file: 'content_teaference.mp4'},
-    { brand: '바이오더마', file: 'content_biotherma.mp4'},
+    { brand: '링티', file: 'content_lingt.mp4'},
     { brand: '세라젬', file: 'content_cerazem.mp4' },
     { brand: '닥터그루트', file: 'content_drgroot.mp4' },
     { brand: '밀세라', file: 'content_milcera.mp4' },
+    { brand: '바이오더마', file: 'content_biotherma.mp4'},
+    { brand: '티퍼런스', file: 'content_teaference.mp4'},
     { brand: '플랜트제로', file: 'content_plantzero.mp4' },
     { brand: '프라엘', file: 'content_prel.mp4' },
     { brand: 'VT코스메틱', file: 'content_vtcosmetic.mp4' },
@@ -23,7 +24,7 @@ const contentItems = [
     { brand: '로게인폼', file: 'content_rogaine.mp4' },
     { brand: '라인프렌즈', file: 'content_linefriends2.mp4'},
     { brand: '르무통', file: 'content_rmutong.mp4'},
-    { brand: '링티', file: 'content_lingt.mp4'},
+    { brand: '에버콜라겐', file:'content_evercollagen.mp4'},
 ];
 
 export default function MobileContentSwiper() {
