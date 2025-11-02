@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '바이오애드랩 - 차세대 헬스케어 솔루션',
+    title: '바이오애드랩 - 차세대 AI 헬스케어 솔루션',
     description: 'AI 기반의 혁신적인 헬스케어 솔루션',
     images: ['/images/opengraph.png'],
   },
