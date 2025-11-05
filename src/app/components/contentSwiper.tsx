@@ -23,6 +23,7 @@ const contentItems = [
     { brand: 'BLACK FORET', file: 'content_blackforet.mp4' },
     { brand: '로게인폼', file: 'content_rogaine.mp4' },
     { brand: '라인프렌즈', file: 'content_linefriends2.mp4'},
+    { brand: '셀트리온', file: 'content_celltrion.mp4'},
     { brand: '르무통', file: 'content_rmutong.mp4'},
     { brand: '에버콜라겐', file:'content_evercollagen.mp4'},
 ];
