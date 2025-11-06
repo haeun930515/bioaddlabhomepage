@@ -24,7 +24,7 @@ interface SlideData {
 const slideData: SlideData[] = [
   {
     id: 1,
-    backgroundImage: "/images/main1.png",
+    backgroundImage: "/images/main4.png",
     hasGradient: true,
     title: "Connecting Hospitals, Patients, and World",
     subtitle: "Powered by AI.",
@@ -32,7 +32,7 @@ const slideData: SlideData[] = [
   },
   {
     id: 2,
-    backgroundImage: "/images/main2.png", 
+    backgroundImage: "/images/main1.png", 
     hasGradient: true,
     title: "Connecting Hospitals, Patients, and World",
     subtitle: "Powered by AI.",
@@ -40,6 +40,14 @@ const slideData: SlideData[] = [
   },
   {
     id: 3,
+    backgroundImage: "/images/main2.png", 
+    hasGradient: true,
+    title: "Connecting Hospitals, Patients, and World",
+    subtitle: "Powered by AI.",
+    textColor: "text-black",
+  },
+  {
+    id: 4,
     backgroundImage: "/images/main3.png",
     hasGradient: true,
     title: "Connecting Hospitals, Patients, and World",
