@@ -7,6 +7,7 @@ import type { Swiper as SwiperType } from 'swiper';
 
 const contentItems = [
     { brand: '타이레놀', file: 'content_tyrenol.mp4' },
+    { brand: '올리브영', file: 'content_olivey2.mp4'},
     { brand: '올리브영', file: 'content_olivey.mp4'},
     { brand: '링티', file: 'content_lingt.mp4'},
     { brand: '세라젬', file: 'content_cerazem.mp4' },
