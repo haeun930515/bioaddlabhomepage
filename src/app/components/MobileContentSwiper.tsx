@@ -27,6 +27,7 @@ const contentItems = [
     { brand: '셀트리온', file: 'content_celltrion.mp4'},
     { brand: '르무통', file: 'content_rmutong.mp4'},
     { brand: '세포랩', file: 'content_cepolab.mp4'},
+    { brand: 'LBB', file: 'content_lbb.mp4'},
     { brand: '에버콜라겐', file:'content_evercollagen.mp4'},
 ];
 
