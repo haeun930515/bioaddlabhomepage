@@ -14,7 +14,7 @@
     "geist": "^1.5.1",
     "gsap": "^3.13.0",
     "multiparty": "^4.2.3",
-    "next": "15.3.1",
+    "next": "15.3.6",
     "nodemailer": "^7.0.3",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",
