@@ -1,0 +1,73 @@
+'use client';
+import { useEffect } from 'react';
+import Image from 'next/image';
+
+export default function LogoSlider() {
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      @keyframes scroll-right {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0); }
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
+
+  const allLogos = [
+    'lg', 'astrazeneca', 'blackforet', 'cellmed', 'celltrion', 'ceragem',
+     'daedamo', 'drgroot', 'ibdental', 'johnson',
+    'lingt', 'maeil', 'medicalutd', 'medihub', 'pharmgen', 'plant',
+    'rogaine', 'sejongmedical', 'selex', 'shinwon', 'tyrenol', 'ultrav',
+    'vtcosmetics', 'woosungmedics', 'ac', 'chunganmedical', 'dentime','drplus','isoi',
+    'oliveyoung','teaference','linefriends'
+  ];
+
+  const mid = Math.ceil(allLogos.length / 2);
+  const topLogos = allLogos.slice(0, mid);
+  const bottomLogos = allLogos.slice(mid).reverse();
+
+  const repeatedBottomLogos = Array(4).fill(bottomLogos).flat();
+
+  return (
+    <div className="w-full py-1 overflow-hidden bg-transparent md:py-20 md:bg-black md:bg-[url(/images/logobg.png)] md:bg-center md:bg-no-repeat md:bg-cover">
+      <div className="overflow-hidden whitespace-nowrap">
+        <div className="flex gap-6 md:gap-16 animate-[scroll-left_70s_linear_infinite]" style={{ width: 'max-content' }}>
+          {[...topLogos, ...topLogos].map((name, idx) => (
+            <div key={`top-${idx}`} className="flex items-center justify-center px-0 md:px-6">
+              <Image
+                src={`/images/logos/${name}.png`}
+                alt={`logo-top-${name}`}
+                width={80}
+                height={20}
+                className="object-contain md:w-[140px] md:h-[100px]"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-0 overflow-hidden whitespace-nowrap md:mt-12">
+
+        <div className="flex gap-6 md:gap-16 animate-[scroll-right_70s_linear_infinite]" style={{ width: 'max-content', transform: 'translateX(-50%)', }}>
+          {repeatedBottomLogos.map((name, idx) => (
+            <div key={`bottom-${idx}`} className="flex items-center justify-center px-0 md:px-6">
+              <Image
+                src={`/images/logos/${name}.png`}
+                alt={`logo-bottom-${name}`}
+                width={80}
+                height={15}
+                className="object-contain md:w-[140px] md:h-[100px]"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
