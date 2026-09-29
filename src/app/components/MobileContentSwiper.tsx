@@ -14,6 +14,8 @@ const contentItems = [
     { brand: '올리브영', file: 'content_olivey2.mp4'},
     { brand: '올리브영', file: 'content_olivey.mp4'},
     { brand: '링티', file: 'content_lingt.mp4'},
+    { brand: '하나은행', file: 'content_hana.mp4' },
+    { brand: '카카오페이손해보험', file: 'content_kakaoinsur.mp4' },
     { brand: '세라젬', file: 'content_cerazem.mp4' },
     { brand: '닥터그루트', file: 'content_drgroot.mp4' },
     { brand: '밀세라', file: 'content_milcera.mp4' },
