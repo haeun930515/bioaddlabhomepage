@@ -21,7 +21,10 @@ export default function ContactPage() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    if (file) formData.append('file', file);
+    formData.delete('file');
+    if (file && file.size > 0) {
+      formData.set('file', file, file.name);
+    }
 
     const res = await fetch('/api/contact', {
       method: 'POST',

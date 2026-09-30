@@ -45,7 +45,7 @@ ${fields.message?.[0] || ''}
     };
 
     const uploaded = files.file?.[0];
-    if (uploaded) {
+    if (uploaded?.originalFilename && uploaded.size > 0) {
       const buffer = fs.readFileSync(uploaded.path);
       mailOptions.attachments = [
         {
