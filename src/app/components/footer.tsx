@@ -219,7 +219,7 @@ export default function Footer() {
           <div className="space-y-1 text-[12px] md:text-base">
             <div className="flex gap-2">
               <span className="font-bold w-14">이메일</span>
-              <span>admin@bioaddlab.com</span>
+              <span>bioaddlab@bioaddlab.com</span>
             </div>
             <div className="flex gap-2">
               <span className="font-bold w-14">Biz No.</span>

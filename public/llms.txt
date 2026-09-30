@@ -26,7 +26,7 @@
 - 회사명: 바이오애드랩 주식회사
 - 영문명: BioAddLab
 - 웹사이트: https://www.bioaddlab.com/
-- 이메일: admin@bioaddlab.com
+- 이메일: bioaddlab@bioaddlab.com
 - 전화: 02-2038-0088
 - 주소: 서울특별시 강남구 압구정로30길 63 401호
 

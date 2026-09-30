@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const mailOptions: any = {
       from: 'bioaddlab.ai@gmail.com',
-      to: 'admin@bioaddlab.com',
+      to: 'bioaddlab@bioaddlab.com',
       subject: `[문의] ${fields.name?.[0] || ''}`,
       text: `
 성함: ${fields.name?.[0] || ''}

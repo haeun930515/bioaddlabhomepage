@@ -61,7 +61,7 @@ const organizationSchema = {
   logo: `${siteUrl}/images/bioaddlablogo.png`,
   description:
     '바이오애드랩은 전국 병·의원 AI 스마트보드 네트워크와 의료 소비자 행동 데이터를 기반으로 메디컬 OOH 광고 성과 측정과 병원 SEO·AEO 마케팅을 제공하는 기업입니다.',
-  email: 'admin@bioaddlab.com',
+  email: 'bioaddlab@bioaddlab.com',
   telephone: '+82-2-2038-0088',
   address: {
     '@type': 'PostalAddress',
@@ -74,7 +74,7 @@ const organizationSchema = {
     '@type': 'ContactPoint',
     contactType: 'customer support',
     telephone: '+82-2-2038-0088',
-    email: 'admin@bioaddlab.com',
+    email: 'bioaddlab@bioaddlab.com',
     availableLanguage: ['Korean'],
   },
 };
