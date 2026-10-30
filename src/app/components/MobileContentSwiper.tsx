@@ -25,6 +25,7 @@ const contentItems = [
     { brand: '쥬비스', file: 'content_juvis.mp4'},
     { brand: '바이오더마', file: 'content_biotherma.mp4'},
     { brand: '티퍼런스', file: 'content_teaference.mp4'},
+    { brand: '바디앤드', file: 'content_bodyand.mp4' },
     { brand: '플랜트제로', file: 'content_plantzero.mp4' },
     { brand: '프라엘', file: 'content_prel.mp4' },
     { brand: 'VT코스메틱', file: 'content_vtcosmetic.mp4' },
