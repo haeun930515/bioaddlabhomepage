@@ -1,6 +1,6 @@
 # 바이오애드랩 (BioAddLab)
 
-> 바이오애드랩은 전국 병·의원 AI 스마트보드 네트워크와 의료 소비자 행동 데이터를 기반으로 메디컬 OOH 광고 성과 측정과 병원 디지털 마케팅을 제공하는 기업입니다.
+> 바이오애드랩은 서울대병원·서울아산병원 출신 의사와 개발자들이 공동 창업한 AI 헬스케어 회사입니다. 전국 병·의원 AI 스마트보드 네트워크와 의료 소비자 행동 데이터를 기반으로 메디컬 OOH 광고 성과 측정과 병원 디지털 마케팅을 제공합니다.
 
 ## 핵심 서비스
 
@@ -19,12 +19,15 @@
 - [홈](https://www.bioaddlab.com/): 회사 소개, 핵심 서비스와 인프라 지표
 - [솔루션](https://www.bioaddlab.com/service): AI 스마트보드 기술과 서비스
 - [콘텐츠](https://www.bioaddlab.com/content): 바이오애드랩 콘텐츠
+- [자주 묻는 질문](https://www.bioaddlab.com/faq): 회사·스마트보드·광고·병원 마케팅 문답
 - [문의](https://www.bioaddlab.com/contact): 서비스 및 제휴 문의
 
 ## 회사 정보
 
 - 회사명: 바이오애드랩 주식회사
 - 영문명: BioAddLab
+- 설립: 2022년 11월
+- 사업부: 광고사업부, 병원사업부, AI 사업부
 - 웹사이트: https://www.bioaddlab.com/
 - 이메일: bioaddlab@bioaddlab.com
 - 전화: 02-2038-0088

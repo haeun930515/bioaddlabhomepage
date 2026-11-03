@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next';
 
+import { FAQ_MODIFIED, faqPath, getFaqs } from '@/lib/faq';
+
 const routes = [
   {
     path: '/',
@@ -25,6 +27,18 @@ const routes = [
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   },
+  {
+    path: '/faq',
+    lastModified: new Date(FAQ_MODIFIED),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  },
+  ...getFaqs().map(item => ({
+    path: faqPath(item),
+    lastModified: new Date(FAQ_MODIFIED),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

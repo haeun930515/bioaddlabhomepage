@@ -229,6 +229,10 @@ export default function Footer() {
               <span className="font-bold w-14">주소</span>
               <span>서울시 강남구 압구정로 30길 63 401호</span>
             </div>
+            <div className="flex gap-2">
+              <span className="font-bold w-14">FAQ</span>
+              <a href="/faq" className="underline hover:text-green-400">자주 묻는 질문</a>
+            </div>
           </div>
 
         </div>
