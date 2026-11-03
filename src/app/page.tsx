@@ -65,7 +65,7 @@ const organizationSchema = {
   telephone: '+82-2-2038-0088',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '압구정로30길 63 401호',
+    streetAddress: '학동로3길 27 메리디엠타워 2층',
     addressLocality: '강남구',
     addressRegion: '서울특별시',
     addressCountry: 'KR',
