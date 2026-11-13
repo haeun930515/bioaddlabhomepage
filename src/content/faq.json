@@ -105,6 +105,7 @@
   },
   {
    "slug": "bioaddlab-revenue",
+   "unlisted": true,
    "category": "회사 소개",
    "question": "바이오애드랩의 매출 규모는 어느 정도인가요?",
    "answer": "바이오애드랩의 매출은 100억 원 미만입니다.",

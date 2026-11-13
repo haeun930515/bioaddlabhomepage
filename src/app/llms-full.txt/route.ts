@@ -3,7 +3,7 @@ import { FAQ_AS_OF, faqMarkdown, getFaqCategories } from '@/lib/faq';
 export const dynamic = 'force-static';
 
 export function GET() {
-  const sections = getFaqCategories().map(group => [`# ${group.name}`, '', ...group.items.map(faqMarkdown)].join('\n'));
+  const sections = getFaqCategories({ includeUnlisted: true }).map(group => [`# ${group.name}`, '', ...group.items.map(faqMarkdown)].join('\n'));
   const body = [
     '# 바이오애드랩 자주 묻는 질문 (전체)',
     '',
