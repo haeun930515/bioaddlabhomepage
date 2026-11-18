@@ -1,9 +1,11 @@
 'use client';
 import Image from 'next/image';
 import LogoSlider from './logoslider';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function Footer() {
+  // 통합상품소개서: 누르면 받는 방법(메일 문의) 안내 모달이 뜬다
+  const brochureRef = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     const style = document.createElement('style');
     style.innerHTML = `
@@ -196,16 +198,60 @@ export default function Footer() {
         
         <div className="flex flex-col max-w-md gap-4 text-[#8E8E8E]">
 
-          <div className="flex items-center gap-2 text-white">
-            바이오애드랩 통합상품소개서 
+          <button
+            type="button"
+            onClick={() => brochureRef.current?.showModal()}
+            aria-haspopup="dialog"
+            className="flex items-center gap-2 text-white hover:underline underline-offset-4"
+          >
+            바이오애드랩 통합상품소개서
             <Image
               src="/images/icon1.png"
-              alt="아이콘"
+              alt=""
               width={16}
               height={16}
               className="w-4 h-4"
             />
-          </div>
+          </button>
+          <dialog
+            ref={brochureRef}
+            aria-labelledby="brochure-title"
+            onClick={e => { if (e.target === e.currentTarget) e.currentTarget.close(); }}
+            style={{ wordBreak: 'keep-all' }}
+            className="m-auto w-[min(90vw,420px)] rounded-md border-[0.2px] border-[#3a3a3a] bg-black p-0 font-suit text-white backdrop:bg-black/70 backdrop:backdrop-blur-sm"
+          >
+            <form method="dialog" className="absolute top-3 right-3">
+              <button aria-label="닫기" className="flex items-center justify-center w-9 h-9 text-[#8E8E8E] hover:text-white transition-colors">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+              </button>
+            </form>
+            <div className="px-8 pt-10 pb-8">
+              <p
+                id="brochure-title"
+                className="mb-5 text-[22px] font-extrabold"
+                style={{
+                  background: 'linear-gradient(45deg, #32FF00, #00E1FF, #32FF00)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundSize: '200% 200%',
+                  animation: 'gradientShift 3s ease-in-out infinite'
+                }}
+              >
+                통합상품소개서
+              </p>
+              <div className="px-4 py-4 mb-6 text-[15px] leading-relaxed bg-[#1E1E1E] rounded-md">
+                <a href="mailto:admin@bioaddlab.com" className="font-bold text-[#66E274] underline-offset-4 hover:underline">admin@bioaddlab.com</a> 으로
+                <br className="sm:hidden" /> 연락 바랍니다.
+              </div>
+              <a
+                href="mailto:admin@bioaddlab.com?subject=%EB%B0%94%EC%9D%B4%EC%98%A4%EC%95%A0%EB%93%9C%EB%9E%A9%20%ED%86%B5%ED%95%A9%EC%83%81%ED%92%88%EC%86%8C%EA%B0%9C%EC%84%9C%20%EC%9A%94%EC%B2%AD"
+                className="block w-full py-3 font-bold text-center text-black transition rounded bg-[#66E274] hover:bg-white"
+              >
+                메일 보내기
+              </a>
+            </div>
+          </dialog>
           <div className="w-[120px]">
             <Image
               src="/images/logogray.png"
