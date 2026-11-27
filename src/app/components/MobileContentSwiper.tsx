@@ -9,6 +9,7 @@ const contentItems = [
     { brand: '강남언니', file: 'content_gnun.mp4'},
     { brand: '울쎄라피 프라임', file: 'content_ulthera.mp4'},
     { brand: '아정당', file: 'content_ajd.mp4'},
+    { brand: '닥터엘시아', file: 'content_dralthea.mp4' },
     { brand: '올리브영', file: 'content_olivesale.mp4'},
     { brand: '올리브영', file: 'content_olive3.mp4'},
     { brand: '올리브영', file: 'content_olivey2.mp4'},
